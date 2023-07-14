@@ -460,6 +460,10 @@ jQuery.validator.addMethod("matchnossa", function(value, element, param) {
 			var rgx=/^\d+$/.test(value.substring(2));
 			if(value.substring(0,2)=="IN" && rgx) match=true;
 		}
+		if(value.length==9){
+			var rgx=/^\d+$/.test(value.substring(3));
+			if(value.substring(0,3)=="INC" && rgx) match=true;
+		}
 	}
 	//console.log(param);
   return this.optional(element) || param || match;
