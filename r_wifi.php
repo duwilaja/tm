@@ -11,7 +11,7 @@ include 'inc.head.php';
 
 $where="";
 $tname="tm_dpo";// t left join tm_outlets o on o.oid=t.oid";
-$cols="oid,oname,stts,lastupd,proc,rowid";
+$cols="oid,oname,stts,crtd,proc,ctr,updby,rowid";
 $colsrc="oid,oname,stts";
 $grpby="";
 
@@ -102,8 +102,10 @@ include 'inc.menu.php';
                                                 <th>Unit ID</th>
 												<th>Name</th>
 												<th>Status</th>
-												<th>Latest</th>
+												<th>Created</th>
 												<th>Process?</th>
+												<th>Counter</th>
+												<th>Check</th>
                                             </tr>
                                         </thead>
                                         <tbody>
