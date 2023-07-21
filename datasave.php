@@ -354,7 +354,7 @@ if($t=="rwifi"){
 			//$msg.="Y";
 			$r=$rs[0]; 
 			$dt=$r['crtd']; $i=$r["oid"]; $d='Down'; $usr=$s_ID; $nows=date("Y-m-d H:i:s");
-			$rid=date("YmdHis",strtotime($dt)).$r["rowid"]; $st='wifi station'; $grp='link'; $typ='offline';
+			$rid=date("YmdHis",strtotime($dt)); $st='wifi station'; $grp='link'; $typ='offline';
 			
 			$rs=fetch_alla(exec_qry($conn,"select * from tm_outlets where oid='$i'"));
 			if(count($rs)>0){
@@ -362,8 +362,10 @@ if($t=="rwifi"){
 				$h=$rs[0]["oname"];
 				$k=$rs[0]["kanwil"];
 				$sql="insert into tm_tickets (rowid,ticketno,dtm,createdby,lastupd,updby,dt,i,h,d,k,st,typ,grp) values 
-				('$rid','$rid',$nows,'$usr',$nows,'$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp')";
+				('$rid','$rid','$nows','$usr','$nows','$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp')";
 				$rs=exec_qry($conn,$sql);
+			}else{
+				$msg.="<br />Master outlet not found";
 			}
 		}
 	}

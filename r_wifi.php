@@ -152,7 +152,7 @@ include 'inc.menu.php';
                     </div>
                     <div class="modal-footer">
 						<button type="button" class="btn btn-success" onclick="if($('#myf').valid()){sendDataFile('#myf','SAVE');}">Save</button>
-						<button type="button" class="btn btn-danger" id="bdelb" data-toggle="modal" data-target="#modal_delete">Delete</button>
+						<!--button type="button" class="btn btn-danger" id="bdelb" data-toggle="modal" data-target="#modal_delete">Delete</button-->
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>

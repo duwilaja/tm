@@ -165,7 +165,7 @@ $rs=exec_qry($conn,"update tm_dpo set ctr=ctr+1,lastupd=NOW()");
 		$usr='dvo';
 		$rid=date("YmdHis").$cntr;
 		$d=$data['stts'];
-		$dt=$data['lastupd'];
+		$dt=$data['crtd'];
 		$st='wifi station';
 		$tm=$data['tm'];
 		$dts=$data['dts'];
