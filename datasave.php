@@ -364,6 +364,9 @@ if($t=="rwifi"){
 				$sql="insert into tm_tickets (rowid,ticketno,dtm,createdby,lastupd,updby,dt,i,h,d,k,st,typ,grp) values 
 				('$rid','$rid','$nows','$usr','$nows','$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp')";
 				$rs=exec_qry($conn,$sql);
+				
+				$sql="delete from tm_dpo where oid='$i'";
+				$rs=exec_qry($conn,$sql);
 			}else{
 				$msg.="<br />Master outlet not found";
 			}
