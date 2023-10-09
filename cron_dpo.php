@@ -156,7 +156,7 @@ for($i=0;$i<count($data);$i++){
 //$rs=exec_qry($conn,"update tm_dpo set ctr=ctr+1,lastupd=NOW()");
 
 //delete aja yg gaakan diproses
-$sql="delete from tm_dpo where oid IN (SELECT i FROM tm_tickets WHERE s<>'closed' AND s<>'solved' AND (st='wifi station' OR typ IN ('psb','relokasi'))) OR 
+$sql="delete from tm_dpo where oid IN (SELECT i FROM tm_tickets WHERE s<>'closed' AND (st='wifi station' OR typ IN ('psb','relokasi'))) OR 
 	oid IN (SELECT oid FROM tm_outlets WHERE TIME(wibstart)>TIME(NOW()))";
 $rs=exec_qry($conn,$sql);
 	
@@ -178,18 +178,20 @@ $rs=exec_qry($conn,$sql);
 		$grp='link';
 		$ctr=$data['ctr'];
 		$stts='';
+		$p='';
 		if($ctr==1){
 			if($d=='Up'){
-				$solved='NOW()';
-				$stts='solved';
+				$closed='NOW()';
+				$stts='closed';
+				$p='Wifi Normal';
 				if(intval(date("H"))>9) $dt=$data['crtdx'];
 			}
 		}else{
 			$stts='new';
-			$solved='NULL';
+			$closed='NULL';
 		}
 		
-		if($ctr==2||$stts=='solved'){
+		if($ctr==2||$stts=='closed'){
 			$sql="select oname,kanwil,lnk,wibstart,wibend,subtime(wibend,'2:30:00') as wibendsat from tm_outlets where oid='$i' and kanwil not in (select kanwil from tm_holidays where dt=DATE(NOW()))";
 			$ar=fetch_all(exec_qry($conn,$sql));
 			if(count($ar)>0){//not holiday
@@ -207,11 +209,11 @@ $rs=exec_qry($conn,$sql);
 				if($found && $tm>=$stime && $tm<=$etime){ //working hour
 					$nows="DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:00')";
 					$nows="NOW()";
-					$sql="insert into tm_tickets (rowid,ticketno,dtm,createdby,lastupd,updby,dt,i,h,d,k,st,typ,grp,s,solved) values ('$rid','$rid',$nows,'$usr',$nows,'$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp','$stts',$solved)";
+					$sql="insert into tm_tickets (rowid,ticketno,dtm,createdby,lastupd,updby,dt,i,h,d,k,st,typ,grp,s,closed,p) values ('$rid','$rid',$nows,'$usr',$nows,'$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp','$stts',$closed,'$p')";
 					$rs=exec_qry($conn,$sql);
 					$sql="delete from tm_dpo where oid='$i'";
 					$rs=exec_qry($conn,$sql);
-					if($stts=='solved') $rs=exec_qry($conn,"insert into tm_notes (ticketid,notes,s,lastupd,updby) values ('$rid','Up','$stts',now(),'$usr')");
+					if($stts=='closed') $rs=exec_qry($conn,"insert into tm_notes (ticketid,notes,s,lastupd,updby) values ('$rid','Up','$stts',now(),'$usr')");
 				}
 			}
 		}

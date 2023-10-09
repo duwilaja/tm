@@ -130,7 +130,7 @@ if($s_LVL==0){
 										<div class="col-md-2">
 											<input readonly type="text" class="form-control input-sm" name="h" id="h" placeholder="...">
 										</div>
-										<label class="col-md-1 control-label">IP WAN</label>
+										<label class="col-md-1 control-label wanwife">IP WAN</label>
 										<div class="col-md-2">
 											<input readonly type="text" class="form-control input-sm" name="ipwan" id="ipwan" placeholder="...">
 										</div>
@@ -143,7 +143,7 @@ if($s_LVL==0){
 									<div class="form-group">
 										<label class="col-md-1 control-label">Jenis Layanan</label>
 										<div class="col-md-2">
-											<select <?php echo $superonly?> class="form-control input-sm" name="st" id="st" onchange="stChange();" style="-webkit-appearance: menulist;">
+											<select <?php echo $superonly?> class="form-control input-sm" name="st" id="st" onchange="stChange(this.value);" style="-webkit-appearance: menulist;">
 											<?php echo $optst?>
 											</select>
 										</div>
@@ -460,7 +460,7 @@ jQuery.validator.addMethod("matchnossa", function(value, element, param) {
 			var rgx=/^\d+$/.test(value.substring(2));
 			if(value.substring(0,2)=="IN" && rgx) match=true;
 		}
-		if(value.length==9){
+		if(value.length==10||value.length==9){
 			var rgx=/^\d+$/.test(value.substring(3));
 			if(value.substring(0,3)=="INC" && rgx) match=true;
 		}
@@ -803,6 +803,7 @@ function getTicket(){
 		url: url,
 		data: frmdata,
 		success: function(data){
+			var st='';
 			var json=JSON.parse(data);
 			$.each(json[0],function (key,val){
 				$('#'+key).val(val);
@@ -817,12 +818,15 @@ function getTicket(){
 					$("#fg").val(g);
 					buildfilall(g,val);
 				}
+				if(key=='st'){
+					st=val;
+				}
 			});
 			typChange();
 			if(json.length<1){
 				alert('Data not found');
 			}
-			getIP();
+			stChange(st);
 			blink_changed($("#blink").val(),false);
 		},
 		error: function(xhr){
@@ -830,11 +834,16 @@ function getTicket(){
 		}
 	});
 }
-function stChange(){
-	if($('#st').val()=='router/switch/ip-phn'){
+function stChange(tv){
+	if(tv=='router/switch/ip-phn'||tv=='LTE'){
 		$('#grp').val('jarkom');
 	}else{
 		$('#grp').val('link');
+	}
+	if(tv=='wifi station'){
+		$('.wanwife').html('AP NAME');
+	}else{
+		$('.wanwife').html('IP WAN');
 	}
 	getIP();
 }

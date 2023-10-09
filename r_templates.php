@@ -129,7 +129,16 @@ $(document).ready(function() {
 	dom: 'T<"clear"><lrB<t>ip>',
 	lengthMenu: [[10,50,100,500,1000,5000,10000,-1],["10","50","100","500","1000","5000","10000","All"]],
 	buttons: [
-            'copy', 'csv', 'excel', 'print', {
+            'copy', 'csv', {
+				extend: 'excelHtml5',
+				customizeData: function(data) {
+					for(var i = 0; i < data.body.length; i++) {
+					  for(var j = 0; j < data.body[i].length; j++) {
+						data.body[i][j] = '\u200C' + data.body[i][j];
+					  }
+					}
+				  }
+			}, 'print', {
                 extend: 'pdfHtml5',
                 orientation: 'landscape',
                 pageSize: 'LEGAL'
