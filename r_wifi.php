@@ -11,7 +11,7 @@ include 'inc.head.php';
 
 $where="";
 $tname="tm_dpo";// t left join tm_outlets o on o.oid=t.oid";
-$cols="oid,oname,stts,lastupd,proc,rowid";
+$cols="oid,oname,stts,crtd,proc,ctr,updby,rmk,rowid";
 $colsrc="oid,oname,stts";
 $grpby="";
 
@@ -102,8 +102,11 @@ include 'inc.menu.php';
                                                 <th>Unit ID</th>
 												<th>Name</th>
 												<th>Status</th>
-												<th>Latest</th>
+												<th>Created</th>
 												<th>Process?</th>
+												<th>Counter</th>
+												<th>Check</th>
+												<th>Remark</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,7 +131,7 @@ include 'inc.menu.php';
 							<div class="panel-body">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
-									<input type="hidden" name="columns" value="proc">
+									<input type="hidden" name="columns" value="proc,rmk">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
@@ -141,6 +144,12 @@ include 'inc.menu.php';
 										</select>
 									</div>
 								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">Remark</label>
+									<div class="col-md-10">
+										<textarea class="form-control" name="rmk" id="rmk"></textarea>
+									</div>
+								</div>
 								
 							</div>
 							<div class="panel-body" id="pesan"></div>
@@ -150,7 +159,7 @@ include 'inc.menu.php';
                     </div>
                     <div class="modal-footer">
 						<button type="button" class="btn btn-success" onclick="if($('#myf').valid()){sendDataFile('#myf','SAVE');}">Save</button>
-						<button type="button" class="btn btn-danger" id="bdelb" data-toggle="modal" data-target="#modal_delete">Delete</button>
+						<!--button type="button" class="btn btn-danger" id="bdelb" data-toggle="modal" data-target="#modal_delete">Delete</button-->
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>

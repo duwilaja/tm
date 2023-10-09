@@ -50,9 +50,9 @@ $para=true;
 if(substr($s,0,2)=="30"){
 	$para=false;
 	if(substr($s,2)=='open'){
-	$where.=$s!=""?" and s in ('open','new') and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
+	$where.=$s!=""?" and grp='link' and s in ('open','new') and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
 	}else{
-	$where.=$s!=""?" and s like '%".substr($s,2)."%' and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
+	$where.=$s!=""?" and grp='link' and s like '%".substr($s,2)."%' and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
 	}
 }
 if(substr($s,0,2)=="rm"){
@@ -88,35 +88,37 @@ if(substr($s,0,2)=="mj"){
 	}
 }
 
+$swhere=" and s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget ";
+
 if(substr($s,0,2)=="02"){
 	$para=false;
 	$titles.=" (2hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(2*60) and timestampdiff(minute,dt,now())<(4*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(2*60) and timestampdiff(minute,dt,now())<(4*60)";
 }
 if(substr($s,0,2)=="04"){
 	$para=false;
 	$titles.=" (4hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(4*60) and timestampdiff(minute,dt,now())<(6*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(4*60) and timestampdiff(minute,dt,now())<(6*60)";
 }
 if(substr($s,0,2)=="06"){
 	$para=false;
 	$titles.=" (6hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(6*60) and timestampdiff(minute,dt,now())<(8*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(6*60) and timestampdiff(minute,dt,now())<(8*60)";
 }
 if(substr($s,0,2)=="08"){
 	$para=false;
 	$titles.=" (8hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(8*60) and timestampdiff(minute,dt,now())<(12*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(8*60) and timestampdiff(minute,dt,now())<(12*60)";
 }
 if(substr($s,0,2)=="12"){
 	$para=false;
 	$titles.=" (12hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(12*60) and timestampdiff(minute,dt,now())<(24*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(12*60) and timestampdiff(minute,dt,now())<(24*60)";
 }
 if(substr($s,0,2)=="24"){
 	$para=false;
 	$titles.=" (24hr+)";
-	$where.=" and s<>'closed' and grp='link' and typ in $homewidget and timestampdiff(minute,dt,now())>=(24*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(24*60)";
 }
 //echo "aaaaaa".$where;
 

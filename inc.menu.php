@@ -59,13 +59,15 @@
                     </li>
 				<?php 
 						}
-					if($s_LVL==0&&$s_GRP==""){?>
+					if(($s_LVL==0&&$s_GRP=="")){?>
 					<li class="xn-openable xn-icon-button">
                         <a style="width:auto;" href="#"><span class="fa fa-exchange"></span> <span class="xn-text">Interfaces</span></a>                        
                         <ul class="animated zoomIn">
+						<?php if($s_LVL!=5){?>
 							<li><a href="r_createlog<?php echo $env?>"><span class="fa fa-file-text"></span> Create Ticket</a></li>
 							<li><a href="r_updatelog<?php echo $env?>"><span class="fa fa-file-text"></span> Update Ticket</a></li>
 							<li><a href="r_operation<?php echo $env?>"><span class="fa fa-file-text"></span> Operation</a></li>
+						<?php }?>
 							<li><a href="r_wifi<?php echo $env?>"><span class="fa fa-file-text"></span> WiFi</a></li>
 						</ul>
                     </li>

@@ -33,6 +33,7 @@ $timers = array(array("6-7 hours"," and TIMESTAMPDIFF(MINUTE,dt,NOW()) >=(6*60) 
 			);
 			
 $whr="(HOUR(lastupd)>=".(intval($skr)-1)." OR TIMESTAMPDIFF(HOUR,dt,NOW()) IN (6,8,12,24,48))";
+$whr.=" and i IN (SELECT oid FROM tm_outlets WHERE HOUR(wibstart)<=HOUR(NOW()))";
 
 $tks=array(); $ada=false;
 for($i=0;$i<count($timers);$i++){

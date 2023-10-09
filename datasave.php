@@ -347,6 +347,31 @@ if($t=="rcreatelog"){
 }
 if($t=="rwifi"){
 	$msg=crud($conn);
+	if($_POST["proc"]=="Y") {
+		//$msg.="Y";
+		$rs=fetch_alla(exec_qry($conn,"select * from tm_dpo where rowid=".$_POST["id"]));
+		if(count($rs)>0){
+			//$msg.="Y";
+			$r=$rs[0]; 
+			$dt=$r['crtd']; $i=$r["oid"]; $d='Down'; $usr=$s_ID; $nows=date("Y-m-d H:i:s");
+			$rid=date("YmdHis",strtotime($dt)); $st='wifi station'; $grp='link'; $typ='offline';
+			
+			$rs=fetch_alla(exec_qry($conn,"select * from tm_outlets where oid='$i'"));
+			if(count($rs)>0){
+				//$msg.="Y";
+				$h=$rs[0]["oname"];
+				$k=$rs[0]["kanwil"];
+				$sql="insert into tm_tickets (rowid,ticketno,dtm,createdby,lastupd,updby,dt,i,h,d,k,st,typ,grp) values 
+				('$rid','$rid','$nows','$usr','$nows','$usr','$dt','$i','$h','$d','$k','$st','$typ','$grp')";
+				$rs=exec_qry($conn,$sql);
+				
+				$sql="delete from tm_dpo where oid='$i'";
+				$rs=exec_qry($conn,$sql);
+			}else{
+				$msg.="<br />Master outlet not found";
+			}
+		}
+	}
 }
 if($t=="comment"){
 	$msg=crud($conn);

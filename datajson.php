@@ -58,10 +58,10 @@ switch($q){
 	case 'bar': $sql="select date(dt) as y, count(rowid) as a from tm_tickets where date(dt)<='$idx' and date(dt)>='$id' group by y"; break;
 	
 	case 'mapv': $sql="select distinct lat,lng,	concat(oname,'(',oid,')<br />Service: ',st,'<br />Reported: ',dt,'<br />Solved: ',if(s='solved',solved,'')) as popup, if(s='solved','1','0') as icon 
-				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and grp='link' and typ in $homewidget order by icon desc";
+				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget order by icon desc";
 				break;
-	case 'todays': $sql="select s,count(s) as c from tm_tickets where timestampdiff(hour,dt,now())<=24 and grp='link' and typ in $homewidget group by s"; break;
-	case 'agings': $sql="select timestampdiff(minute,dt,now()) as a,count(s) as c from tm_tickets where s<>'closed' and grp='link' and typ in $homewidget group by a"; break;
+	case 'todays': $sql="select s,count(s) as c from tm_tickets where timestampdiff(hour,dt,now())<=24 and (grp='link' or st='LTE') and typ in $homewidget group by s"; break;
+	case 'agings': $sql="select timestampdiff(minute,dt,now()) as a,count(s) as c from tm_tickets where s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget group by a"; break;
 	
 	case 'mapvkuning': $sql="select distinct lat,lng,concat(oname,'(',oid,')') as popup, if(s='solved','1','0') as icon 
 				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and grp='link' and typ in $homewidget
@@ -74,7 +74,7 @@ switch($q){
 				
 	case 'markui': $sql="select * from tm_runningtext order by lastupd desc"; break;
 	
-	case '30days': $sql="select s,count(*) as t from tm_tickets where typ in $homewidget and datediff(date(now()),date(dt))<=30 group by s"; break;
+	case '30days': $sql="select s,count(*) as t from tm_tickets where grp='link' and typ in $homewidget and datediff(date(now()),date(dt))<=30 group by s"; break;
 	case 'prm': $sql="select s,count(*) as t,typ,grp from tm_tickets where typ in ('relokasi','psb','migrasi') group by s,typ,grp"; break;
 	case 'jarkom': $sql="select s,count(*) as t from tm_tickets where grp='jarkom' and typ not in ('relokasi','psb','migrasi') group by s"; break;
 	case 'trlog': $sql="select count(*) as trlog from tm_otrans where timestampdiff(minute,date_format(lastupd,'%Y-%m-%d %H:%i:00'),date_format(now(),'%Y-%m-%d %H:%i:00'))<=75"; break;

@@ -142,19 +142,23 @@ function terangken($conn,$dat){
 	$sql="insert ignore into tm_sla_status (dnew,dopen,dprog,dsolv,dpend,tiket,avgprg,pas,usr) values ('$new','$open','$prog','$solv','$pend','$tik','$avg','$pas','$usr')";
 	echo $sql."<br />";
 	$rs=exec_qry($conn,$sql);
+	return $pend;
 }
 
 $conn = connect();
 
 $sql="select ticketno,dt,closed,DATEDIFF(closed,dt)+1 as dft,DATE(dt) as dfr,DATE(closed) as dto,TIME(dt) as tfr,TIME(closed) as tto,
-TIMESTAMPDIFF(SECOND,dt,closed) as dur,wibstart,wibend from tm_tickets t left join tm_outlets o on o.oid=t.i
+TIMESTAMPDIFF(SECOND,dt,closed) as dur,wibstart,wibend,st from tm_tickets t left join tm_outlets o on o.oid=t.i
 where s='closed' and YEAR(dt)>=2020 and ticketno not in (select tiket from tm_sla_daily) order by dt limit 50";
 $rs=exec_qry($conn,$sql);
 $rows=fetch_alla($rs);
 for($i=0;$i<count($rows);$i++){
 	echo "<br />";
 	jlentrehken($conn,$rows[$i]);
-	terangken($conn,$rows[$i]);
+	$pndg=terangken($conn,$rows[$i]);
+	if($rows[$i]['st']=='wifi station' && $pndg>0){
+		$sql="update tm_sla_daily set dur=dur-$pndg , durwh=durwh-$pndg , durwib=durwib-$pndg where tiket='".$rows[$i]['ticketno']."'";
+	}
 }
 
 $sql="update tm_sla_daily set dur=0, durwh=0, durwib=0 where dayofweek(dt)=1"; //sunday is off
