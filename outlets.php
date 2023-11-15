@@ -172,6 +172,12 @@ include 'inc.menu.php';
 									</div>
 								</div-->
 								<div class="form-group">
+									<label class="col-md-2 control-label">Notes</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control input-sm" name="txt" id="txt" placeholder="...">
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="col-md-2 control-label"><b>Data</b><br />
 									Copy from <a target="_blank" href="sample_outlets.xls">Sample</a> to data area</label>
 									<div class="col-md-10">

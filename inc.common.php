@@ -83,7 +83,15 @@ $r_templates=array(
 			"typ,COUNT(rowid),MY_SECTOTIME(SUM(TIMESTAMPDIFF(SECOND,dt,closed))) as dur","s='closed' and $gangguan","typ"),
             array("16","Progress Aging","tm_tickets",
 			"No.Tiket,Tgl,ID,Nama,Kanwil,Layanan,Masalah,Status,Last Update,By,Age(h)",
-			"ticketno,dt,i,h,k,st,typ,s,lastupd,updby,TIMESTAMPDIFF(HOUR,lastupd,NOW()) as x,rowid","s='progress' and typ in $homewidget")
+			"ticketno,dt,i,h,k,st,typ,s,lastupd,updby,TIMESTAMPDIFF(HOUR,lastupd,NOW()) as x,rowid","s='progress' and typ in $homewidget"),
+            array("17","Gangguan Link >3x All","tm_tickets t left join tm_outlets o on o.oid=t.i",
+			"Kode,Wilayah,Nama Outlet,Jml Tiket,Durasi,Backup Link,Wi-Fi",
+			"i,k,h,COUNT(i) as cnt,MY_SECTOTIME(SUM(TIMESTAMPDIFF(SECOND,dt,closed))) as dur,buprovider,wifi","s='closed' and $gangguan",
+			"i,k,h,buprovider,wifi","COUNT(i)>3"),
+            array("18","Gangguan >3x Main Link","tm_tickets t left join tm_outlets o on o.oid=t.i",
+			"Kode,Wilayah,Nama Outlet,Jml Tiket,Durasi,Backup Link,Wi-Fi",
+			"i,k,h,COUNT(i) as cnt,MY_SECTOTIME(SUM(TIMESTAMPDIFF(SECOND,dt,closed))) as dur,buprovider,wifi","st in ('vpn','vsat') and s='closed' and $gangguan",
+			"i,k,h,buprovider,wifi","COUNT(i)>3"),
                         );
 			
 

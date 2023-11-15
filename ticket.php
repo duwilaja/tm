@@ -481,6 +481,11 @@ $(document).ready(function() {
 		}
 	});
 	
+	const fileInput = document.getElementById("fattc");
+	window.addEventListener('paste', e => {
+	  fileInput.files = e.clipboardData.files;
+	});
+	
 	mytbl = $('#example').DataTable({
 	dom: 'T<"clear"><lrf<t>ip>',
 	searching: true,
@@ -973,7 +978,13 @@ function getOptEng(){
 }
 function wamena(tv,pic){
 	var nm='<?php echo $s_NAME?>';
-	var txt='Selamat pagi. Saya '+nm+' dari tim NMS IT Pegadaian. Benar dengan Bapak/Ibu '+$(pic).val()+' dari '+$('#h').val()+'?';
+	var org='NMS IT Pegadaian';
+	var msg='';
+	if('<?php echo $s_LVL?>'=='5' && '<?php echo $s_GRP?>'=='link'){
+		org='EOS Telkom';
+		msg=' Apakah di lokasi sedang gangguan? Jika iya boleh di fotokan modem/perangkat disana?';
+	}
+	var txt='Selamat pagi. Saya '+nm+' dari tim '+org+'. Benar dengan Bapak/Ibu '+$(pic).val()+' dari '+$('#h').val()+'?'+msg;
 	if(tv!=''){
 		var enc=encodeURI(txt);
 		tv=tv.split(" ").join("");
