@@ -103,6 +103,7 @@
 						?>
                             <li <?php if($menu=="users"){?> class="active"<?php }?>><a href="cmsusers<?php echo $env?>"><span class="fa fa-users"></span> Users</a></li>
 							<li <?php if($menu=="userlogs"){?> class="active"<?php }?>><a href="userlogs<?php echo $env?>"><span class="fa fa-history"></span> Logs</a></li>
+							<li <?php if($menu=="updatelogs"){?> class="active"<?php }?>><a href="updatelogs<?php echo $env?>"><span class="fa fa-check"></span> Updates</a></li>
 							<li class="divider"></li>
 						<?php } ?>
 							<!--li><a target="_blank" href="../chat/"><span class="fa fa-comments"></span> Chats</a></li-->

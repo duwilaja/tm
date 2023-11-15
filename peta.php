@@ -65,7 +65,7 @@ L.Control.textbox = L.Control.extend({
 							'<input id="srctxt" type="text" onClick="this.select();" onkeydown="keydown(event);" class="form-control" placeholder="ID/Name">'+
 							'<span class="input-group-addon add-on"><a title="Search" href="#" onclick="loadMarker();"><span class="fa fa-search"></span></a></span>'+
 							'<span class="input-group-addon add-on"><a title="Center" href="#" onclick="gohome();"><span class="fa fa-crosshairs"></span></a></span>'+
-						'</div></div>';
+						'</div><input type="text" class="form-control text-right" style="color:black;" readonly id="tot" value="0"></div>';
 		return text;
 		},
 
@@ -81,23 +81,25 @@ $(document).ready(function(){
 	var osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}),
+	OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+		maxZoom: 17,
+		attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+	}),
 	Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 	}),
-	Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
-		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		subdomains: 'abcd',
+	Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.{ext}', {
 		minZoom: 0,
 		maxZoom: 20,
+		attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		ext: 'png'
-		}),
-	Stamen_Terrain = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
-		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		subdomains: 'abcd',
+	}),
+	Stadia_StamenTerrain = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
 		minZoom: 0,
 		maxZoom: 18,
+		attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		ext: 'png'
-		}),
+	}),
 	Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 		}),
@@ -125,9 +127,10 @@ $(document).ready(function(){
 
 	var baseMaps = {
 		"OpenStreetMap": osm,
+		"OpenTopoMap": OpenTopoMap,
 		"EsriWorldStreetMap": Esri_WorldStreetMap,
-		"StamenTonerLight": Stamen_TonerLite,
-		"StamenTerrain": Stamen_Terrain,
+		"StadiaOSMBright": Stadia_OSMBright,
+		"StadiaStamenTerrain": Stadia_StamenTerrain,
 		"EsriWorldImagery": Esri_WorldImagery,
 		"StadiaAlidadeSmoothDark": Stadia_AlidadeSmoothDark,
 		"NASAGIBSViirsEarthAtNight2012": NASAGIBS_ViirsEarthAtNight2012,
@@ -167,6 +170,7 @@ function loadMarker(){
 	if(markers!=null)  {
 		map.removeLayer(markers);
 		markers.clearLayers();
+		$("#tot").val(0);
 	}
 	markers=L.markerClusterGroup();
 	var err='';
@@ -192,6 +196,7 @@ function loadMarker(){
 				}
 			}
 			markers.addTo(map);
+			$("#tot").val(data.length);
 			if(err!='') {
 				alert('Error: '+err);
 			}

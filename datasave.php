@@ -10,7 +10,7 @@ include "inc.db.php";
 //excel 2003 loader
 require "excel_reader.php";
 
-function batch_db($conn,$tname,$data,$pk,$sv){
+function batch_db($conn,$tname,$data,$pk,$sv,$obj=""){
 	$inserted=0;
 	$error=0;
 	$p=-1;
@@ -64,6 +64,11 @@ function batch_db($conn,$tname,$data,$pk,$sv){
 			}
 		}
 		$i--;
+		if($obj!=''){
+			$txt=$_POST['txt'];
+			$sql="insert into tm_updatelogs (obj,typ,tot,suc,err,uid,dtm,txt) values ('$obj','$sv',$i,$inserted,$error,'$s_ID',NOW(),'$txt')";
+			$xrs=exec_qry($conn,$sql);
+		}
 		return "Total : $i <br> Inserted/Updated/Deleted : $inserted <br> Error : $error <br>$msgs";
 	}else{
 		return "Primary Key $pk is not defined";
@@ -457,7 +462,7 @@ if($t=="batch_outlet"){
 	$columns=str_replace("	",",",$data[0]);
 	$acol=explode(",",$columns);
 
-	$msg=batch_db($conn,$tname,$data,$pk,$sv);
+	$msg=batch_db($conn,$tname,$data,$pk,$sv,'Master Outlet');
 }
 if($t=="bulk_outlet"){
 	$tname=$_POST['tname'];
