@@ -9,6 +9,8 @@ $df=isset($_GET['df'])?$_GET['df']:"";
 $dt=isset($_GET['dt'])?$_GET['dt']:"";
 $fdf=isset($_GET['fdf'])?$_GET['fdf']:"";
 $fdt=isset($_GET['fdt'])?$_GET['fdt']:"";
+$cdf=isset($_GET['cdf'])?$_GET['cdf']:"";
+$cdt=isset($_GET['cdt'])?$_GET['cdt']:"";
 $blink=isset($_GET['blink'])?$_GET['blink']:"";
 $jp=isset($_GET['jp'])?$_GET['jp']:"";
 $age=isset($_GET['age'])?$_GET['age']:"";
@@ -163,6 +165,8 @@ $(document).ready(function() {
 				d.dt= '<?php echo $dt; ?>',
 				d.fdf= '<?php echo $fdf; ?>',
 				d.fdt= '<?php echo $fdt; ?>',
+				d.cdf= '<?php echo $cdf; ?>',
+				d.cdt= '<?php echo $cdt; ?>',
 				d.blink= '<?php echo $blink; ?>',
 				d.ljp= '<?php echo $jp; ?>',
 				d.rpt= '<?php echo $id?>',

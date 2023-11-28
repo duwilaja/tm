@@ -69,21 +69,21 @@ include 'inc.menu.php';
 										</div>
 										<div class="col-md-1 viu_all">
 											Secondary Link
-											<select class="form-control" name="blink" id="blink">
+											<select class="form-control viuval" name="blink" id="blink">
 												<option value=''>All Secondary Link</option>
 												<?php echo $optblink?>
 											</select>
 										</div>
 										<div class="col-md-1 viu viu_5">
 											Device
-											<select class="form-control" name="jp" id="jp">
+											<select class="form-control viuval" name="jp" id="jp">
 												<option value=''>All Device</option>
 												<?php echo $optjp?>
 											</select>
 										</div>
 										<div class="col-md-1 viu viu_16">
 											Aging
-											<select class="form-control" name="age" id="age">
+											<select class="form-control viuval" name="age" id="age">
 												<option value=''>None Selected</option>
 												<option value='<?php echo base64_encode(" and TIMESTAMPDIFF(HOUR,lastupd,NOW())>=4")?>'>All Aging</option>
 												<option value='<?php echo base64_encode(" and TIMESTAMPDIFF(HOUR,lastupd,NOW()) in (4,5)")?>'>4/5 hours</option>
@@ -92,6 +92,20 @@ include 'inc.menu.php';
 												<option value='<?php echo base64_encode(" and (TIMESTAMPDIFF(HOUR,lastupd,NOW())>=24)")?>'>>=24 hours</option>
 												
 											</select>
+										</div>
+										<div class="col-md-2 viu viu_10">
+											Closed From
+											<div class="input-group">
+												<input id="cdf" name="cdf" type="text" class="form-control datepicker viuval" placeholder="">
+												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
+										</div>
+										<div class="col-md-2 viu viu_10">
+											Closed To
+											<div class="input-group">
+												<input id="cdt" name="cdt" type="text" class="form-control datepicker viuval" placeholder="">
+												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
 										</div>
 										<div class="col-md-2">
 											Created From
@@ -107,17 +121,17 @@ include 'inc.menu.php';
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 viu viu_all">
 											Updated From
 											<div class="input-group">
-												<input id="fdf" name="fdf" type="text" class="form-control datepicker" placeholder="">
+												<input id="fdf" name="fdf" type="text" class="form-control datepicker viuval" placeholder="">
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 viu viu_all">
 											Updated To
 											<div class="input-group">
-												<input id="fdt" name="fdt" type="text" class="form-control datepicker" placeholder="">
+												<input id="fdt" name="fdt" type="text" class="form-control datepicker viuval" placeholder="">
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
 										</div>
@@ -227,19 +241,21 @@ include 'inc.logout.php';
 		var dt=$("#dt").val();
 		var fdf=$("#fdf").val();
 		var fdt=$("#fdt").val();
+		var cdf=$("#cdf").val();
+		var cdt=$("#cdt").val();
 		
-		var lnk = "r_templates.php?id="+id+"&blink="+blink+"&jp="+jp+"&age="+age+"&df="+df+"&dt="+dt+"&fdf="+fdf+"&fdt="+fdt;
+		var lnk = "r_templates.php?id="+id+"&blink="+blink+"&jp="+jp+"&age="+age+"&df="+df+"&dt="+dt+"&fdf="+fdf+"&fdt="+fdt+"&cdf="+cdf+"&cdt="+cdt;
 		$.fancybox.open({
 			type: 'iframe',
 			src: lnk
 		});
 	}
 	function idchanged(tv=''){
-		$('.viu').val('');
+		$('.viuval').val('');
 		$('.viu').hide();
 		$('.viu_all').show();
 		$('.viu_'+tv).show();
-		if(tv=='16') $('.viu_all').hide();
+		if(tv=='16'||tv=='10') $('.viu_all').hide();
 		//console.log(tv);
 	}
 	idchanged();
