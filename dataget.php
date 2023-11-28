@@ -88,6 +88,14 @@ $param=isset($_POST['tdt']) ? $_POST['tdt']:"";
 	if($param!=""){
 		$where=$where!=""?"$where and date(t.lastupd)<='$param'":"date(t.lastupd)<='$param'";
 	}
+$param=isset($_POST['cdf']) ? $_POST['cdf']:"";
+	if($param!=""){
+		$where=$where!=""?"$where and closed>='$param'":"closed>='$param'";
+	}
+$param=isset($_POST['cdt']) ? $_POST['cdt']:"";
+	if($param!=""){
+		$where=$where!=""?"$where and closed<='$param 23:59:59'":"closed<='$param 23:59:59'";
+	}
 
 
 $adf=isset($_POST['adf']) ? $_POST['adf']:"";

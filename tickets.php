@@ -128,13 +128,14 @@ $cols="ticketno,dt,i,h,d,locname,grp,typ,st,s,blink,nossa,p,t.lastupd,t.updby,t.
 $colsrc="h,d";
 $srceq="ticketno,i";
 
-$opt1="<option value=''></option>";$opt2="<option value=''></option>";
+$opt1="<option value=''></option>";$opt2="<option value=''></option>";$opt3="";
 
 include 'inc.db.php';
 $conn=connect();
 $rs=exec_qry($conn,"select locid,locname from tm_kanwils order by locname");
 while($row=fetch_row($rs)){
 	$opt1.='<option value="'.$row[0].'">'.$row[1].'</option>';
+	$opt3.='<option value="'.$row[0].'">'.$row[1].'</option>';
 }
 $rs=exec_qry($conn,"select probid,probname from tm_problems order by probname");
 while($row=fetch_row($rs)){
@@ -227,7 +228,13 @@ include 'inc.menu.php';
                             <div class="panel panel-default">
                                 <div class="panel-body"  style="padding-right: 0px;">
 								<div class="form-group">
-									<div class="col-md-3 control-label">Status<!--/div>
+									<div class="col-md-2 control-label">Kanwil<!--/div>
+									<div class="col-md-2"-->
+										<select multiple class="form-control selectpicker" id="fk">
+										<?php echo $opt3?>
+										</select>
+									</div>
+									<div class="col-md-2 control-label">Status<!--/div>
 									<div class="col-md-1"-->
 										<select multiple id="fs" class="form-control selectpicker">
 										<option value="new">new</option>
@@ -238,7 +245,7 @@ include 'inc.menu.php';
 										<option value="closed">closed</option>
 										</select>
 									</div>
-									<div class="col-md-3 control-label">Jenis Layanan<!--/div>
+									<div class="col-md-2 control-label">Jenis Layanan<!--/div>
 									<div class="col-md-2"-->
 										<select multiple class="form-control selectpicker" id="fst">
 										<?php echo $optst?>
@@ -672,6 +679,7 @@ $(document).ready(function() {
 				d.mst= getMultipleValues('#fst'),
 				d.mtyp= getMultipleValues('#ftyp'),
 				d.mgrp= getMultipleValues('#fgrp'),
+				d.mk= getMultipleValues('#fk'),
 				d.df= $("#fdf").val(),
 				d.dt= $("#fdt").val(),
 				d.x= '<?php echo $menu; ?>'
