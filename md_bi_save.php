@@ -37,17 +37,19 @@ include 'inc.db.php';
 
 $sv=$_POST['sv'];
 $tname=$_POST['tname'];
+
+$conn = connect();
+$inserted=0;
+$error=0;
+
+if(isset($_POST['data'])){
 $data=explode("	|\r\n",$_POST['data']);
 
 //echo count($data);
 
-$conn = connect();
-
 $columns=str_replace("	",",",$data[0]);
 $acol=explode(",",$columns);
 
-$inserted=0;
-$error=0;
 
 for($i=1;$i<count($data)-1;$i++){
 
@@ -83,7 +85,30 @@ if(db_error($conn)<>""){
 }
 }
 $i--;
-echo "<br><br> Total : $i <br> Inserted/Updated/Deleted : $inserted <br> Error : $error <br>";
+}else{
+	$sql="select ticketno from tm_tickets where st='wifi station' and s='solved'";
+	$res=fetch_alla(exec_qry($conn,$sql));
+	for($i=0;$i<count($res);$i++){
+		$sql="update tm_tickets set s='closed', closed=now(), lastupd=now(), updby='".$_POST['updby']."' where ticketno='".$res[$i]['ticketno']."'";
+		$rs=exec_qry($conn,$sql);
+		if(db_error($conn)<>""){
+			echo $sql.";<br>";
+			echo "ERROR : ".db_error($conn)."<br>";
+			$error++;
+		}else{
+			$sql="insert into tm_notes values (null,'".$res[$i]['ticketno']."','','".$_POST['notes']."','closed',now(),'".$_POST['updby']."')";
+			$rs=exec_qry($conn,$sql);
+			if(db_error($conn)<>""){
+				echo $sql.";<br>";
+				echo "ERROR : ".db_error($conn)."<br>";
+				$error++;
+			}else{
+				$inserted++;
+			}
+		}
+	}
+}
+echo "<br><br> Total : $i <br> Executed : $inserted <br> Error : $error <br>";
 
 disconnect($conn);
 

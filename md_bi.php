@@ -46,7 +46,8 @@ if($_SESSION['s_LVL']<>"0"){
     </fieldset>
 </form>		
 <br />
-            
+			<hr class="uk-grid-divider">
+<br />            
 			
 <form class="uk-form" method="post" action="md_bi_save.php">
 <input type="hidden" name="sv" value="NEW">
@@ -64,6 +65,22 @@ if($_SESSION['s_LVL']<>"0"){
         <button type="button" onclick="this.form.sv.value='NEW';this.form.submit();" class="uk-button uk-button-success uk-icon-plus"> Add</button>
 		<button type="button" onclick="this.form.sv.value='REP';this.form.submit();" class="uk-button uk-button-success uk-icon-exchange"> Update (first col=ID)</button>
 		<button type="button" onclick="this.form.sv.value='DEL';this.form.submit();" class="uk-button uk-button-danger uk-icon-trash"> Delete (ID)</button>
+    </fieldset>
+</form>
+<br />
+            
+			<hr class="uk-grid-divider">
+			
+<br />            
+			
+<form class="uk-form" method="post" action="md_bi_save.php">
+<input type="hidden" name="tname" value="tm_ticknotes">
+<input type="hidden" name="sv" value="REP">
+    <fieldset data-uk-margin>
+		Batch WiFe Close where status='solved'<br />
+		<input type="text" name="updby" placeholder="updby" /><br />
+		<textarea name="notes" placeholder="notes" rows="5" cols="50"></textarea><br />
+		<button type="button" onclick="this.form.sv.value='REP';this.form.submit();" class="uk-button uk-button-success uk-icon-exchange"> Close WiFe </button>
     </fieldset>
 </form>
 <br />
