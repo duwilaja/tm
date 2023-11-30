@@ -77,7 +77,7 @@ if($_SESSION['s_LVL']<>"0"){
 <input type="hidden" name="tname" value="tm_ticknotes">
 <input type="hidden" name="sv" value="REP">
     <fieldset data-uk-margin>
-		Batch WiFe Close where status='solved'<br />
+		Batch WiFe Close where status='solved' and updby='dvo'<br />
 		<input type="text" name="updby" placeholder="updby" /><br />
 		<textarea name="notes" placeholder="notes" rows="5" cols="50"></textarea><br />
 		<button type="button" onclick="this.form.sv.value='REP';this.form.submit();" class="uk-button uk-button-success uk-icon-exchange"> Close WiFe </button>
