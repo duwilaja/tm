@@ -86,7 +86,7 @@ if(db_error($conn)<>""){
 }
 $i--;
 }else{
-	$sql="select ticketno from tm_tickets where st='wifi station' and s='solved'";
+	$sql="select ticketno from tm_tickets where updby='dvo' and st='wifi station' and s='solved'";
 	$res=fetch_alla(exec_qry($conn,$sql));
 	for($i=0;$i<count($res);$i++){
 		$sql="update tm_tickets set s='closed', closed=now(), lastupd=now(), updby='".$_POST['updby']."' where ticketno='".$res[$i]['ticketno']."'";
