@@ -6,6 +6,11 @@ $svcs="";
 for($i=0;$i<count($rs);$i++){
 	$svcs.='<option value="'.$rs[$i][0].'">'.$rs[$i][0].'</option>';
 }
+$rs=fetch_all(exec_qry($conn,"select distinct kanwil from tm_outlets where kanwil<>''"));
+$kan="";
+for($i=0;$i<count($rs);$i++){
+	$kan.='<option value="'.$rs[$i][0].'">'.$rs[$i][0].'</option>';
+}
 disconnect($conn);
 ?>
 <!DOCTYPE html>
@@ -51,6 +56,10 @@ L.Control.textbox = L.Control.extend({
 		var text = L.DomUtil.create('div');
 		text.id = "search_text";
 		text.innerHTML = '<div>'+
+							'<select id="kans" class="form-control">'+
+							'<option value="">All Kanwil</option>'+
+							'<?php echo str_ireplace("'",'"',$kan)?>'+
+							'</select>'+
 							'<select id="svcs" class="form-control">'+
 							'<option value="">All Services</option>'+
 							'<?php echo str_ireplace("'",'"',$svcs)?>'+
@@ -177,7 +186,7 @@ function loadMarker(){
 	$.ajax({
 		type: 'POST',
 		url: 'datajson.php',
-		data: {q:'mapl',id:$("#srctxt").val(),idx:$("#phase").val(),idx2:$("#svcs").val()},
+		data: {q:'mapl',id:$("#srctxt").val(),idx:$("#phase").val(),idx2:$("#svcs").val(),idx3:$("#kans").val()},
 		success: function(datax){
 			var data=JSON.parse(datax);
 			for(var i=0;i<data.length;i++){
