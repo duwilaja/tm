@@ -10,7 +10,7 @@ include 'inc.head.php';
 
 $where="";
 $tname="tm_outlets";
-$cols="oid,oname,addr,cabang,kanwil,area,propinsi,pic,contact,pic2,contact2,lnk,wibstart,wibend,lat,lng,bw,buprovider,bupe,buce,busid,bubw,addr,svcs,wifi,rowid";
+$cols="oid,oname,addr,cabang,kanwil,area,propinsi,pic,contact,pic2,contact2,lnk,wibstart,wibend,lat,lng,buprovider,bupe,buce,busid,bubw,addr,svcs,wifi,rowid";
 $colsrc="oid,oname,cabang,kanwil,area,lnk,propinsi";
 
 $opt1="";
@@ -72,7 +72,6 @@ include 'inc.menu.php';
 												<th>End(WIB)</th>
 												<th>Lat</th>
 												<th>Lng</th>
-												<th>Bandwidth</th>
 												<th>Backup</th>
 												<th>BU PE</th>
 												<th>BU CE</th>
