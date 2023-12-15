@@ -831,7 +831,7 @@ function getTicket(){
 			if(json.length<1){
 				alert('Data not found');
 			}
-			stChange(st);
+			stChangex(st);
 			blink_changed($("#blink").val(),false);
 		},
 		error: function(xhr){
@@ -845,6 +845,9 @@ function stChange(tv){
 	}else{
 		$('#grp').val('link');
 	}
+	stChangex(tv);
+}
+function stChangex(tv){
 	if(tv=='wifi station'){
 		$('.wanwife').html('AP NAME');
 	}else{
