@@ -840,7 +840,7 @@ function getTicket(){
 	});
 }
 function stChange(tv){
-	if(tv=='router/switch/ip-phn'||tv=='LTE'){
+	if(tv=='router/switch/ip-phn'||tv=='LTE'||tv=='sdwan'){
 		$('#grp').val('jarkom');
 	}else{
 		$('#grp').val('link');
