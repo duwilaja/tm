@@ -39,8 +39,13 @@ $param=isset($_POST['mst']) ? $_POST['mst']:"";
 		$where=$where!=""?"$where and st in ($param)":"st in ($param)";
 		$st="'".str_ireplace("'","",$param)."'";
 	}
+	
+$df=$_POST['thn'].'-'.$_POST['bln'].'-01 00:00:00';
+$where=$where!=""?"$where and d.dt>='$df'":"d.dt>='$df'";
+$dt=date("Y-m-t", strtotime($df)).' 23:59:59';
+$where=$where!=""?"$where and d.dt<='$dt'":"d.dt<='$dt'";
 
-
+/*
 $param=isset($_POST['df']) ? $_POST['df']:date('Y-m-d');
 	if($param!=""){
 		$where=$where!=""?"$where and d.dt>='$param'":"d.dt>='$param'";
@@ -52,6 +57,7 @@ $param=isset($_POST['dt']) ? $_POST['dt']:date('Y-m-d');
 		$dt=$param." 23:59:59";
 		if($param==date('Y-m-d')) { $dt=date('Y-m-d H:i:s'); }
 	}
+*/
 
 if($where!=""){
 	$tablename.=" where ($where)";
@@ -120,7 +126,7 @@ for($i=0;$i<count($rows);$i++){
 		
 		$rows[$i][6] = sec_to_dhms($offline);
 		$rows[$i][7] = round($offline/$tot*100,2).'%'; //off in %
-		$rows[$i][8] = (100-round($offline/$tot*100,2)).'%'; //on in %
+		$rows[$i][8] = (99.95-round($offline/$tot*100,2)).'%'; //on in %
 	}
 	
 	$oid.=$oid==''?'':',';
@@ -132,8 +138,8 @@ $oid=$oid==''?"''":$oid;
 $kan=$kan==''?"''":$kan;
 
 $sqlx=$sql;
-$sql = "select $st,oid,kanwil,area,cabang,oname,0,0,'100%',$typ as typ, '$durasi' as dur from tm_outlets where oid not in ($oid)";
-if($x=='rsla')$sql = "select locid,0,0,'100%',$typ as typ, '$durasi' as dur from tm_kanwils where locid not in ($kan)";
+$sql = "select $st,oid,kanwil,area,cabang,oname,0,0,'100%',$typ as typ, '$durasi' as dur from tm_outlets where oid not in ($oid) and 1=0";
+if($x=='rsla')$sql = "select locid,0,0,'100%',$typ as typ, '$durasi' as dur from tm_kanwils where locid not in ($kan) and 1=0";
 $result = exec_qry($conn,$sql);
 //$rows = fetch_all($result);
 	while($row=fetch_row($result)){
