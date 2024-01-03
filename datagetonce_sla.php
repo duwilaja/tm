@@ -41,9 +41,9 @@ $param=isset($_POST['mst']) ? $_POST['mst']:"";
 	}
 	
 $df=$_POST['thn'].'-'.$_POST['bln'].'-01 00:00:00';
-$where=$where!=""?"$where and d.dt>='$df'":"d.dt>='$df'";
+$where=$where!=""?"$where and t.closed>='$df'":"t.closed>='$df'";
 $dt=date("Y-m-t", strtotime($df)).' 23:59:59';
-$where=$where!=""?"$where and d.dt<='$dt'":"d.dt<='$dt'";
+$where=$where!=""?"$where and t.closed<='$dt'":"t.closed<='$dt'";
 
 /*
 $param=isset($_POST['df']) ? $_POST['df']:date('Y-m-d');
