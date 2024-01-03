@@ -13,13 +13,13 @@ $where="grp='link' and typ in (!typ!) and
 
 $where="typ in (!typ!) and (TIMESTAMPDIFF(SECOND,t.dt,IF(s='closed',closed,NOW()))>900 or (nossa<>'' and nossa<>'-'))";
 
-$where = "(nossa<>'' and nossa<>'-')";
+$where = "$gangguan";
 
 //$where="grp='link' and typ in (!typ!)";
 $tname="tm_tickets t left join tm_outlets o on t.i=o.oid left join tm_sla_daily d on d.tiket=t.ticketno";
-$cols="st,i,k,area,cabang,h,'99.95%' as slag,";
+$cols="st,i,k,area,cabang,h,";
 $colsrc="";
-$grpby="st,i,k,area,cabang,h,tt,slag";
+$grpby="st,i,k,area,cabang,h,tt";
 
 $optcus="";$optsla="";$optgrp="";$opttstatus="";$optsubj="";$optarea="";
 
@@ -192,7 +192,6 @@ include 'inc.menu.php';
                                                 <th>Area</th>
                                                 <th>Cabang</th>
                                                 <th>Unit</th>
-                                                <th>SLA-G</th>
                                                 <th>Durasi</th>
                                                 <th>Restitusi</th>
                                                 <th>SLA Tercapai</th>
