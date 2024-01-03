@@ -13,6 +13,8 @@ $where="grp='link' and typ in (!typ!) and
 
 $where="typ in (!typ!) and (TIMESTAMPDIFF(SECOND,t.dt,IF(s='closed',closed,NOW()))>900 or (nossa<>'' and nossa<>'-'))";
 
+$where = "typ in (!typ!) and (nossa<>'' and nossa<>'-')";
+
 //$where="grp='link' and typ in (!typ!)";
 $tname="tm_tickets t left join tm_outlets o on t.i=o.oid left join tm_sla_daily d on d.tiket=t.ticketno";
 $cols="st,i,k,area,cabang,h,";
@@ -81,23 +83,38 @@ include 'inc.menu.php';
 											<option value="<?php echo base64_encode("$cols (6.5*60*60) as tt, SUM(durwib) as tdwib")?>">Operation Hour</option>
 											</select>
 										</div>
-										<div class="col-md-1">
+										<div class="col-md-1 hidden">
 											From
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 hidden">
 											<div class="input-group">
 												<input id="df" name="df" type="text" class="form-control datepicker" placeholder="" value="<?php echo date('Y-m-d')?>">
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
 										</div>
-										<div class="col-md-1">
+										<div class="col-md-1 hidden">
 											To
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 hidden">
 											<div class="input-group">
 												<input id="dt" name="dt" type="text" class="form-control datepicker" placeholder="" value="<?php echo date('Y-m-d')?>">
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
+										</div>
+										<div class="col-md-2">
+											<select class="form-control" name="bln" id="bln">
+											<?php for($i=1;$i<13;$i++){?>
+											<option value="<?php echo ($i<10)?"0$i":$i?>"><?php echo date('F', mktime(0, 0, 0, $i, 10)) ?></option>
+											<?php }?>
+											</select>
+										</div>
+										<div class="col-md-2">
+											<select class="form-control" name="thn" id="thn">
+											<?php $y=date("Y");
+											for($i=$y;$i>($y-2);$i--){?>
+											<option value="<?php echo $i?>"><?php echo $i ?></option>
+											<?php }?>
+											</select>
 										</div>
 										<div class="col-md-2">
 											<button class="btn btn-info" onclick="tblupdate()"><i class="fa fa-search"></i> Filter</button>
@@ -177,7 +194,7 @@ include 'inc.menu.php';
                                                 <th>Unit</th>
                                                 <th>Durasi</th>
                                                 <th>Restitusi</th>
-                                                <th>SLA</th>
+                                                <th>SLA Tercapai</th>
 												<th>Gangguan</th>
 												<!--th>Durasi</th-->
                                             </tr>
@@ -271,6 +288,8 @@ $(document).ready(function() {
 				d.mst= getMultipleValues("#st"),
 				d.df= $("#df").val(),
 				d.dt= $("#dt").val(),
+				d.bln= $("#bln").val(),
+				d.thn= $("#thn").val(),
 				d.x= '<?php echo $menu; ?>';
 			}
 		}
