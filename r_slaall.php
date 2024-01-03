@@ -17,9 +17,9 @@ $where = "(nossa<>'' and nossa<>'-')";
 
 //$where="grp='link' and typ in (!typ!)";
 $tname="tm_tickets t left join tm_outlets o on t.i=o.oid left join tm_sla_daily d on d.tiket=t.ticketno";
-$cols="st,i,k,area,cabang,h,";
+$cols="st,i,k,area,cabang,h,'99.95%' as slag,";
 $colsrc="";
-$grpby="st,i,k,area,cabang,h,tt";
+$grpby="st,i,k,area,cabang,h,tt,slag";
 
 $optcus="";$optsla="";$optgrp="";$opttstatus="";$optsubj="";$optarea="";
 
@@ -192,6 +192,7 @@ include 'inc.menu.php';
                                                 <th>Area</th>
                                                 <th>Cabang</th>
                                                 <th>Unit</th>
+                                                <th>SLA-G</th>
                                                 <th>Durasi</th>
                                                 <th>Restitusi</th>
                                                 <th>SLA Tercapai</th>
