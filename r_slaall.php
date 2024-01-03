@@ -13,7 +13,7 @@ $where="grp='link' and typ in (!typ!) and
 
 $where="typ in (!typ!) and (TIMESTAMPDIFF(SECOND,t.dt,IF(s='closed',closed,NOW()))>900 or (nossa<>'' and nossa<>'-'))";
 
-$where = "typ in (!typ!) and (nossa<>'' and nossa<>'-')";
+$where = "(nossa<>'' and nossa<>'-')";
 
 //$where="grp='link' and typ in (!typ!)";
 $tname="tm_tickets t left join tm_outlets o on t.i=o.oid left join tm_sla_daily d on d.tiket=t.ticketno";
@@ -148,7 +148,7 @@ include 'inc.menu.php';
 										<?php echo $optgrp?>
 										</select>
 									</div-->
-									<div class="col-md-2">
+									<div class="col-md-2 hidden">
 										<select class="form-control" name="typ" id="typ">
 										<option value="'offline','keluhan lambat','link up-down','link intermitten'">All Type</option>
 										<option value="'offline'">Offline</option>
@@ -195,8 +195,8 @@ include 'inc.menu.php';
                                                 <th>Durasi</th>
                                                 <th>Restitusi</th>
                                                 <th>SLA Tercapai</th>
-												<th>Gangguan</th>
-												<!--th>Durasi</th-->
+												<!--th>Gangguan</th>
+												<th>Durasi</th-->
                                             </tr>
                                         </thead>
                                         <tbody>
