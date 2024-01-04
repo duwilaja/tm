@@ -41,9 +41,9 @@ $param=isset($_POST['mst']) ? $_POST['mst']:"";
 	}
 	
 $df=$_POST['thn'].'-'.$_POST['bln'].'-01 00:00:00';
-$where=$where!=""?"$where and t.closed>='$df'":"t.closed>='$df'";
+$where=$where!=""?"$where and d.dt>='$df'":"d.dt>='$df'";
 $dt=date("Y-m-t", strtotime($df)).' 23:59:59';
-$where=$where!=""?"$where and t.closed<='$dt'":"t.closed<='$dt'";
+$where=$where!=""?"$where and d.dt<='$dt'":"d.dt<='$dt'";
 
 /*
 $param=isset($_POST['df']) ? $_POST['df']:date('Y-m-d');
@@ -120,13 +120,14 @@ for($i=0;$i<count($rows);$i++){
 		$rows[$i][8] = (100-round($offline/$tot*100,2)).'%'; //on in %
 	}
 	if($x=='rslaall'){
-		$offline=$rows[$i][7]; //berapa lama dalam detik
-		$day=($rows[$i][8]-$rows[$i][10]-$daysoff);
-		$tot=($rows[$i][6]*$day); //berapa hari dalam detik
+		$offline=$rows[$i][9]; //berapa lama dalam detik
+		$day=($rows[$i][10]-$rows[$i][12]-$daysoff);
+		$tot=($rows[$i][8]*$day); //berapa hari dalam detik
 		
-		$rows[$i][6] = sec_to_dhms($offline);
-		$rows[$i][7] = round($offline/$tot*100,2).'%'; //off in %
-		$rows[$i][8] = (99.95-round($offline/$tot*100,2)).'%'; //on in %
+		$rows[$i][8] = sec_to_dhms($offline);
+		$rows[$i][9] = round($offline/$tot*100,2); //off in %
+		$rows[$i][10] = ($rows[$i][6]-round($offline/$tot*100,2)); //on in %
+		if($rows[$i][10]<0) $rows[$i][10]=0;
 	}
 	
 	$oid.=$oid==''?'':',';
