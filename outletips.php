@@ -11,7 +11,7 @@ include 'inc.head.php';
 $where="";
 $tname="tm_ips";
 $tnames="tm_ips i left join tm_outlets o on o.oid=i.oid";
-$cols="i.oid,oname,cabang,kanwil,area,i.layanan,i.sid,i.iplan,i.ipwan,i.lastupd,i.updby,i.rowid";
+$cols="i.oid,oname,cabang,kanwil,area,i.layanan,i.sid,i.iplan,i.ipwan,slag,mrc,i.lastupd,i.updby,i.rowid";
 $colsrc="i.oid,oname,cabang,kanwil,area";
 
 $opt1="";
@@ -66,6 +66,8 @@ include 'inc.menu.php';
 												<th>SID</th>
 												<th>IP LAN</th>
 												<th>IP WAN</th>
+												<th>SLA G</th>
+												<th>MRC</th>
 												<th>Updated</th>
 												<th>By</th>
                                             </tr>
@@ -150,7 +152,7 @@ include 'inc.menu.php';
 								<div class="panel-body">
 										<input type="hidden" name="t" value="<?php echo $menu;?>">
 										<input type="hidden" name="tname" value="<?php echo $tname;?>">
-										<input type="hidden" name="columns" value="oid,ipwan,iplan,sid,layanan">
+										<input type="hidden" name="columns" value="oid,ipwan,iplan,sid,layanan,slag,mrc">
 										<input type="hidden" id="svt" name="svt" value="">
 										<input type="hidden" name="id" id="id" value="0">
 										
@@ -180,6 +182,16 @@ include 'inc.menu.php';
 											<select class="form-control" name="layanan" id="layanan" style="-webkit-appearance: menulist;">
 											<?php echo $optst?>
 											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">SLA G %</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control input-sm" name="slag" id="slag" placeholder="...">
+										</div>
+										<label class="col-md-2 control-label">MRC</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control input-sm" name="mrc" id="mrc" placeholder="...">
 										</div>
 									</div>
 									
