@@ -81,6 +81,14 @@ include 'inc.menu.php';
 												<?php echo $optjp?>
 											</select>
 										</div>
+										<div class="col-md-1 viu viu_10">
+											Service
+											<select class="form-control viuval" name="st" id="st">
+												<option value=''>All Services</option>
+												<option value='<?php echo base64_encode(" and st='wifi station'")?>'>Wifi</option>
+												<option value='<?php echo base64_encode(" and st<>'wifi station' and 1=1")?>'>Non Wifi</option>
+											</select>
+										</div>
 										<div class="col-md-1 viu viu_16">
 											Aging
 											<select class="form-control viuval" name="age" id="age">
@@ -243,8 +251,9 @@ include 'inc.logout.php';
 		var fdt=$("#fdt").val();
 		var cdf=$("#cdf").val();
 		var cdt=$("#cdt").val();
+		var st=$("#st").val();
 		
-		var lnk = "r_templates.php?id="+id+"&blink="+blink+"&jp="+jp+"&age="+age+"&df="+df+"&dt="+dt+"&fdf="+fdf+"&fdt="+fdt+"&cdf="+cdf+"&cdt="+cdt;
+		var lnk = "r_templates.php?id="+id+"&blink="+blink+"&jp="+jp+"&st="+st+"&age="+age+"&df="+df+"&dt="+dt+"&fdf="+fdf+"&fdt="+fdt+"&cdf="+cdf+"&cdt="+cdt;
 		$.fancybox.open({
 			type: 'iframe',
 			src: lnk
