@@ -128,6 +128,7 @@ for($i=0;$i<count($rows);$i++){
 		$rows[$i][9] = round($offline/$tot*100,2); //off in %
 		$rows[$i][10] = ($rows[$i][6]-round($offline/$tot*100,2)); //on in %
 		if($rows[$i][10]<0) $rows[$i][10]=0;
+		$rows[$i][11] = $rows[$i][7]*$rows[$i][9]/100;
 	}
 	
 	$oid.=$oid==''?'':',';

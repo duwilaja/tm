@@ -17,7 +17,7 @@ $where = "$gangguan";
 
 //$where="grp='link' and typ in (!typ!)";
 $tname="tm_tickets t left join tm_outlets o on t.i=o.oid left join tm_sla_daily d on d.tiket=t.ticketno left join tm_ips ip on ip.layanan=t.st and ip.oid=t.i";
-$cols="st,i,k,area,cabang,h,slag,mrc,";
+$cols="st,i,k,area,cabang,h,if(slag is null,0,slag) as slag,if(mrc is null,0,mrc) as mrc,";
 $colsrc="";
 $grpby="st,i,k,area,cabang,h,tt,slag,mrc";
 
@@ -197,6 +197,7 @@ include 'inc.menu.php';
                                                 <th>Durasi</th>
                                                 <th>Restitusi (%)</th>
                                                 <th>SLA Tercapai (%)</th>
+												<th>Restitusi (Rp)</th>
 												<!--th>Gangguan</th>
 												<th>Durasi</th-->
                                             </tr>
