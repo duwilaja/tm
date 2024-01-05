@@ -198,6 +198,7 @@ include 'inc.menu.php';
                                                 <th>Restitusi (%)</th>
                                                 <th>SLA Tercapai (%)</th>
 												<th>Restitusi (Rp)</th>
+												<th>Bulan</th>
 												<!--th>Gangguan</th>
 												<th>Durasi</th-->
                                             </tr>
