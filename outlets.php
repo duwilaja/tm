@@ -87,7 +87,7 @@ include 'inc.menu.php';
                         </div>
                     </div>
 		
-		<div class="modal" id="modal_bulk" tabindex="-2" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+		<div class="modal" id="modal_bulk" tabindex="-3" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -198,7 +198,7 @@ include 'inc.menu.php';
                 </div>
             </div>
         </div>
-		<div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+		<div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true" style="overflow-y: auto;">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
