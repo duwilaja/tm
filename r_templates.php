@@ -15,6 +15,9 @@ $blink=isset($_GET['blink'])?$_GET['blink']:"";
 $jp=isset($_GET['jp'])?$_GET['jp']:"";
 $age=isset($_GET['age'])?$_GET['age']:"";
 $st=isset($_GET['st'])?$_GET['st']:"";
+if($st!=''){
+	$st=$st=='wifi'?" and st='wifi station'":" and st<>'wifi station'";
+}
 
 $title=$id<6?$r_templates[$id][1]." Tickets":$r_templates[$id][1];
 $icon="fa fa-file-o";
@@ -24,7 +27,7 @@ include 'inc.head.php';
 $tname=$r_templates[$id][2];
 $caps=explode(",",$r_templates[$id][3]);
 $cols=$r_templates[$id][4];
-$where=$r_templates[$id][5].base64_decode(urldecode($age)).base64_decode(urldecode($st));
+$where=$r_templates[$id][5].base64_decode(urldecode($age)).$st;
 
 $grpby=count($r_templates[$id])>6?$r_templates[$id][6]:"";
 $having=count($r_templates[$id])>7?$r_templates[$id][7]:"";

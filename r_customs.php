@@ -85,8 +85,8 @@ include 'inc.menu.php';
 											Service
 											<select class="form-control viuval" name="st" id="st">
 												<option value=''>All Services</option>
-												<option value='<?php echo base64_encode(" and st='wifi station'")?>'>Wifi</option>
-												<option value='<?php echo base64_encode(" and st<>'wifi station' and 1=1")?>'>Non Wifi</option>
+												<option value='wifi'>Wifi</option>
+												<option value='nonwifi'>Non Wifi</option>
 											</select>
 										</div>
 										<div class="col-md-1 viu viu_16">
