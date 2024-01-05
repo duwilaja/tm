@@ -44,6 +44,7 @@ $df=$_POST['thn'].'-'.$_POST['bln'].'-01 00:00:00';
 $where=$where!=""?"$where and d.dt>='$df'":"d.dt>='$df'";
 $dt=date("Y-m-t", strtotime($df)).' 23:59:59';
 $where=$where!=""?"$where and d.dt<='$dt'":"d.dt<='$dt'";
+$blnthn=date("F Y",strtotime($df));
 
 /*
 $param=isset($_POST['df']) ? $_POST['df']:date('Y-m-d');
@@ -129,6 +130,7 @@ for($i=0;$i<count($rows);$i++){
 		$rows[$i][10] = ($rows[$i][6]-round($offline/$tot*100,2)); //on in %
 		if($rows[$i][10]<0) $rows[$i][10]=0;
 		$rows[$i][11] = $rows[$i][7]*$rows[$i][9]/100;
+		$rows[$i][12] = $blnthn;
 	}
 	
 	$oid.=$oid==''?'':',';
