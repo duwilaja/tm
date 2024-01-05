@@ -126,10 +126,12 @@ for($i=0;$i<count($rows);$i++){
 		$tot=($rows[$i][8]*$day); //berapa hari dalam detik
 		
 		$rows[$i][8] = sec_to_dhms($offline);
-		$rows[$i][9] = round($offline/$tot*100,2); //off in %
-		$rows[$i][10] = ($rows[$i][6]-round($offline/$tot*100,2)); //on in %
-		if($rows[$i][10]<0) $rows[$i][10]=0;
-		$rows[$i][11] = $rows[$i][7]*$rows[$i][9]/100;
+		$rows[$i][10] = (round(($tot-$offline)/$tot*100,2)); //tercapai %
+		$rows[$i][9] = $rows[$i][6]-$rows[$i][10]; //rest %
+		//$rows[$i][9] = round($offline/$tot*100,2); //off in %
+		//$rows[$i][10] = ($rows[$i][6]-round($offline/$tot*100,2)); //on in %
+		//if($rows[$i][10]<0) $rows[$i][10]=0;
+		$rows[$i][11] = $rows[$i][7]*(round($rows[$i][9]/$rows[$i][6],2)); //rest rp
 		$rows[$i][12] = $blnthn;
 	}
 	
