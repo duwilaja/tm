@@ -41,10 +41,17 @@ $param=isset($_POST['mst']) ? $_POST['mst']:"";
 	}
 	
 $df=$_POST['thn'].'-'.$_POST['bln'].'-01 00:00:00';
+$blnthn=date("F Y",strtotime($df));
+
+/* real month *
 $where=$where!=""?"$where and d.dt>='$df'":"d.dt>='$df'";
 $dt=date("Y-m-t", strtotime($df)).' 23:59:59';
 $where=$where!=""?"$where and d.dt<='$dt'":"d.dt<='$dt'";
-$blnthn=date("F Y",strtotime($df));
+
+/* closed month */
+$where=$where!=""?"$where and closed>='$df'":"closed>='$df'";
+$dt=date("Y-m-t", strtotime($df)).' 23:59:59';
+$where=$where!=""?"$where and closed<='$dt'":"closed<='$dt'";
 
 /*
 $param=isset($_POST['df']) ? $_POST['df']:date('Y-m-d');
