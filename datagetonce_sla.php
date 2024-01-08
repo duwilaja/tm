@@ -131,6 +131,7 @@ for($i=0;$i<count($rows);$i++){
 		$offline=$rows[$i][9]; //berapa lama dalam detik
 		$day=($rows[$i][10]-$rows[$i][12]-$daysoff);
 		$tot=($rows[$i][8]*$day); //berapa hari dalam detik
+		$tot=($rows[$i][8]*$rows[$i][10]); // 1 month full
 		
 		$rows[$i][8] = sec_to_dhms($offline);
 		$rows[$i][10] = (round(($tot-$offline)/$tot*100,2)); //tercapai %
