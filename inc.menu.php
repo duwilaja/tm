@@ -54,6 +54,7 @@
 							<li><a href="r_slaall<?php echo $env?>"><span class="fa fa-file-text"></span> SLA</a></li>
 							<li><a href="r_slastatus<?php echo $env?>"><span class="fa fa-file-text"></span> Status Duration</a></li>
 							<li><a href="r_m2m<?php echo $env?>"><span class="fa fa-file-text"></span> M2M</a></li>
+							<li><a href="r_link<?php echo $env?>"><span class="fa fa-file-text"></span> Data Link</a></li>
 							<li><a href="r_tickets.arc<?php echo $env?>"><span class="fa fa-file-text"></span> Archive</a></li>
 						</ul>
                     </li>
