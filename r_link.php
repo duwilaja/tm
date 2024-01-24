@@ -11,7 +11,7 @@ include 'inc.head.php';
 $where="";
 $tname="tm_outlets o left join tm_ips i on i.oid=o.oid";
 $cols="o.oid,oname,kanwil,layanan,bubw,buprovider,boq,o.rowid";
-$colsrc="o.oid,oname,kanwil,layanan";
+$colsrc="o.oid,oname,kanwil";
 
 $opt1="";
 /*
@@ -49,6 +49,45 @@ include 'inc.menu.php';
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">                
                     
+                    <div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="form-group">
+									<!--div class="col-md-2">
+										<select class="form-control" name="k" id="k">
+										<option value="">All Kanwil</option>
+										<?php echo $optcus?>
+										</select>
+									</div>
+									<div class="col-md-2">
+										<select class="form-control" name="area" id="area">
+										<option value="">All Area</option>
+										<?php echo $optarea?>
+										</select>
+									</div-->
+									<div class="col-md-5">
+										<select class="form-control selectpicker" name="st" id="st" multiple>
+										<!--option value="">All Service</option-->
+										<?php echo $optst?>
+										</select>
+									</div>
+									<!--div class="col-md-2">
+										<select class="form-control" name="durasi" id="durasi">
+										<option value=">0">All</option>
+										<option value=">30">Link Normal >30</option>
+										<option value="<=30">Link Normal <=30</option>
+										</select>
+									</div-->
+									<div class="col-md-1">
+										<button class="btn btn-info" onclick="tblupdate()"><i class="fa fa-search"></i> Filter</button>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -245,6 +284,7 @@ include 'inc.logout.php';
         
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>    
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-select.js"></script>
 		<!-- END PAGE PLUGINS -->       
 		
 		<script src="js/plugins/datatables/dataTables.buttons.js"></script>
@@ -287,8 +327,7 @@ $(document).ready(function() {
 				d.cols= '<?php echo base64_encode($cols); ?>',
 				d.tname= '<?php echo base64_encode($tname); ?>',
 				d.csrc= '<?php echo $colsrc; ?>',
-				d.where= '<?php echo base64_encode($where);?>',
-				//d.sever= $("#sever").val(),
+				d.where= getWhere(),
 				d.x= '<?php echo $menu; ?>';
 			}
 		}
@@ -306,10 +345,34 @@ $(document).ready(function() {
             required : true
         }
     }});
+	
+	$(".selectpicker").selectpicker();
+	
 });
 
 function tblupdate(){
 	mytbl.ajax.reload();
+}
+
+function getWhere(){
+	var s=getMultipleValues('#st');
+	if(s!='') return btoa("layanan in ("+s+")");
+	
+	return '';
+}
+function getMultipleValues(theid){
+	var ret="";
+	var arr=$(theid).val();
+	if(arr){
+		for(var i=0;i<arr.length;i++){
+			if(ret==""){
+				ret="'"+arr[i]+"'";
+			}else{
+				ret=ret+",'"+arr[i]+"'";
+			}
+		}
+	}
+	return ret;
 }
 
 </script>
