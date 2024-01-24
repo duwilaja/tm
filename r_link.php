@@ -11,7 +11,7 @@ include 'inc.head.php';
 $where="";
 $tname="tm_outlets o left join tm_ips i on i.oid=o.oid";
 $cols="o.oid,oname,kanwil,layanan,bubw,buprovider,boq,o.rowid";
-$colsrc="o.oid,oname,kanwil";
+$colsrc="o.oid,oname,kanwil,layanan";
 
 $opt1="";
 /*
