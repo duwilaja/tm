@@ -4,7 +4,7 @@ include 'inc.common.php';
 
 $title="Data Link";
 $icon="fa fa-file-text";
-$menu="datalink";
+$menu="-";
 
 include 'inc.head.php';
 
