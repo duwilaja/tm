@@ -355,9 +355,9 @@ function tblupdate(){
 
 function getWhere(){
 	var s=getMultipleValues('#st');
-	if(s!='') return btoa("layanan in ("+s+")");
+	if(s!='') return btoa("layanan <> 'router/switch/ip-phn' and layanan in ("+s+")");
 	
-	return '';
+	return btoa("layanan <> 'router/switch/ip-phn'");
 }
 function getMultipleValues(theid){
 	var ret="";
