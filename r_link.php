@@ -100,7 +100,7 @@ include 'inc.menu.php';
 												<th>Kanwil</th>
 												<th>Link</th>
 												<th>Backup BW</th>
-												<th>Backup Provider</th>
+												<th>Backup Provider</th> 
 												<th>BOQ</th>
                                             </tr>
                                         </thead>
