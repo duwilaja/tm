@@ -664,6 +664,7 @@ $(document).ready(function() {
 	serverSide: true,
 	processing: true,
 	ordering: true,
+	stateSave: true,
 	order: [[1,"desc"]],
 		ajax: {
 			type: 'POST',
