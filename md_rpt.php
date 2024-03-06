@@ -40,9 +40,9 @@ $conn = connect();
 $totgang=0;
 $totlink=0;
 $totjark=0;
-$jark="(grp='jarkom' and (date(dt)=date(now()) or s <> 'closed'))";
-$lnk="($gangguan and (date(dt)=date(now()) or s = 'progress'))";
-$sql="select grp,count(grp) as cnt from tm_tickets where ($lnk or $jark) and st<>'LTE' group by grp";
+$jark="(grp='jarkom' and s = 'progress')";
+$lnk="($gangguan and (date(dt)=date(now()) or s = 'progress') and st<>'LTE')";
+$sql="select grp,count(grp) as cnt from tm_tickets where ($lnk or $jark) group by grp";
 //echo $sql;
 $res=fetch_alla(exec_qry($conn,$sql));
 for($i=0;$i<count($res);$i++){
@@ -82,12 +82,15 @@ echo "Closed : 0 Tiket <br />";
 echo "---------------------------------------- <br />";
 echo "Tiket Jarkom : $totjark Tiket <br />";
 
-$jp=array("router","switch","juniper","ip phone","handset ip phone","adaptor ip phone","adaptor router");
+//$jp=array("router","switch","juniper","ip phone","handset ip phone","adaptor ip phone","adaptor router");
+$sql="select distinct jp from tm_tickets where s='progress' and grp='jarkom'";
+$jp=fetch_alla(exec_qry($conn,$sql));
+	
 for($x=0;$x<count($jp);$x++){
-	$sql="select ticketno,i,h,k,dt from tm_tickets where jp = '".$jp[$x]."' and s<>'closed' and grp='jarkom' and st<>'LTE'";
+	$sql="select ticketno,i,h,k,dt from tm_tickets where jp = '".$jp[$x]['jp']."' and s='progress' and grp='jarkom'";
 	$res=fetch_alla(exec_qry($conn,$sql));
 	$totprog=count($res);
-	echo "- ".$jp[$x]." : $totprog Ticket <br />";
+	echo "- ".$jp[$x]['jp']." : $totprog Ticket <br />";
 	for($i=0;$i<$totprog;$i++){
 		$d=$res[$i];
 		echo ($i+1).".".$d["i"]." ".$d["h"]."<br />";
