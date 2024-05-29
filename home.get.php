@@ -38,14 +38,11 @@ if($row=fetch_row($rs)){ $translog=$row[0];}
 					
 					$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi'");
 					if($row=fetch_row($rs)){ $tot2=$row[0];}
-					//$rs=exec_qry($conn,"select count(*)  from tm_tickets where typ = 'relokasi' and s='solved'");
-					$rs=exec_qry($conn,"select count(oid) from tm_outlets");
+					$rs=exec_qry($conn,"select count(*)  from tm_tickets where typ = 'relokasi' and s='solved'");
 					if($row=fetch_row($rs)){ $solved2=$row[0];}
-					//$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi' and s='progress'");
-					$rs=exec_qry($conn,"select count(distinct area) from tm_outlets");
+					$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi' and s='progress'");
 					if($row=fetch_row($rs)){ $pending2=$row[0];}
-					//$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi' and s in ('open','new')");
-					$rs=exec_qry($conn,"select count(distinct kanwil) from tm_outlets");
+					$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi' and s in ('open','new')");
 					if($row=fetch_row($rs)){ $open2=$row[0];}
 					$rs=exec_qry($conn,"select count(*) from tm_tickets where typ = 'relokasi' and s='closed'");
 					if($row=fetch_row($rs)){ $closed2=$row[0];}

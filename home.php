@@ -290,14 +290,14 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="location.href='tickets<?php echo $env?>?s=miopen';">
+                            <div class="widget widget-primary widget-item-icon" onclick="">
                                 <div class="widget-item-left">
                                     <span class="fa fa-folder-open"></span>
                                 </div>                             
                                 <div class="widget-data">
-                                    <div class="widget-int num-count" id="migrasi_link_open">0</div>
-                                    <div class="widget-title">Open</div>
-                                    <div class="widget-subtitle">Migrasi Link</div>
+                                    <div class="widget-int num-count" id="tot_kanwil">0</div>
+                                    <div class="widget-title">Total</div>
+                                    <div class="widget-subtitle">Kanwil</div>
                                 </div>      
                                 <div class="widget-controls">                                
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -309,14 +309,14 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="location.href='tickets<?php echo $env?>?s=miprogress';">
+                            <div class="widget widget-primary widget-item-icon" onclick="">
                                 <div class="widget-item-left">
                                     <span class="fa fa-hourglass-start"></span>
                                 </div>                             
                                 <div class="widget-data">
-                                    <div class="widget-int num-count" id="migrasi_link_progress">0</div>
-                                    <div class="widget-title">Progress</div>
-                                    <div class="widget-subtitle">Migrasi Link</div>
+                                    <div class="widget-int num-count" id="tot_area">0</div>
+                                    <div class="widget-title">Total</div>
+                                    <div class="widget-subtitle">Area</div>
                                 </div>      
                                 <div class="widget-controls">                                
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -328,14 +328,14 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="location.href='tickets<?php echo $env?>?s=misolved';">
+                            <div class="widget widget-primary widget-item-icon" onclick="">
                                 <div class="widget-item-left">
                                     <span class="fa fa-flag-checkered"></span>
                                 </div>                             
                                 <div class="widget-data">
-                                    <div class="widget-int num-count" id="migrasi_link_solved">0</div>
-                                    <div class="widget-title">Solved</div>
-                                    <div class="widget-subtitle">Migrasi Link</div>
+                                    <div class="widget-int num-count" id="tot_outlet">0</div>
+                                    <div class="widget-title">Total</div>
+                                    <div class="widget-subtitle">Outlets</div>
                                 </div>      
                                 <div class="widget-controls">                                
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
