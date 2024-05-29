@@ -182,6 +182,7 @@ function manage_msgs(s){
 					//$("#preview").attr("src",pict);
 					//$("#preview2").attr("src",pict2);
 					$("#modal_no_head").modal('hide');
+					$('body').addClass('modal-open');
 				},
 				error: function(xhr){
 					$("#processing_msgs").html(xhr);

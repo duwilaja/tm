@@ -323,6 +323,9 @@ if($t=="kanwil"){
 if($t=="outlet"){
 	$msg=crud($conn);
 }
+if($t=="ipdr"){
+	$msg=crud($conn);
+}
 if($t=="ips"){
 	$msg=crud($conn);
 }
