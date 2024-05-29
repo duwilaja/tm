@@ -664,7 +664,6 @@ $(document).ready(function() {
 	serverSide: true,
 	processing: true,
 	ordering: true,
-	stateSave: true,
 	order: [[1,"desc"]],
 		ajax: {
 			type: 'POST',
@@ -757,7 +756,7 @@ $(document).ready(function() {
 });
 
 function tblupdate(){
-	mytbl.ajax.reload();
+	mytbl.ajax.reload(null, false);
 	
 	setTimeout(tblupdate,300*1000);
 }

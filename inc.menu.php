@@ -56,6 +56,7 @@
 							<li><a href="r_m2m<?php echo $env?>"><span class="fa fa-file-text"></span> M2M</a></li>
 							<li><a href="r_link<?php echo $env?>"><span class="fa fa-file-text"></span> Data Link</a></li>
 							<li><a href="r_tickets.arc<?php echo $env?>"><span class="fa fa-file-text"></span> Archive</a></li>
+							<li><a href="ipdr<?php echo $env?>"><span class="fa fa-file-text"></span> IP DR</a></li>
 						</ul>
                     </li>
 				<?php 

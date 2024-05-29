@@ -28,6 +28,8 @@ switch($q){
 	case 'hip': $sql="select * from tm_ips where oid='$id' and layanan='$idx'"; break;
 	case 'ticket': $sql="select * from tm_tickets t left join tm_outlets o on t.i=o.oid where t.rowid='$id'"; break;
 	
+	case 'ipdr': $sql="select * from ipdr where rowid='$id'"; break;
+	
 	case 'm2m': $sql="select * from tm_m2ms where rowid='$id'"; break;
 	case 'm2mx': $sql="select m.* from tm_m2ms m where m.oidx='$id'"; break;
 	
