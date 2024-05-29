@@ -52,9 +52,26 @@ $(document).ready(function() {
 	getJarkom();
 	getPRM();
 	getTR();
+	getKAO();
 	setTimeout(getRunTxt,15*1000);
 });
 
+function getKAO(q='kao'){
+	$.ajax({
+		type: 'POST',
+		url: 'datajson<?php echo $env?>',
+		data: {q:q},
+		success: function(data){
+			var jsn=JSON.parse(data);
+			//console.log(jsn);
+			$.each(jsn[0],function (key,val){
+				$('#'+key).html(val);
+				//console.log(key);
+			})
+		}
+	});
+	setTimeout(getKAO,300*1000);
+}
 function getTR(q='trlog'){
 	$.ajax({
 		type: 'POST',
