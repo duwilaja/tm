@@ -47,6 +47,7 @@ var mywelcome='';
 var mytbl;
 var mycols='<?php echo base64_encode('distinct kanwil as nama')?>';
 var mysrch='kanwil';
+var mywher='';
 
 $(document).ready(function() {
 	runChart();
@@ -60,9 +61,10 @@ $(document).ready(function() {
 	initTbl();
 });
 
-function reloadtbl(dt,nm,fld){
+function reloadtbl(dt,nm,fld,whr=''){
 	mycols=btoa(dt);
 	mysrch=fld;
+	mywher=btoa(whr);
 	$("#namacap").html(nm);
 	mytbl.ajax.reload();
 	$('#modal_madul').modal('show');
@@ -72,6 +74,9 @@ function getCols(){
 }
 function getSrch(){
 	return mysrch;
+}
+function getWher(){
+	return mywher;
 }
 function initTbl(){
 	mytbl = $('#example').DataTable({
@@ -88,7 +93,7 @@ function initTbl(){
 				d.cols= getCols(),
 				d.tname= '<?php echo base64_encode("tm_outlets"); ?>',
 				d.csrc= getSrch(),
-				d.where= '<?php echo base64_encode("");?>',
+				d.where= getWher(),
 				d.x= '-';
 			}
 		}
