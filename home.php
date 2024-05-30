@@ -309,14 +309,14 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct area','Area','area');">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct area','Area','area',' area like \'Deputy%\'');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-hourglass-start"></span>
                                 </div>                             
                                 <div class="widget-data">
                                     <div class="widget-int num-count" id="tot_area">0</div>
                                     <div class="widget-title">Total</div>
-                                    <div class="widget-subtitle">Area</div>
+                                    <div class="widget-subtitle">Deputy</div>
                                 </div>      
                                 <div class="widget-controls">                                
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -328,7 +328,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct oname','Outlet','oname');">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('oname','Outlet','oname');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-flag-checkered"></span>
                                 </div>                             
