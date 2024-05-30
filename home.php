@@ -290,7 +290,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct kanwil','Kanwil','kanwil');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-folder-open"></span>
                                 </div>                             
@@ -309,7 +309,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct area','Area','area');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-hourglass-start"></span>
                                 </div>                             
@@ -328,7 +328,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct oname','Outlet','oname');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-flag-checkered"></span>
                                 </div>                             
@@ -479,6 +479,30 @@ include 'inc.menu.php';
         </div>
         <!-- END PAGE CONTAINER -->
 
+		<div class="modal" id="modal_madul" tabindex="-3" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">                    
+                    <div class="modal-body">
+						<div class="panel panel-default">
+							<div class="panel-body table-responsive">
+								<table id="example" class="table" width="100%">
+									<thead>
+										<tr>
+											<th id="namacap">Kanwil</th>									
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="buto" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php
 include 'inc.logout.php';
 ?>
@@ -493,6 +517,7 @@ include 'inc.logout.php';
 		<!-- END PLUGINS -->
 
         <!-- THIS PAGE PLUGINS -->
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>    
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>

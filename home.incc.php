@@ -44,6 +44,9 @@ return"function"==typeof this.options.hoverCallback&&(b=this.options.hoverCallba
 
 var mybar;
 var mywelcome='';
+var mytbl;
+var mycols='<?php echo base64_encode('distinct kanwil as nama')?>';
+var mysrch='kanwil';
 
 $(document).ready(function() {
 	runChart();
@@ -54,8 +57,43 @@ $(document).ready(function() {
 	getTR();
 	getKAO();
 	setTimeout(getRunTxt,15*1000);
+	initTbl();
 });
 
+function reloadtbl(dt,nm,fld){
+	mycols=btoa(dt);
+	mysrch=fld;
+	$("#namacap").html(nm);
+	mytbl.ajax.reload();
+	$('#modal_madul').modal('show');
+}
+function getCols(){
+	return mycols;
+}
+function getSrch(){
+	return mysrch;
+}
+function initTbl(){
+	mytbl = $('#example').DataTable({
+	dom: 'T<"clear"><lrf<t>ip>',
+	searching: true,
+	serverSide: true,
+	processing: true,
+	ordering: true,
+	order: [[ 0, "asc" ]],
+		ajax: {
+			type: 'POST',
+			url: 'dataget.php',
+			data: function (d) {
+				d.cols= getCols(),
+				d.tname= '<?php echo base64_encode("tm_outlets"); ?>',
+				d.csrc= getSrch(),
+				d.where= '<?php echo base64_encode("");?>',
+				d.x= '-';
+			}
+		}
+	});
+}
 function getKAO(q='kao'){
 	$.ajax({
 		type: 'POST',
