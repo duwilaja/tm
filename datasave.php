@@ -467,6 +467,17 @@ if($t=="batch_outlet"){
 
 	$msg=batch_db($conn,$tname,$data,$pk,$sv,'Master Outlet');
 }
+if($t=="batch_ipdr"){
+	$pk="f_a";
+	$sv=$_POST['svt'];
+	$tname=$_POST['tname'];
+	$data=explode("\r\n",$_POST['datas']);
+	
+	$columns=str_replace("	",",",$data[0]);
+	$acol=explode(",",$columns);
+
+	$msg=batch_db($conn,$tname,$data,$pk,$sv);
+}
 if($t=="bulk_outlet"){
 	$tname=$_POST['tname'];
 	$prop=$_POST['prop'];

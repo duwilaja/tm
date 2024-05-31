@@ -53,6 +53,8 @@ include 'inc.menu.php';
                 <div class="page-title">                    
                     <h2><span class="<?php echo $icon;?>"></span> <?php echo $title;?></h2>
 					<a href="#" onclick="openForm(0);" data-toggle="modal" data-target="#modal_large" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Create</a>
+					<a style="margin-right:5px;" href="#" onclick="openBatch('myff');" data-toggle="modal" data-target="#modal_file" class="btn btn-warning pull-right"><i class="fa fa-upload"></i> Upload</a>
+					
                 </div>                   
                 
                 <!-- PAGE CONTENT WRAPPER -->
@@ -121,6 +123,45 @@ include 'inc.menu.php';
             </div>
         </div>
                 
+		<div class="modal" id="modal_file" tabindex="-2" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="largeModalHead"><b><i class="fa <?php echo $icon;?>"></i> <?php echo $title;?></b></h4>
+                    </div>
+					<div class="">
+					
+						<form class="form-horizontal" id="myff">
+                            <div class="panel panel-default">
+							<div class="panel-body">
+									<input type="hidden" name="t" value="batch_<?php echo $menu;?>">
+									<input type="hidden" name="tname" value="<?php echo $tname?>">
+									<input type="hidden" name="columns" value="">
+									<input type="hidden" id="svtf" name="svt" value="">
+								
+								<div class="form-group">
+									<label class="col-md-2 control-label"><b>Data</b><br />
+									Copy from <a target="_blank" href="sample_ipdr.xls">Sample</a> to data area</label>
+									<div class="col-md-10">
+										<textarea rows="10" class="form-control input-sm" name="datas" id="datas" placeholder="..."></textarea>
+									</div>
+								</div>
+							</div>
+							</div>
+						</form>
+
+                    </div>
+                    <div class="modal-footer">
+						<button type="button" class="btn btn-danger" onclick="sendDataFile('#myff','DEL','#svtf')">Delete</button>
+						<button type="button" class="btn btn-warning" onclick="sendDataFile('#myff','UPD','#svtf')">Update</button>
+						<button type="button" class="btn btn-success" onclick="sendDataFile('#myff','ADD','#svtf')">Add</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
                 </div>
                 <!-- PAGE CONTENT WRAPPER -->                
             </div>            
