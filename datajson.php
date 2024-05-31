@@ -81,7 +81,7 @@ switch($q){
 	case 'prm': $sql="select s,count(*) as t,typ,grp from tm_tickets where typ in ('relokasi','psb','migrasi') group by s,typ,grp"; break;
 	case 'jarkom': $sql="select s,count(*) as t from tm_tickets where grp='jarkom' and typ not in ('relokasi','psb','migrasi') group by s"; break;
 	case 'trlog': $sql="select count(*) as trlog from tm_otrans where timestampdiff(minute,date_format(lastupd,'%Y-%m-%d %H:%i:00'),date_format(now(),'%Y-%m-%d %H:%i:00'))<=75"; break;
-	case 'kao': $sql="select COUNT(DISTINCT kanwil) as tot_kanwil,COUNT(DISTINCT IF(LEFT(area,6) = 'Deputy',area,NULL)) as tot_area,count(oid) as tot_outlet from tm_outlets"; break;
+	case 'kao': $sql="select COUNT(DISTINCT kanwil) as tot_kanwil,COUNT(IF(tipe = 'deputy',oid,NULL)) as tot_area,COUNT(IF(tipe = 'outlet',oid,NULL)) as tot_outlet from tm_outlets"; break;
 }
 
 //echo $sql;

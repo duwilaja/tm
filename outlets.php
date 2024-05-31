@@ -10,8 +10,8 @@ include 'inc.head.php';
 
 $where="";
 $tname="tm_outlets";
-$cols="oid,oname,cabang,kanwil,area,propinsi,pic,contact,pic2,contact2,lat,lng,lastupd,updby,rowid";
-$colsrc="oid,oname,cabang,kanwil,area,propinsi";
+$cols="oid,oname,cabang,kanwil,area,propinsi,pic,contact,pic2,contact2,lat,lng,tipe,lastupd,updby,rowid";
+$colsrc="oid,oname,cabang,kanwil,area,propinsi,tipe";
 
 $opt1="";
 $opt2="";
@@ -75,6 +75,7 @@ include 'inc.menu.php';
 												<th>Contact2</th>
 												<th>Lat</th>
 												<th>Lng</th>
+												<th>Tipe</th>
 												<th>Updated</th>
 												<th>By</th>
                                             </tr>
@@ -212,7 +213,7 @@ include 'inc.menu.php';
 								<div class="panel-body">
 										<input type="hidden" name="t" value="<?php echo $menu;?>">
 										<input type="hidden" name="tname" value="<?php echo $tname;?>">
-										<input type="hidden" name="columns" value="oid,oname,cabang,kanwil,area,lnk,addr,propinsi,sid,pic,pic2,contact,contact2,wibstart,wibend,lat,lng,bupe,bubw,buce,buprovider,busid,svcs">
+										<input type="hidden" name="columns" value="oid,oname,cabang,kanwil,area,lnk,addr,propinsi,sid,pic,pic2,contact,contact2,wibstart,wibend,lat,lng,bupe,bubw,buce,buprovider,busid,svcs,tipe">
 										<input type="hidden" id="svt" name="svt" value="">
 										<input type="hidden" name="id" id="id" value="0">
 										
@@ -336,9 +337,10 @@ include 'inc.menu.php';
 										<div class="col-md-4">
 											<textarea class="form-control input-sm" name="addr" id="addr" placeholder="..."></textarea>
 										</div>
-										<label class="col-md-2 control-label">Services</label>
+										<label class="col-md-2 control-label">Services<br /><br />Tipe Lokasi</label>
 										<div class="col-md-4">
 											<input type="text" class="form-control input-sm" name="svcs" id="svcs" placeholder="...">
+											<input type="text" class="form-control input-sm" name="tipe" id="tipe" placeholder="...">
 										</div>
 									</div>
 								</div>

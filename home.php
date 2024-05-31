@@ -309,7 +309,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('distinct area','Area','area',' area like \'Deputy%\'');">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('oname','Deputy','oname',' tipe= \'deputy\'');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-hourglass-start"></span>
                                 </div>                             
@@ -328,7 +328,7 @@ include 'inc.menu.php';
 						<div class="col-md-2">
                             
                             <!-- START WIDGET MESSAGES -->
-                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('oname','Outlet','oname');">
+                            <div class="widget widget-primary widget-item-icon" onclick="reloadtbl('oname','Outlet','oname',' tipe= \'outlet\'');">
                                 <div class="widget-item-left">
                                     <span class="fa fa-flag-checkered"></span>
                                 </div>                             
