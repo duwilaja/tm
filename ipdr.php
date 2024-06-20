@@ -142,7 +142,7 @@ include 'inc.menu.php';
 								
 								<div class="form-group">
 									<label class="col-md-2 control-label"><b>Data</b><br />
-									Copy from <a target="_blank" href="sample_ipdr.xls">Sample</a> to data area</label>
+									Copy from <a target="_blank" href="sample_ipdr.xlsx">Sample</a> to data area</label>
 									<div class="col-md-10">
 										<textarea rows="10" class="form-control input-sm" name="datas" id="datas" placeholder="..."></textarea>
 									</div>
