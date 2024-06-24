@@ -88,7 +88,7 @@ if(count($ar)==0 && strtolower(date('D'))!='sun'){ //today is not holiday
 		}
 		
 		if(count($arx)==0&&count($arz)==0){ //not double not up
-			$sql="select oname,kanwil,lnk,wibstart,wibend,subtime(wibend,'2:30:00') as wibendsat from tm_outlets where oid='$i' and kanwil not in (select kanwil from tm_holidays where dt=DATE(NOW()) or dt=DATE('$dt'))";
+			$sql="select oname,kanwil,lnk,wibstart,wibend,subtime(wibend,'2:30:00') as wibendsat from tm_outlets where wibstart<>wibend and oid='$i' and kanwil not in (select kanwil from tm_holidays where dt=DATE(NOW()) or dt=DATE('$dt'))";
 			$ar=fetch_all(exec_qry($conn,$sql));
 			$stime="";
 			$etime="";
