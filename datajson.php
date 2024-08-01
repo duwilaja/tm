@@ -61,10 +61,10 @@ switch($q){
 	case 'bar': $sql="select date(dt) as y, count(rowid) as a from tm_tickets where date(dt)<='$idx' and date(dt)>='$id' group by y"; break;
 	
 	case 'mapv': $sql="select distinct lat,lng,	concat(oname,'(',oid,')<br />Service: ',st,'<br />Reported: ',dt,'<br />Solved: ',if(s='solved',solved,'')) as popup, if(s='solved','1','0') as icon 
-				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget order by icon desc";
+				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and (grp='link' or st='xxx') and typ in $homewidget order by icon desc";
 				break;
-	case 'todays': $sql="select s,count(s) as c from tm_tickets where timestampdiff(hour,dt,now())<=24 and (grp='link' or st='LTE') and typ in $homewidget group by s"; break;
-	case 'agings': $sql="select timestampdiff(minute,dt,now()) as a,count(s) as c from tm_tickets where s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget group by a"; break;
+	case 'todays': $sql="select s,count(s) as c from tm_tickets where timestampdiff(hour,dt,now())<=24 and (grp='link' or st='xxx') and typ in $homewidget group by s"; break;
+	case 'agings': $sql="select timestampdiff(minute,dt,now()) as a,count(s) as c from tm_tickets where s<>'closed' and (grp='link' or st='xxx') and typ in $homewidget group by a"; break;
 	
 	case 'mapvkuning': $sql="select distinct lat,lng,concat(oname,'(',oid,')') as popup, if(s='solved','1','0') as icon 
 				from tm_outlets o join tm_tickets t on o.oid=t.i where lat<>'' and lng<>'' and s<>'closed' and grp='link' and typ in $homewidget
