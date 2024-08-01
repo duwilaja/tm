@@ -24,6 +24,7 @@ $titles=substr($s,0,2)=="rm"?"Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="re"?"Relokasi ".$title:$titles;
 $titles=substr($s,0,2)=="mi"?"Migrasi Link ".$title:$titles;
 $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
+$titles=substr($s,0,2)=="td"?"Todays ".$title:$titles;
 $titles=$title==$titles?"All ".$title:$titles;
 
 $titles.=$s!=""?" ".substr($s,2):"";
@@ -87,8 +88,16 @@ if(substr($s,0,2)=="mj"){
 	$where.=$s!=""?" and s like '%".substr($s,2)."%' and typ = 'migrasi' and grp='jarkom'":"";
 	}
 }
+if(substr($s,0,2)=="td"){
+	$para=false;
+	if(substr($s,2)=='open'){
+	$where.=$s!=""?" and s in ('open','new') and timestampdiff(hour,dt,now())<=24 and (grp='link' or st='xxx') and typ in $homewidget":"";
+	}else{
+	$where.=$s!=""?" and s like '%".substr($s,2)."%' and timestampdiff(hour,dt,now())<=24 and (grp='link' or st='xxx') and typ in $homewidget":"";
+	}
+}
 
-$swhere=" and s<>'closed' and (grp='link' or st='LTE') and typ in $homewidget ";
+$swhere=" and s<>'closed' and (grp='link' or st='xxx') and typ in $homewidget ";
 
 if(substr($s,0,2)=="02"){
 	$para=false;
