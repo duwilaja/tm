@@ -63,37 +63,37 @@ include 'inc.menu.php';
                     </div>
 					<div class="row">
 						<div class="col-md-2">
-							<div class="tile tile-info">
+							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=td';">
 								<span id="tot">0</span>
 								<p>Total Ticket</p>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="tile tile-primary">
+							<div class="tile tile-primary" onclick="location.href='tickets<?php echo $env?>?s=tdnew';">
 								<span id="new">0</span>
 								<p>New Ticket</p>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="tile tile-danger">
+							<div class="tile tile-danger" onclick="location.href='tickets<?php echo $env?>?s=tdopen';">
 								<span id="open">0</span>
 								<p>Open Ticket</p>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="tile tile-success">
+							<div class="tile tile-success" onclick="location.href='tickets<?php echo $env?>?s=tdprogress';">
 								<span id="progress">0</span>
 								<p>Progress Ticket</p>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="tile tile-secondary">
+							<div class="tile tile-secondary" onclick="location.href='tickets<?php echo $env?>?s=tdsolved';">
 								<span id="solved">0</span>
 								<p>Solved Ticket</p>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="tile tile-info">
+							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=tdclosed';">
 								<span id="closed">0</span>
 								<p>Closed Ticket</p>
 							</div>
