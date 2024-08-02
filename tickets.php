@@ -24,7 +24,7 @@ $titles=substr($s,0,2)=="rm"?"Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="re"?"Relokasi ".$title:$titles;
 $titles=substr($s,0,2)=="mi"?"Migrasi Link ".$title:$titles;
 $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
-$titles=substr($s,0,2)=="td"?"Todays ".$title:$titles;
+$titles=substr($s,0,2)=="td"?"Last 24hr ".$title:$titles;
 $titles=$title==$titles?"All ".$title:$titles;
 
 $titles.=$s!=""?" ".substr($s,2):"";
