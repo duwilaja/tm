@@ -15,15 +15,15 @@ $cols="dt,rid,typ,st,i,h,k,d,crtdby,v,rowid";
 $colsrc="i,h,st,typ,k,d,crtdby";
 
 $opt1="";
-/*
+
 include "inc.db.php";
 $conn=connect();
-$rs=exec_qry($conn,"select locid,locname from tm_kanwils order by locname");
+$rs=exec_qry($conn,"select distinct lnk from tm_outlets where trim(lnk)<>'' order by lnk");
 while($row=fetch_row($rs)){
-	$opt1.='<option value="'.$row[0].'">'.$row[1].'</option>';
+	$opt1.='<option value="'.$row[0].'">'.$row[0].'</option>';
 }
 disconnect($conn);
-*/
+
 ?>
         <!-- START PAGE CONTAINER -->
         <div class="page-container page-navigation-top">            
@@ -73,6 +73,12 @@ include 'inc.menu.php';
 												<input id="dt" name="dt" type="text" class="form-control datepicker" placeholder="">
 												<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 											</div>
+										</div>
+										<div class="col-md-2">
+											<select class="form-control" name="lnk" id="lnk">
+												<option value="">All Main Link</option>
+												<?php echo $opt1?>
+											</select>
 										</div>
 										<div class="col-md-2">
 											<button class="btn btn-info" onclick="tblupdate()"><i class="fa fa-search"></i> Filter</button>
@@ -224,7 +230,7 @@ $(document).ready(function() {
 				d.cols= '<?php echo base64_encode($cols); ?>',
 				d.tname= getTname(),
 				d.csrc= '<?php echo $colsrc; ?>',
-				d.where= '<?php echo base64_encode($where);?>',
+				d.where= getWhere(),
 				//d.sever= $("#sever").val(),
 				d.df= $("#df").val(),
 				d.dt= $("#dt").val(),
@@ -256,6 +262,13 @@ function getTname(){
 		return '<?php echo base64_encode($tname); ?>';
 	}else{
 		return '<?php echo base64_encode("tm_apicreate_log_h"); ?>';
+	}
+}
+function getWhere(){
+	if($("#lnk").val()==''){
+		return '';
+	}else{
+		return btoa("left(h,5) in (select oid from tm_outlets where lnk='"+$("#lnk").val()+"')");
 	}
 }
 </script>
