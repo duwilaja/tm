@@ -26,7 +26,7 @@ switch($q){
 	case 'houtlet': $sql="select * from tm_outlets where oid='$id'"; break;
 	case 'houtletx': $sql="select oid,oname,kanwil from tm_outlets where oid='$id' or area like '%$id%' order by oname"; break;
 	case 'hip': $sql="select * from tm_ips where oid='$id' and layanan='$idx'"; break;
-	case 'ticket': $sql="select * from tm_tickets t left join tm_outlets o on t.i=o.oid where t.rowid='$id'"; break;
+	case 'ticket': $sql="select *,DATE(o.lastupd) as oupd from tm_tickets t left join tm_outlets o on t.i=o.oid where t.rowid='$id'"; break;
 	
 	case 'ipdr': $sql="select * from ipdr where rowid='$id'"; break;
 	

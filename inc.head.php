@@ -54,6 +54,10 @@
 					transform: translateX(-100%); 
 				 }
 			}
+			
+			.mybold{
+				font-weight: bold;
+			}
 
 		</style>
     </head>
