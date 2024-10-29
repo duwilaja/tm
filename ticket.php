@@ -803,6 +803,7 @@ function getTicket(){
 	var url='datajson.php';
 	var mtd='POST';
 	var frmdata={q:'ticket',id:'<?php echo $pkid?>'};
+	var satuming="<?php echo date("Y-m-d",strtotime("- 1 week"))?>";
 	$.ajax({
 		type: mtd,
 		url: url,
@@ -825,6 +826,12 @@ function getTicket(){
 				}
 				if(key=='st'){
 					st=val;
+				}
+				if(key=='oupd'){
+					if(satuming<=val){
+						$("#pic").addClass("mybold");$("#pic2").addClass("mybold");
+						$("#contact").addClass("mybold");$("#contact2").addClass("mybold");
+					}
 				}
 			});
 			typChange();
