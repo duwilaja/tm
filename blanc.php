@@ -1,4 +1,5 @@
 <?php
+$corona=true;
 include 'inc.chksession.php';
 $s_NAME="Nama User";
 include 'inc.common.php';
