@@ -1,4 +1,5 @@
 <?php
+$corona=true;
 include 'inc.chksession.php';
 include 'inc.common.php';
 include 'inc.db.php';
@@ -10,73 +11,421 @@ $icon="fa fa-tachometer";
 include 'inc.head.php';
 
 $conn=connect();
-?>
-        <!-- START PAGE CONTAINER -->
-        <div class="page-container page-navigation-top">            
-            <!-- PAGE CONTENT -->
-            <div class="page-content">
-                
-<?php
+
 include 'inc.menu.php';
 ?>
-                
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                </ul>
-                <!-- END BREADCRUMB -->                
-                
-                <div class="page-title">                    
-                    <h2><span class="<?php echo $icon;?>"></span> <?php echo $title;?></h2>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<!--a href="home.php" class="btn btn-success"><i class="fa fa-calendar"></i>Daily</a>
-					<a href="home.php?p=week" class="btn btn-warning"><i class="fa fa-calendar"></i>Weekly</a>
-					<a href="home.php?p=month" class="btn btn-danger"><i class="fa fa-calendar"></i>Monthly</a-->
-                </div>                   
-                
-                <!-- PAGE CONTENT WRAPPER -->
-                <div class="page-content-wrap">                
-<?php
-include 'home.inci.php';
-?>
+        
+        <div class="main-panel">
+          <div class="content-wrapper">
+			
+			<div class="row">
+				
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
                     <div class="row">
-                        <div class="col-md-9">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="30days_total">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-ticket icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Total</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="30days_open">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-danger ">
+                          <span class="mdi mdi-ticket icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Open</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="30days_progress">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-warning ">
+                          <span class="mdi mdi-ticket icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Progress</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="30days_pending">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-info ">
+                          <span class="mdi mdi-ticket icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Pending</h6>
+                  </div>
+                </div>
+              </div>
+            
+			</div>
+			
+			<div class="row">
+				
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="relokasi_link_newopen">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-danger ">
+                          <span class="mdi mdi-vector-difference-ba icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Open Relokasi</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="relokasi_link_progress">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-warning ">
+                          <span class="mdi mdi-vector-difference-ba icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Progress Relokasi</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="relokasi_link_solved">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-vector-difference-ba icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Solved Relokasi</h6>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="jarkom_newopen">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-danger ">
+                          <span class="mdi mdi-server-network icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Open Jarkom</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="jarkom_progress">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-warning ">
+                          <span class="mdi mdi-server-network icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Progress Jarkom</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="jarkom_solved">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-server-network icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Solved Jarkom</h6>
+                  </div>
+                </div>
+              </div>
+
+			</div>
+		  
+			<div class="row">
+				
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="tot_kanwil">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-info ">
+                          <span class="mdi mdi-select-all icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Kanwil</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="tot_area">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-info ">
+                          <span class="mdi mdi-select-inverse icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Deputy</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="tot_outlet">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-info ">
+                          <span class="mdi mdi-select icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Outlet</h6>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="migrasi_link_newopen">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-danger ">
+                          <span class="mdi mdi-shuffle-variant icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Open Mugrasi Link</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="migrasi_link_progress">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-warning ">
+                          <span class="mdi mdi-shuffle-variant icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Progress Migrasi Link</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="migrasi_link_solved">0</h3>
+                          <!--p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p-->
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-shuffle-variant icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Solved Migrasi Link</h6>
+                  </div>
+                </div>
+              </div>
+
+			</div>
+			
+					<div class="row">
+                        <div class="col-md-4">
 
                             <!-- START BAR CHART -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Tanggal Terima</h3>                                
+								<div  class="panel-title-box">
+                                    <h3>Ticket By Date</h3>
+									<span>Last 7 days</span>
+								</div>
                                 </div>
                                 <div class="panel-body">
-                                    <div id="morris-bar-example" style="height: 300px;"></div>
+                                    <div id="morris-bar-daily" style="height: 300px;"></div>
                                 </div>
                             </div>
                             <!-- END BAR CHART -->
-
                         </div>
-                        <div class="col-md-3">
+					<!--/div>
+					
+                    <div class="row"-->
+                        <div class="col-md-4">
+
+                            <!-- START BAR CHART -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <div  class="panel-title-box">
+                                    <h3>Link</h3>
+									<span>Last 30 days</span>
+								</div>
+								</div>
+                                <div class="panel-body">
+                                    <div id="morris-donut-customer" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                            <!-- END BAR CHART -->
+                        </div>
+
+                        <div class="col-md-4">
 
                             <!-- START DONUT CHART -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Kondisi</h3>                                
-                                </div>
+                                <div  class="panel-title-box">
+                                    <h3>Jarkom</h3>
+									<span>Last 30 days</span>
+								</div>
+								</div>
                                 <div class="panel-body">
-                                    <div id="morris-donut-example" style="height: 300px;"></div>
+                                    <div id="morris-donut-sla" style="height: 300px;"></div>
                                 </div>
                             </div>
-                            <!-- END DONUT CHART -->                        
+                            <!-- END DONUT CHART -->
+                        </div>
+
+                        <div class="col-md-4" style="display:none;"> 
+                            <!-- START DONUT CHART -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Ticket by Status</h3>                                
+                                </div>
+                                <div class="panel-body">
+                                    <div id="morris-donut-status" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                            <!-- END DONUT CHART -->                                                 
 
                         </div>
-                    </div>                
-					
-                </div>
-                <!-- PAGE CONTENT WRAPPER -->                
-            </div>            
-            <!-- END PAGE CONTENT -->
-        </div>
-        <!-- END PAGE CONTAINER -->
+                    </div>
 
+		  </div>
+          <!-- content-wrapper ends -->
 <?php
 include 'inc.logout.php';
 ?>
@@ -95,15 +444,7 @@ include 'inc.logout.php';
 		<script type="text/javascript" src="js/plugins/morris/raphael-min.js"></script>
 		<script type="text/javascript" src="js/plugins/morris/morris.min.js"></script>
         <!-- END PAGE PLUGINS -->       
-
-        <!-- START TEMPLATE >
-        <script type="text/javascript" src="js/settings.js"></script-->
-        
-        <script type="text/javascript" src="js/plugins.js"></script>        
-        <script type="text/javascript" src="js/actions.js"></script>        
-		<!--script type="text/javascript" src="js/cdemo_charts_morris.js"></script>
-        <!-- END TEMPLATE -->
-    <!-- END SCRIPTS -->
+  <!-- END SCRIPTS -->
 	
 <?php
 include 'home.incc.php';
