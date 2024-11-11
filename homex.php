@@ -272,7 +272,7 @@ include 'inc.menu.php';
                 </div>
               </div>
               <div class="col-xl-2 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card" onclick="reloadtbl('oname','Outlet','oname',' tipe= \'outlet\'');">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
@@ -426,6 +426,31 @@ include 'inc.menu.php';
 
 		  </div>
           <!-- content-wrapper ends -->
+		  
+		  <div class="modal" id="modal_madul" tabindex="-3" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">                    
+                    <div class="modal-body">
+						<div class="panel panel-default">
+							<div class="panel-body table-responsive">
+								<table id="example" class="table" width="100%">
+									<thead>
+										<tr>
+											<th id="namacap">Kanwil</th>									
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="buto" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php
 include 'inc.logout.php';
 ?>

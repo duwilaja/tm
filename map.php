@@ -11,12 +11,13 @@ $icon="fa fa-map-marker";
 <style type="text/css">
 .tile.tile-secondary{
 	background: linear-gradient(to bottom, #54321a 0%, #54321f 100%);
+	border-color: #54321a;
 }
 </style>
         <!-- START PAGE CONTAINER -->
         <div class="page-container page-navigation-top">            
             <!-- PAGE CONTENT -->
-            <div class="page-content">
+            <div class="page-content" style="background: #212121;">
                 
 <?php
 include 'inc.menu.php';
@@ -38,7 +39,7 @@ include 'inc.menu.php';
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default" style="background: #121212;">
 								<div class="panel-heading hidden">
                                     <div class="panel-title-box">
                                         <h3></h3>

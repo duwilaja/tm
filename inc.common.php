@@ -3,6 +3,7 @@ $env=".php";
 $app="Cloud NEO Pegadaian ";
 
 $template=isset($corona)?"corona":"joli"; // joli / corona
+//$template="corona";
 
 $feedback=false;
 $anonfeedback=false;
