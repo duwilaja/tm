@@ -61,6 +61,7 @@
 function mmCloseClick(m){
 	if($('#processing_msgs').text()=='Data has been saved'){
 		$("#modal_large").modal('hide');
+		$(".modal-backdrop").remove();
 		if(typeof(parent.$.fancybox.close)=='function'){
 			parent.$.fancybox.close();
 		}

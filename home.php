@@ -19,7 +19,7 @@ $conn=connect();
         <!-- START PAGE CONTAINER -->
         <div class="page-container page-navigation-top">            
             <!-- PAGE CONTENT -->
-            <div class="page-content">
+            <div class="page-content" style="background: #212121;">
                 
 <?php
 include 'inc.menu.php';
@@ -41,7 +41,7 @@ include 'inc.menu.php';
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">    
-				<div class="panel panel-default"><div class="panel-body scroll-left">
+				<div class="panel panel-default"><div class="panel-body scroll-left" style="background: #484848; color: white;">
 					<span>Welcome, <?php echo $s_NAME; ?></span>
 				</div></div>
 				
@@ -408,10 +408,10 @@ include 'inc.menu.php';
                         <div class="col-md-4">
 
                             <!-- START BAR CHART -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-								<div  class="panel-title-box">
-                                    <h3>Ticket By Date</h3>
+                            <div class="panel panel-default" style="background: #121212;">
+                                <div class="panel-heading" style="background: #484848;">
+                                <div  class="panel-title-box" style="color: white;">
+                                    <h3 style="color: white;">Ticket By Date</h3>
 									<span>Last 7 days</span>
 								</div>
                                 </div>
@@ -427,10 +427,10 @@ include 'inc.menu.php';
                         <div class="col-md-4">
 
                             <!-- START BAR CHART -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                <div  class="panel-title-box">
-                                    <h3>Link</h3>
+                            <div class="panel panel-default" style="background: #121212;">
+                                <div class="panel-heading" style="background: #484848;">
+                                <div  class="panel-title-box" style="color: white;">
+                                    <h3 style="color: white;">Link</h3>
 									<span>Last 30 days</span>
 								</div>
 								</div>
@@ -444,10 +444,10 @@ include 'inc.menu.php';
                         <div class="col-md-4">
 
                             <!-- START DONUT CHART -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                <div  class="panel-title-box">
-                                    <h3>Jarkom</h3>
+                            <div class="panel panel-default" style="background: #121212;">
+                                <div class="panel-heading" style="background: #484848;">
+                                <div  class="panel-title-box" style="color: white;">
+                                    <h3 style="color: white;">Jarkom</h3>
 									<span>Last 30 days</span>
 								</div>
 								</div>

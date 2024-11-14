@@ -14,12 +14,15 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="corona/bs4/bootstrap.css">
+    <link rel="stylesheet" href="corona/bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="corona/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="corona/assets/images/favicon.png" />
 	<style type="text/css">
+	.hidden{
+		display: none;
+	}
 	.modal-backdrop {
 	  position: fixed;
 	  top: 0;
@@ -28,6 +31,9 @@
 	  width: 100vw;
 	  height: 100vh;
 	  background-color: rgba(200,200,200,0.4);
+	}
+	.close{
+		color: white;
 	}
 	</style>
   </head>
