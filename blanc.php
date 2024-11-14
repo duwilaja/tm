@@ -6,7 +6,7 @@ include 'inc.common.php';
 $title="Page Title";
 include 'inc.head.php';
 
-$menu="";
+$menu="kanwil";
 
 $icon="fa fa-tachometer";
 
@@ -34,6 +34,90 @@ include 'inc.menu.php';
                         </div>
                     </div>
 					<div class="row">
+						<div class="col-md-6">
+
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description"> Basic form layout </p>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                      </div>
+                      <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me <i class="input-helper"></i></label>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              
+						</div>
+						<div class="col-md-6">
+
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Horizontal Form</h4>
+                    <p class="card-description"> Horizontal form layout </p>
+                    <form class="forms-sample">
+                      <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
+                        <div class="col-sm-9">
+                          <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
+                        </div>
+                      </div>
+                      <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me <i class="input-helper"></i></label>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              
+						</div>
+					</div>
+					<div class="row">
 						<div class="col-md-12">
 						
                 <div class="card">
@@ -42,7 +126,7 @@ include 'inc.menu.php';
                     <p class="card-description"> Add class <code>.table-dark</code>
                     </p>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table class="table table-dark hidden">
                         <thead>
                           <tr>
                             <th> # </th>
@@ -96,7 +180,10 @@ include 'inc.menu.php';
                           </tr>
                         </tbody>
                       </table>
-						<table id="example" class="table">
+						
+						<br /><br />
+					
+						<table id="example" class="table table-dark">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -116,6 +203,53 @@ include 'inc.menu.php';
 			
           </div>
           <!-- content-wrapper ends -->
+		  
+		<div class="modal" id="modal_large" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="largeModalHead"><b><i class="fa <?php echo $icon;?>"></i> <?php echo $title;?></b></h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    </div>
+					<div class="">
+					
+						<form class="form-horizontal" id="myf">
+                            <div class="panel panel-default">
+							<div class="panel-body">
+									<input type="hidden" name="t" value="<?php echo $menu;?>">
+									<input type="hidden" name="tname" value="<?php echo $tname;?>">
+									<input type="hidden" name="columns" value="locid,locname">
+									<input type="hidden" id="svt" name="svt" value="">
+									<input type="hidden" name="id" id="id" value="0">
+									
+								<div class="form-group">
+									<label class="col-md-2 control-label">ID</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control input-sm" name="locid" id="locid" placeholder="...">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">Name</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control input-sm" name="locname" id="locname" placeholder="...">
+									</div>
+								</div>
+								
+							</div>
+							<div class="panel-body" id="pesan"></div>
+							</div>
+						</form>
+
+                    </div>
+                    <div class="modal-footer">
+						<button type="button" class="btn btn-success" onclick="if($('#myf').valid()){sendDataFile('#myf','SAVE');}">Save</button>
+						<button type="button" class="btn btn-danger" id="bdel" data-toggle="modal" data-target="#modal_delete">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <?php
 include 'inc.logout.php';
 ?>
@@ -127,11 +261,11 @@ include 'inc.logout.php';
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
         <!-- END PLUGINS -->
 
-        <!-- THIS PAGE PLUGINS -->
+        <!-- THIS PAGE PLUGINS --
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap4.js"></script>		
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script-->
+		<script type="text/javascript" src="corona/bs4/dataTables.js"></script>
+		<script type="text/javascript" src="corona/bs4//dataTables.bootstrap4.js"></script>		
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
         <!-- END PAGE PLUGINS -->       
 		
