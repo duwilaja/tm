@@ -215,23 +215,23 @@ include 'inc.menu.php';
 					
 						<form class="form-horizontal" id="myf">
                             <div class="panel panel-default">
-							<div class="panel-body">
+							<div class="panel-body" style="padding: 15px;">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
 									<input type="hidden" name="columns" value="locid,locname">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
-								<div class="form-group">
+								<div class="form-group row">
 									<label class="col-md-2 control-label">ID</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control input-sm" name="locid" id="locid" placeholder="...">
+										<input type="text" class="form-control form-control-sm" name="locid" id="locid" placeholder="...">
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group row">
 									<label class="col-md-2 control-label">Name</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control input-sm" name="locname" id="locname" placeholder="...">
+										<input type="text" class="form-control form-control-sm" name="locname" id="locname" placeholder="...">
 									</div>
 								</div>
 								

@@ -14,11 +14,15 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="corona/assets/vendors/css/select2.min.css" />
+	<link rel="stylesheet" type="text/css" href="corona/assets/vendors/css/select2.bootstrap.min.css" />
     <link rel="stylesheet" href="corona/bs4/bootstrap.css">
     <link rel="stylesheet" href="corona/bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="corona/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="corona/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
 	.hidden{
 		display: none;
@@ -34,6 +38,66 @@
 	}
 	.close{
 		color: white;
+	}
+	.form-control[readonly], form-control.disabled{
+		background: #2A3038; color: #888;
+	}
+	div.card-title{
+		display: flex;
+		justify-content: space-between;
+	}
+	.panel-body{
+		padding: 15px;
+	}
+	div.datepicker td span {
+	  display: block;
+	  width: 31%;
+	  height: 54px;
+	  line-height: 54px;
+	  float: left;
+	  margin: 2px;
+	  cursor: pointer;
+	  text-align: center;
+	}
+	div.datepicker thead tr:first-child th {
+	  cursor: pointer;
+	  padding: 8px 0px;
+	  text-align: center;
+	}
+	div.datepicker td.day:hover {
+	  background: #F5F5F5;
+	  cursor: pointer;
+	  text-align: center;
+	}
+	.main-card{
+		overflow: auto;
+	}
+	.pull-right{
+		float: right;
+	}
+	.tile {
+	  width: 100%;
+	  float: left;
+	  margin: 0px;
+		margin-bottom: 0px;
+	  list-style: none;
+	  text-decoration: none;
+	  font-size: 38px;
+	  font-weight: 300;
+	  color: #FFF;
+	  -moz-border-radius: 0px;
+	  -webkit-border-radius: 0px;
+	  border-radius: 0px;
+	  padding: 10px;
+	  margin-bottom: 20px;
+	  min-height: 100px;
+	  position: relative;
+	  border: 1px solid #D5D5D5;
+		border-top-color: rgb(213, 213, 213);
+		border-right-color: rgb(213, 213, 213);
+		border-bottom-color: rgb(213, 213, 213);
+		border-left-color: rgb(213, 213, 213);
+	  text-align: center;
 	}
 	</style>
   </head>
