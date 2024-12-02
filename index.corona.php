@@ -116,8 +116,8 @@ if($loggedin){
                     <input type="password" name="p" class="form-control p_input">
                   </div>
 				  <div class="form-group">
-                    <img src="captcha.php" style="width:100%;" />
                     <input type="text" name="k" class="form-control p_input" placeholder="Type the word here">
+                    <img src="captcha.php" style="width:50%;" />
                   </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
