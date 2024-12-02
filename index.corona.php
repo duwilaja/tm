@@ -10,13 +10,17 @@ function getmac(){
 $u="";
 $p="";
 $msg="";
+$captcha="";
 
 if(isset($_POST["u"])){$u=$_POST["u"];}
 if(isset($_POST["p"])){$p=$_POST["p"];}
 if(isset($_GET["m"])){$msg=$_GET['m'];}
 
 
-if($u!=""){
+if(isset($_POST["k"])){$captcha=$_POST["k"];}
+session_start();
+
+if($u!=""&&$captcha==$_SESSION['kode_captcha']){
 $loggedin=false;
 
 $sql="select username,userlevel,usergrp from tm_users where (userid='$u') and userpwd=MD5('$p')";
@@ -24,7 +28,7 @@ $sql="select username,userlevel,usergrp from tm_users where (userid='$u') and us
 	$conn = connect();
 	$rs = exec_qry($conn,$sql);
 	if ($row = fetch_row($rs)) {
-		session_start();
+		//session_start();
 		//if (!isset($_SESSION['s_ID'])) {
     		$_SESSION['s_ID'] = $u;
 		//}
@@ -67,6 +71,10 @@ if($loggedin){
 		header("Location: home$env");
 	}
 }
+}else{
+	if($u!=''){
+		$msg="Wrong Captcha.";
+	}
 }
 ?>
 
@@ -106,6 +114,10 @@ if($loggedin){
                   <div class="form-group">
                     <label>Password *</label>
                     <input type="password" name="p" class="form-control p_input">
+                  </div>
+				  <div class="form-group">
+                    <img src="captcha.php" style="width:100%;" />
+                    <input type="text" name="k" class="form-control p_input" placeholder="Type the word here">
                   </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
