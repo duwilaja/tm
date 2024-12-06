@@ -96,7 +96,7 @@ if($loggedin){
     <!-- Layout styles -->
     <link rel="stylesheet" href="corona/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="corona/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="favicon-16.png" />
   </head>
   <body>
     <div class="container-scroller">

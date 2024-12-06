@@ -32,17 +32,23 @@ include 'inc.menu.php';
         <div class="main-panel">
           <div class="content-wrapper">
 			                            
+					<div class="row">
+						<div class="col-md-12">
+                
+                <div class="page-header">                    
+                    <h3 class="page-title"><?php echo $title;?></h3>
+					<div>
+					<a href="#" onclick="openForm(0);" data-toggle="modal" data-target="#modal_large" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create</a>
+					</div>
+				</div>
+				
+						</div>
+					</div>
+					
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                  <div class="card-body">
-                    <div class="card-title">
-						<span><h4>Holidays</h4></span>
-						<a href="#" onclick="openForm(0);" data-toggle="modal" data-target="#modal_large" class="btn btn-info pull-right"><i class="mdi mdi-plus"></i> Create</a>
-					</div>
-                    <p class="card-description hidden"> Add class <code>.table-dark</code>
-                    </p>
-                    <div class="table-responsive">
+                  <div class="card-body table-responsive">
                                     <table id="example" class="table table-dark">
                                         <thead>
                                             <tr>
@@ -55,7 +61,6 @@ include 'inc.menu.php';
                                         </tbody>
                                     </table>
                                 </div>
-                  </div>
                 </div>
               
 						</div>
@@ -165,9 +170,6 @@ $(document).ready(function() {
         }
     }});
 	
-	//if($(".datepicker").length > 0){
-		$(".datepicker").datepicker({format: 'yyyy-mm-dd'});                
-	//}
 });
 
 function tblupdate(){

@@ -2,7 +2,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
           <a class="sidebar-brand brand-logo" href="homex.php"><img src="img/logo.jpg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="homex.php"><img src="logo/logo-mini.jpg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="homex.php"><img src="favicon-16.png" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile hidden">
@@ -55,7 +55,7 @@
             </div>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">&nbsp</span>
+            <span class="nav-link">&nbsp;</span>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="homex.php">
@@ -98,20 +98,36 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/tables/basic-table.html">
+            <a class="nav-link" data-toggle="collapse" href="#reportsz" aria-expanded="false" aria-controls="reports">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
               <span class="menu-title">Reports</span>
+			  <i class="menu-arrow"></i>
             </a>
+			<div class="collapse" id="reportsz">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href=".php">All</a></li>
+                <li class="nav-item"> <a class="nav-link" href=".php?pic=1&grp=1">Open</a></li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/charts/chartjs.html">
+            <a class="nav-link" data-toggle="collapse" href="#ifacesz" aria-expanded="false" aria-controls="ifaces">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
               <span class="menu-title">Interfaces</span>
+			  <i class="menu-arrow"></i>
             </a>
+			<div class="collapse" id="ifacesz">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="r_createlogx.php">Create Ticket</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_updatelogx.php">Update Ticket</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_operationx.php">Transactions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_wifix.php">DVO</a></li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item menu-items hidden">
             <a class="nav-link" href="../../pages/icons/mdi.html">
@@ -154,7 +170,7 @@
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="homex.php"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="homex.php"><img src="favicon-16.png" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -312,12 +328,12 @@
                   <div class="navbar-profile">
                     <!--img class="img-xs rounded-circle hidden" src="../../assets/images/faces/face15.jpg" alt=""-->
 					<div class="preview-icon bg-dark rounded-circle"><i class="mdi mdi-account-circle text-success"></i></div>
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php echo $s_NAME?></p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php echo $s_ID?></p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <h6 class="p-3 mb-0">Profile</h6>
+                  <h6 class="p-3 mb-0 text-center text-warning"><b><?php echo $s_NAME?></b></h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="cpwdx.php">
                     <div class="preview-thumbnail">
@@ -341,7 +357,41 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                  <p class="p-3 mb-0 text-center">Administrative</p>
+				  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="cmsusersx.php">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-account-multiple text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Users</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="userlogsx.php">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-account-network text-info"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Logs</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="updatelogsx.php">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-account-check text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Updates</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
                 </div>
               </li>
             </ul>
