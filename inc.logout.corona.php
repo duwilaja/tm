@@ -262,7 +262,7 @@ function manage_msgs(s){
 						s=json[i]['s'];
 						if(s=='new'){
 							n++;
-							s='online';
+							s='success';
 							thePopup.push(json[i]);
 							popupbody += json[i]['h']+'-'+json[i]['s']+'\n';
 						}else{
@@ -273,22 +273,45 @@ function manage_msgs(s){
 							//if(s=='open'){
 							//	s='away';
 							//}else{
-								s='offline';
+								s='danger';
 							//}
 						}
-						msg+=  '<a target="_blank" href="ticket<?php echo $env;?>?g=1&id='+json[i]['rowid']+'" class="list-group-item fancy">'+
+						/*msg+=  '<a target="_blank" href="ticket<?php echo $env;?>?g=1&id='+json[i]['rowid']+'" class="list-group-item fancy">'+
                                     '<div class="list-group-status status-'+s+'"></div>'+
                                     '<span class="contacts-title">'+json[i]['h']+'</span>'+
                                     '<p>'+json[i]['tglj']+'</p>'+
-                                '</a>';
+                                '</a>';*/
+								
+						msg+= 	'<a class="dropdown-item preview-item" href="JavaScript:;" data-fancybox data-type="iframe" data-src="ticket<?php echo $env;?>?g=1&id='+json[i]['rowid']+'">'+
+									'<div class="preview-thumbnail">'+
+									  '<div class="preview-icon bg-dark rounded-circle">'+
+										'<i class="mdi mdi-ticket text-'+s+'"></i>'+
+									  '</div>'+
+									'</div>'+
+									'<div class="preview-item-content">'+
+									  '<p class="preview-subject mb-1">'+json[i]['h']+'</p>'+
+									  '<p class="text-muted ellipsis mb-0"> '+json[i]['tglj']+' </p>'+
+									'</div>'+
+								  '</a>'+
+								  '<div class="dropdown-divider"></div>'
+										
 					}
-					//console.log(json[0]['alert']);
+					
+					if(a>0){
+						msg='<h6 class="p-3 mb-0">Notifications</h6>'+
+                  '<div class="dropdown-divider"></div>'+msg;
+						$(".count").removeClass("hidden");
+					}else{
+						$(".count").addClass("hidden");
+					}
+					/*/console.log(json[0]['alert']);
 					if(a>=4){
 						//console.log('lebih 4');
 						$("#txtmsg").css('height','200px');
 					}else{
 						$("#txtmsg").css('height','100%');
-					}
+					}*/
+					
 					$("#alert").text(a);
 					$("#nalert").text(n);
 					$("#txtmsg").html(msg);

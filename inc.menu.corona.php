@@ -65,6 +65,9 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+		  <?php
+						if($s_LVL==0&&$s_GRP==""){
+						?>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -82,6 +85,9 @@
               </ul>
             </div>
           </li>
+						<?php }
+				if($s_LVL<9){
+						?>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ticketz" aria-expanded="false" aria-controls="tiketz">
               <span class="menu-icon">
@@ -94,9 +100,17 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="ticketsx.php">All</a></li>
                 <li class="nav-item"> <a class="nav-link" href="ticketox.php?pic=1&grp=1">Open</a></li>
+					<?php
+						if($s_LVL==4){
+						?>
+				<li class="nav-item"> <a class="nav-link" href="ticketgx.php?grp=1">My Group</a></li>
+						<?php } ?>
               </ul>
             </div>
           </li>
+					<?php
+						if($s_LVL!=3){
+						?>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#reportsz" aria-expanded="false" aria-controls="reports">
               <span class="menu-icon">
@@ -107,11 +121,16 @@
             </a>
 			<div class="collapse" id="reportsz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=".php">All</a></li>
-                <li class="nav-item"> <a class="nav-link" href=".php?pic=1&grp=1">Open</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_ticketsx.php">Tickets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_hticketsx.php">Ticket History</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_moutletsx.php">Outlets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_outletsx.php">Outlets History</a></li>
               </ul>
             </div>
           </li>
+				<?php 
+				}}
+					if(($s_LVL==0&&$s_GRP=="")){?>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ifacesz" aria-expanded="false" aria-controls="ifaces">
               <span class="menu-icon">
@@ -129,6 +148,8 @@
               </ul>
             </div>
           </li>
+				<?php }?>
+					
           <li class="nav-item menu-items hidden">
             <a class="nav-link" href="../../pages/icons/mdi.html">
               <span class="menu-icon">
@@ -276,51 +297,12 @@
                   <p class="p-3 mb-0 text-center">4 new messages</p>
                 </div>
               </li>
-              <li class="nav-item dropdown border-left">
+              <li class="nav-item dropdown border-left" <?php if($s_LVL==9) echo 'style="display:none"'?>>
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                   <i class="mdi mdi-bell"></i>
                   <span class="count bg-danger"></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0">Notifications</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-calendar text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Event today</p>
-                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-settings text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
-                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-link-variant text-warning"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Launch Admin</p>
-                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                <div id="txtmsg" class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                 </div>
               </li>
               <li class="nav-item dropdown">
