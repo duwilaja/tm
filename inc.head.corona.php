@@ -118,6 +118,11 @@
 	input.form-control:focus, select.form-control:focus{
 		color: #ddd;
 	}
+	#txtmsg{
+		max-height: 350px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
 	</style>
   </head>
   <body class="sidebar-icon-only">
