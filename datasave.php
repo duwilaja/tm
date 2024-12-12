@@ -77,8 +77,8 @@ function batch_db($conn,$tname,$data,$pk,$sv,$obj=""){
 
 function crud($conn,$fcols="",$fvals=""){
 	$s_ID=$_SESSION['s_ID'];
-	$id=$_POST['id'];
-	$table=$_POST['tname'];
+	$id=post($_POST['id'],$conn);
+	$table=post($_POST['tname'],$conn);
 	$columns=$_POST['columns'];
 	$acols = explode(",",$columns);
 	$msg="Data has been saved";
@@ -245,9 +245,9 @@ $msg="Invalid command.";
 $t=$_POST['t'];
 
 if($t=="cpwd"){
-	$new=$_POST['new'];
-	$old=$_POST['old'];
-	$ret=$_POST['ret'];
+	$new=post($_POST['new'],$conn);
+	$old=post($_POST['old'],$conn);
+	$ret=post($_POST['ret'],$conn);
 	if($ret!=""&&$old!=""&&$new!=""){
 		if($ret==$new){
 			$sql="update tm_users set userpwd=md5('$new') where userid='$s_ID' and userpwd=md5('$old')";
@@ -266,13 +266,13 @@ if($t=="cpwd"){
 }
 
 if($t=="users"){
-	$id=$_POST['id'];
-	$userid=$_POST['userid'];
-	$username=$_POST['username'];
-	$userpwd=$_POST['userpwd'];
-	$userlvl=$_POST['userlevel'];
-	$usergrp=$_POST['usergrp'];
-	$usermail=$_POST['usermail'];
+	$id=post($_POST['id'],$conn);
+	$userid=post($_POST['userid'],$conn);
+	$username=post($_POST['username'],$conn);
+	$userpwd=post($_POST['userpwd'],$conn);
+	$userlvl=post($_POST['userlevel'],$conn);
+	$usergrp=post($_POST['usergrp'],$conn);
+	$usermail=post($_POST['usermail'],$conn);
 	$msg="Saved";
 	$cp="";
 	$proc="insert";
@@ -357,7 +357,7 @@ if($t=="rwifi"){
 	$msg=crud($conn);
 	if($_POST["proc"]=="Y") {
 		//$msg.="Y";
-		$rs=fetch_alla(exec_qry($conn,"select * from tm_dpo where rowid=".$_POST["id"]));
+		$rs=fetch_alla(exec_qry($conn,"select * from tm_dpo where rowid=".post($_POST["id"],$conn)));
 		if(count($rs)>0){
 			//$msg.="Y";
 			$r=$rs[0]; 
@@ -406,24 +406,36 @@ if($t=="surveydeu"){
 	}
 }
 if($t=="ticket"){
-	if(isset($_POST['jp'])){
-		$jp=multiple_select("jp");
-		//$msg=$jp;
-		$msg=crud($conn,"jp","'$jp'");
-	}else{
-		$msg=crud($conn);
+	$ada=true;
+	if(post($_POST['createdby'],$conn)=='SolarWinds'&&post($_POST['s'],$conn)=='solved'){
+		$co=post($_POST['i'],$conn);
+		$dt=post($_POST['dt'],$conn);
+		$up=fetch_alla(exec_qry($conn,"select rid from tm_apiupdate_log where dt>'$dt' and h like '$co%'"));
+		if(count($up)<1){
+			$ada=false;
+			$msg="No Up Logs. Solved is not allowed.";
+		}
 	}
-	if($_POST['s']=='closed' && $_POST['blink']=='m2m'){
-		$oid=$_POST['i'];
-		$sql="update tm_m2ms set stts='Tidak Terpakai' where oidx='$oid'";
-		$rs=exec_qry($conn,$sql);
+	if($ada){
+		if(isset($_POST['jp'])){
+			$jp=multiple_select("jp");
+			//$msg=$jp;
+			$msg=crud($conn,"jp","'$jp'");
+		}else{
+			$msg=crud($conn);
+		}
+		if($_POST['s']=='closed' && $_POST['blink']=='m2m'){
+			$oid=$_POST['i'];
+			$sql="update tm_m2ms set stts='Tidak Terpakai' where oidx='$oid'";
+			$rs=exec_qry($conn,$sql);
+		}
 	}
 }
 if($t=="m2mx"){
 	$msg="M2M Assigned.";
-	$oid=post($_POST['oid']);
-	$id=post($_POST['id']);
-	$tno=post($_POST['ticketno']);
+	$oid=post($_POST['oid'],$conn);
+	$id=post($_POST['id'],$conn);
+	$tno=post($_POST['ticketno'],$conn);
 	$sql="update tm_m2ms set stts='Terpakai', oidx='$oid', ticketno='$tno' where rowid='$id'";
 	$rs=exec_qry($conn,$sql);
 	//$msg=$sql;
@@ -435,7 +447,7 @@ if($t=="m2mx"){
 if($t=="batch_m2mx"){
 	$col=9;
 	$pk="oid";
-	$tname=$_POST['tname'];
+	$tname=post($_POST['tname'],$conn);
 	$update=true;//isset($_POST['update'])?true:false;
 	$file=process_file('SAVE',"uploaded_file","","tmps/");
 	$msg="";
@@ -447,8 +459,8 @@ if($t=="batch_m2mx"){
 }
 if($t=="batch_m2m"){
 	$pk="oid";
-	$sv=$_POST['svt'];
-	$tname=$_POST['tname'];
+	$sv=post($_POST['svt'],$conn);
+	$tname=post($_POST['tname'],$conn);
 	$data=explode("\r\n",$_POST['datas']);
 	
 	$columns=str_replace("	",",",$data[0]);
@@ -458,8 +470,8 @@ if($t=="batch_m2m"){
 }
 if($t=="batch_outlet"){
 	$pk="oid";
-	$sv=$_POST['svt'];
-	$tname=$_POST['tname'];
+	$sv=post($_POST['svt'],$conn);
+	$tname=post($_POST['tname'],$conn);
 	$data=explode("\r\n",$_POST['datas']);
 	
 	$columns=str_replace("	",",",$data[0]);
@@ -469,8 +481,8 @@ if($t=="batch_outlet"){
 }
 if($t=="batch_ipdr"){
 	$pk="f_a";
-	$sv=$_POST['svt'];
-	$tname=$_POST['tname'];
+	$sv=post($_POST['svt'],$conn);
+	$tname=post($_POST['tname'],$conn);
 	$data=explode("\r\n",$_POST['datas']);
 	
 	$columns=str_replace("	",",",$data[0]);
@@ -479,10 +491,10 @@ if($t=="batch_ipdr"){
 	$msg=batch_db($conn,$tname,$data,$pk,$sv);
 }
 if($t=="bulk_outlet"){
-	$tname=$_POST['tname'];
-	$prop=$_POST['prop'];
-	$wibs=$_POST['wibs'];
-	$wibe=$_POST['wibe'];
+	$tname=post($_POST['tname'],$conn);
+	$prop=post($_POST['prop'],$conn);
+	$wibs=post($_POST['wibs'],$conn);
+	$wibe=post($_POST['wibe'],$conn);
 	$sql="update $tname set wibstart='$wibs',wibend='$wibe' where propinsi='$prop'";
 	$rs=exec_qry($conn,$sql);
 	$msg=affected_row($conn)." rows updated";
@@ -490,8 +502,8 @@ if($t=="bulk_outlet"){
 if($t=="batch_ips"){
 	$col=6;
 	$pk="oid,layanan";
-	$sv=$_POST['svtf'];
-	$tname=$_POST['tname'];
+	$sv=post($_POST['svtf'],$conn);
+	$tname=post($_POST['tname'],$conn);
 	$data=explode("\r\n",$_POST['datas']);
 	
 	$columns=str_replace("	",",",$data[0]);
@@ -516,11 +528,11 @@ if($t=="maintenances"){
 if($t=="tickets"){
 	if($_POST['id']=="0"){
 		$cek=true;
-		$i=$_POST['i'];
-		$typ=$_POST['typ'];
+		$i=post($_POST['i'],$conn);
+		$typ=post($_POST['typ'],$conn);
 		if($_POST['yakin']==''){
-			$st=$_POST['st'];
-			$grp=$_POST['grp'];
+			$st=post($_POST['st'],$conn);
+			$grp=post($_POST['grp'],$conn);
 			$sql="select ticketno,s,typ,grp from tm_tickets where i='$i' and st='$st' and s<>'closed'";// and typ='$typ'";// and grp='$grp' and
 				//timestampdiff(minute,date_format(dtm,'%Y-%m-%d %H:%i:00'),date_format(now(),'%Y-%m-%d %H:%i:00'))<=120";
 			$rs=exec_qry($conn,$sql);
@@ -531,7 +543,7 @@ if($t=="tickets"){
 		}
 		if($cek){
 			$rid=date("YmdHis");
-			$dt=($_POST['dt']=='')?"now()":"'".$_POST['dt']."'";
+			$dt=($_POST['dt']=='')?"now()":"'".post($_POST['dt'],$conn)."'";
 			$dtx=$dt;
 			$ridx=$rid;
 			if($typ=='offline'){
@@ -561,13 +573,13 @@ if($t=="notes"){
 }
 if($t=="masstickets"){
 	$tid=time();
-	$sts=$_POST["st"];
+	$sts=post($_POST["st"],$conn);
 	$outlets = json_decode($_POST["outlet"]);
-	$typ = $_POST["typ"];
-	$d = $_POST["d"];
-	$tname= $_POST["tname"];
-	$cols = $_POST["columns"];
-	$dt=($_POST['dt']=='')?"now()":"'".$_POST['dt']."'";
+	$typ = post($_POST["typ"],$conn);
+	$d = post($_POST["d"],$conn);
+	$tname= post($_POST["tname"],$conn);
+	$cols = post($_POST["columns"],$conn);
+	$dt=($_POST['dt']=='')?"now()":"'".post($_POST['dt'],$conn)."'";
 	$itung=0;
 	for($i=0;$i<count($outlets);$i++){
 		$outlet=$outlets[$i];
