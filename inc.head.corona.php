@@ -123,6 +123,9 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
+	.select2-container--default .select2-results__option[aria-selected="true"] {
+	  background-color: #444;
+	}
 	</style>
   </head>
   <body class="sidebar-icon-only">
