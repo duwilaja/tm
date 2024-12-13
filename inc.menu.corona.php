@@ -124,7 +124,10 @@
                 <li class="nav-item"> <a class="nav-link" href="r_ticketsx.php">Tickets</a></li>
                 <li class="nav-item"> <a class="nav-link" href="r_hticketsx.php">Ticket History</a></li>
                 <li class="nav-item"> <a class="nav-link" href="r_moutletsx.php">Outlets</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_outletsx.php">Outlets History</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_linkx.php">Data Link</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_m2mx.php">M2M</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_customsx.php">Custom</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_tickets.arcx.php">Archive</a></li>
               </ul>
             </div>
           </li>
