@@ -4,18 +4,28 @@ $corona=true;
 include 'inc.chksession.php';
 include 'inc.common.php';
 
-$title="Kanwil";
-$icon="fa fa-map-o";
-$menu="kanwil";
+$title="Filters Gangguan";
+$icon="fa fa-warning";
+$menu="problem";
 
 include 'inc.head.php';
 
 $where="";
-$tname="tm_kanwils";
-$cols="locid,locname,rowid";
-$colsrc="locname";
+$tname="tm_problems";
+$cols="probid,probname,grping,rowid";
+$colsrc="probid,probname,grping";
 
 $opt1="";
+
+/*
+include "inc.db.php";
+$conn=connect();
+$rs=exec_qry($conn,"select locid,locname from ep_locations order by locname");
+while($row=fetch_row($rs)){
+	$opt1.='<option value="'.$row[0].'">'.$row[1].'</option>';
+}
+disconnect($conn);
+*/
 
 include 'inc.menu.php';
 ?>
@@ -35,30 +45,28 @@ include 'inc.menu.php';
 				
 						</div>
 					</div>
-					
-					<div class="row">
-						<div class="col-md-12">
-						
-                <div class="card">
-                  <div class="card-body table-responsive">
+					                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-default">
+                                <div class="card-body table-responsive">
                                     <table id="example" class="table table-dark">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-												
+                                                <th>Filter</th>
+                                                <th>Desc.</th>
+												<th>Group</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
-                  </div>
-                </div>
-              
-						</div>
-					</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 		
-		<div class="modal" id="modal_large" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="largeModalHead" aria-hidden="true">
+		<div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -68,29 +76,35 @@ include 'inc.menu.php';
 					<div class="">
 					
 						<form class="form-horizontal" id="myf">
-                            <div class="panel panel-default">
-							<div class="panel-body">
+                            <div class="card card-default">
+							<div class="card-body">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
-									<input type="hidden" name="columns" value="locid,locname">
+									<input type="hidden" name="columns" value="probid,probname,grping">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
 								<div class="form-group row">
-									<label class="col-md-2 control-label">ID</label>
+									<label class="col-md-2 control-label">Filter</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locid" id="locid" placeholder="...">
+										<input type="text" class="form-control form-control-sm input-sm" name="probid" id="probid" placeholder="...">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-md-2 control-label">Name</label>
+									<label class="col-md-2 control-label">Desc</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locname" id="locname" placeholder="...">
+										<input type="text" class="form-control form-control-sm input-sm" name="probname" id="probname" placeholder="...">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2 control-label">Group</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control form-control-sm input-sm" name="grping" id="grping" placeholder="...">
 									</div>
 								</div>
 								
 							</div>
-							<div class="panel-body" id="pesan"></div>
+							<div class="card-body" id="pesan"></div>
 							</div>
 						</form>
 
@@ -103,14 +117,13 @@ include 'inc.menu.php';
                 </div>
             </div>
         </div>
-			
+                
           </div>
           <!-- content-wrapper ends -->
-		  
+
 <?php
 include 'inc.logout.php';
 ?>
-
 	<script>
 	var mytbl, jvalidate;
 $(document).ready(function() {
@@ -137,10 +150,10 @@ $(document).ready(function() {
 	
 	jvalidate = $("#myf").validate({
     rules :{
-        "locid" : {
+        "probid" : {
             required : true
         },
-		"locname" : {
+		"probname" : {
             required : true
         }
     }});

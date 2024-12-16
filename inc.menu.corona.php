@@ -79,9 +79,13 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="kanwilsx.php">Kanwils</a></li>
-                <li class="nav-item"> <a class="nav-link" href="outletsx.php">Outlets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="outletx.php">Outlets</a></li>
                 <li class="nav-item"> <a class="nav-link" href="outletipsx.php">Outlets IP</a></li>
 				<li class="nav-item"> <a class="nav-link" href="holidaysx.php">Holiday</a></li>
+				<li class="nav-item"> <a class="nav-link" href="problemsx.php">Filters</a></li>
+				<li class="nav-item"> <a class="nav-link" href="timersx.php">Notify</a></li>
+				<li class="nav-item"> <a class="nav-link" href="kanwilusersx.php">Kanwil User</a></li>
+				<li class="nav-item"> <a class="nav-link" href="m2msx.php">M2M</a></li>
               </ul>
             </div>
           </li>
@@ -98,7 +102,7 @@
             </a>
 			<div class="collapse" id="ticketz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="ticketsx.php">All</a></li>
+                <li class="nav-item"> <a class="nav-link" href="ticketzx.php">All</a></li>
                 <li class="nav-item"> <a class="nav-link" href="ticketox.php?pic=1&grp=1">Open</a></li>
 					<?php
 						if($s_LVL==4){
