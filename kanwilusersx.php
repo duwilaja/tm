@@ -4,22 +4,36 @@ $corona=true;
 include 'inc.chksession.php';
 include 'inc.common.php';
 
-$title="Kanwil";
-$icon="fa fa-map-o";
-$menu="kanwil";
+$title="Kanwil User";
+$icon="fa fa-user-circle";
+$menu="kanwiluser";
 
 include 'inc.head.php';
 
 $where="";
-$tname="tm_kanwils";
-$cols="locid,locname,rowid";
-$colsrc="locname";
+$tname="tm_kanwilusers";
+$tnames="tm_kanwilusers u left join tm_kanwils k on k.locid=u.kanwil";
+$cols="locname,user,u.rowid";
+$colsrc="locname,user";
 
 $opt1="";
+$opt2="";
+
+include "inc.db.php";
+$conn=connect();
+$rs=exec_qry($conn,"select locid,locname from tm_kanwils order by locname");
+while($row=fetch_row($rs)){
+	$opt1.='<option value="'.$row[0].'">'.$row[1].'</option>';
+}
+$rs=exec_qry($conn,"select userid,username from tm_users where userlevel>'0' order by username");
+while($row=fetch_row($rs)){
+	$opt2.='<option value="'.$row[0].'">'.$row[1].'</option>';
+}
+disconnect($conn);
 
 include 'inc.menu.php';
 ?>
-                
+               
         <div class="main-panel">
           <div class="content-wrapper">
 			
@@ -35,31 +49,28 @@ include 'inc.menu.php';
 				
 						</div>
 					</div>
-					
-					<div class="row">
-						<div class="col-md-12">
-						
-                <div class="card">
-                  <div class="card-body table-responsive">
-                                    <table id="example" class="table table-dark">
+					                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-default">
+                                <div class="card-body table-responsive">
+                                    <table id="example" class="table  table-dark">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-												
+                                                <th>Kanwil</th>
+                                                <th>User</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
-                  </div>
-                </div>
-              
-						</div>
-					</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 		
-		<div class="modal" id="modal_large" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="largeModalHead" aria-hidden="true">
-            <div class="modal-dialog">
+		<div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="largeModalHead"><b><i class="fa <?php echo $icon;?>"></i> <?php echo $title;?></b></h4>
@@ -68,29 +79,33 @@ include 'inc.menu.php';
 					<div class="">
 					
 						<form class="form-horizontal" id="myf">
-                            <div class="panel panel-default">
-							<div class="panel-body">
+                            <div class="card card-default">
+							<div class="card-body">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
-									<input type="hidden" name="columns" value="locid,locname">
+									<input type="hidden" name="columns" value="kanwil,user">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
 								<div class="form-group row">
-									<label class="col-md-2 control-label">ID</label>
+									<label class="col-md-2 control-label">Kanwil</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locid" id="locid" placeholder="...">
+										<select class="form-control form-control-sm selectpicker" name="kanwil" id="kanwil" style="width:100%;">
+											<?php echo $opt1;?>
+										</select>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-md-2 control-label">Name</label>
+									<label class="col-md-2 control-label">User</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locname" id="locname" placeholder="...">
+										<select class="form-control form-control-sm selectpicker" name="user" id="user" style="width:100%;">
+											<?php echo $opt2;?>
+										</select>
 									</div>
 								</div>
 								
 							</div>
-							<div class="panel-body" id="pesan"></div>
+							<div class="card-body" id="pesan"></div>
 							</div>
 						</form>
 
@@ -106,11 +121,11 @@ include 'inc.menu.php';
 			
           </div>
           <!-- content-wrapper ends -->
-		  
+
 <?php
 include 'inc.logout.php';
 ?>
-
+		
 	<script>
 	var mytbl, jvalidate;
 $(document).ready(function() {
@@ -126,7 +141,7 @@ $(document).ready(function() {
 			url: 'dataget.php',
 			data: function (d) {
 				d.cols= '<?php echo base64_encode($cols); ?>',
-				d.tname= '<?php echo base64_encode($tname); ?>',
+				d.tname= '<?php echo base64_encode($tnames); ?>',
 				d.csrc= '<?php echo $colsrc; ?>',
 				d.where= '<?php echo base64_encode($where);?>',
 				//d.sever= $("#sever").val(),
@@ -137,13 +152,19 @@ $(document).ready(function() {
 	
 	jvalidate = $("#myf").validate({
     rules :{
-        "locid" : {
+        "kanwil" : {
             required : true
         },
-		"locname" : {
+		"user" : {
             required : true
+        },
+		"mnt" : {
+            required : true,
+			number : true
         }
     }});
+	
+	$(".selectpicker").select2();
 });
 
 function tblupdate(){

@@ -126,6 +126,9 @@
 	.select2-container--default .select2-results__option[aria-selected="true"] {
 	  background-color: #444;
 	}
+	textarea.form-control.form-control-sm{
+		height: auto;
+	}
 	</style>
   </head>
   <body class="sidebar-icon-only">

@@ -4,22 +4,32 @@ $corona=true;
 include 'inc.chksession.php';
 include 'inc.common.php';
 
-$title="Kanwil";
-$icon="fa fa-map-o";
-$menu="kanwil";
+$title="Notify";
+$icon="fa fa-clock-o";
+$menu="notify";
 
 include 'inc.head.php';
 
 $where="";
-$tname="tm_kanwils";
-$cols="locid,locname,rowid";
-$colsrc="locname";
+$tname="tm_timers";
+$cols="grp,typ,stts,mnt,rowid";
+$colsrc="grp,typ,stts";
 
 $opt1="";
 
+/*
+include "inc.db.php";
+$conn=connect();
+$rs=exec_qry($conn,"select locid,locname from ep_locations order by locname");
+while($row=fetch_row($rs)){
+	$opt1.='<option value="'.$row[0].'">'.$row[1].'</option>';
+}
+disconnect($conn);
+*/
+
 include 'inc.menu.php';
 ?>
-                
+               
         <div class="main-panel">
           <div class="content-wrapper">
 			
@@ -36,29 +46,28 @@ include 'inc.menu.php';
 						</div>
 					</div>
 					
-					<div class="row">
-						<div class="col-md-12">
-						
-                <div class="card">
-                  <div class="card-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-default">
+                                <div class="card-body table-responsive">
                                     <table id="example" class="table table-dark">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-												
+                                                <th>Group</th>
+                                                <th>Type</th>
+												<th>Status</th>
+												<th>Time(Minutes)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
-                  </div>
-                </div>
-              
-						</div>
-					</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 		
-		<div class="modal" id="modal_large" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="largeModalHead" aria-hidden="true">
+		<div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -68,29 +77,52 @@ include 'inc.menu.php';
 					<div class="">
 					
 						<form class="form-horizontal" id="myf">
-                            <div class="panel panel-default">
-							<div class="panel-body">
+                            <div class="card card-default">
+							<div class="card-body">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
-									<input type="hidden" name="columns" value="locid,locname">
+									<input type="hidden" name="columns" value="grp,typ,mnt,stts">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
 								<div class="form-group row">
-									<label class="col-md-2 control-label">ID</label>
+									<label class="col-md-2 control-label">Group</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locid" id="locid" placeholder="...">
+										<select class="form-control form-control-sm" name="grp" id="grp">
+											<?php echo $optgrp;?>
+										</select>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-md-2 control-label">Name</label>
+									<label class="col-md-2 control-label">Type</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control form-control-sm" name="locname" id="locname" placeholder="...">
+										<select class="form-control form-control-sm" name="typ" id="typ">
+											<?php echo $opttyp;?>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2 control-label">Status</label>
+									<div class="col-md-10">
+										<select class="form-control form-control-sm" name="stts" id="stts">
+											<option value="new">new</option>
+											<option value="open">open</option>
+											<option value="progress">progress</option>
+											<option value="pending">pending</option>
+											<option value="solved">solved</option>
+											<option value="closed">closed</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2 control-label">Minutes</label>
+									<div class="col-md-10">
+										<input type="text" class="form-control form-control-sm input-sm" name="mnt" id="mnt" placeholder="...">
 									</div>
 								</div>
 								
 							</div>
-							<div class="panel-body" id="pesan"></div>
+							<div class="card-body" id="pesan"></div>
 							</div>
 						</form>
 
@@ -106,7 +138,7 @@ include 'inc.menu.php';
 			
           </div>
           <!-- content-wrapper ends -->
-		  
+
 <?php
 include 'inc.logout.php';
 ?>
@@ -137,11 +169,18 @@ $(document).ready(function() {
 	
 	jvalidate = $("#myf").validate({
     rules :{
-        "locid" : {
+        "typ" : {
             required : true
         },
-		"locname" : {
+		"grp" : {
             required : true
+        },
+		"stts" : {
+            required : true
+        },
+		"mnt" : {
+            required : true,
+			number : true
         }
     }});
 });
