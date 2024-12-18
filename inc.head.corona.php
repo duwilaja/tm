@@ -129,6 +129,28 @@
 	textarea.form-control.form-control-sm{
 		height: auto;
 	}
+	h3.card-title{
+		margin-top: 5px;
+		font-size: 1rem;
+		font-weight: bold;
+		padding-left: 10px;
+	}
+	.card{
+		margin-top: 5px;
+	}
+	.card-heading{
+		border-bottom-color: #888;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+	}
+	.select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple {
+	  border-color: #2c2e33;
+	  background: #2A3038;
+	}
+	.select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-dropdown .select2-search__field, .select2-container--default .select2-selection--multiple .select2-search__field {
+	  border-color: #2c2e33;
+	  color: #ddd;
+	}
 	</style>
   </head>
   <body class="sidebar-icon-only">
