@@ -138,6 +138,7 @@
 	.card{
 		border-radius: 15px;
 		margin-top: 5px;
+		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.50);
 	}
 	.card-heading{
 		border-bottom-color: #888;
@@ -167,6 +168,10 @@
 	.mywijtxt{
 		text-align: center;
 		padding : 5px;
+		bottom: 0px;
+		position: absolute;
+		width: 100%;
+		border-radius: 0 0px 10px 10px;
 	}
 	.mywijtxts{
 		font-size: 20px;
@@ -189,6 +194,35 @@
 		border-radius: 15px;
 		border-color: #000;
 		color: #000;
+	}
+	.table-dark{
+		background-color: #dcdcdc;
+	}
+	.form-control {
+		background-color: #ddd;
+		color: #222;
+	}
+	.navbar{
+		background-color:  #ffffff;
+	}
+	.navbar .navbar-menu-wrapper{
+		color: #222222;
+	}
+	.navbar .navbar-menu-wrapper .search input {
+		background: #ddd;
+		color: #222;
+	}
+	.modal-content{
+		background-color: #fdfdfd;
+	}
+	.btn-default{
+		background-color: #aaa;
+	}
+	.page-title{
+		color: #222;
+	}
+	.navbar .navbar-brand-wrapper{
+		background: #ffffff;
 	}
 <?php }?>
 	.indonut{

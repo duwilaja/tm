@@ -19,33 +19,49 @@ include 'inc.menu.php';
           <div class="content-wrapper">
 			
 			<div class="row">
-				<div class="col-xl-3">
+				<div class="col-xl-2">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 0px;">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-success">New</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
 							<div class="mywijtxt bg-danger">Open</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-2">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 0px;">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-reload"></i></div>
 							<div class="mywijtxt bg-info">Progress</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-2">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 0px;">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-clock-alert"></i></div>
 							<div class="mywijtxt bg-warning">Pending</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-2">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 0px;">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-info">Review</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
 							<div class="mywijtxt bg-success">Solved</div>
 						</div>
