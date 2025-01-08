@@ -18,7 +18,7 @@ include 'inc.menu.php';
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-default" style="background: #121212;">
+                            <div class="card card-default">
 								<div class="card-heading hidden">
                                     <div class="card-title-box">
                                         <h3></h3>
@@ -42,7 +42,57 @@ include 'inc.menu.php';
                         </div>
                     </div>
 					<br />
-					<div class="row">
+			<div class="row">
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-success">New</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-danger">Open</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-reload"></i></div>
+							<div class="mywijtxt bg-info">Progress</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-clock-alert"></i></div>
+							<div class="mywijtxt bg-warning">Pending</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-info">Review</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
+							<div class="mywijtxt bg-success">Solved</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					<div class="row hidden">
 						<div class="col-md-2">
 							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=td';">
 								<span id="tot">0</span>
@@ -80,7 +130,7 @@ include 'inc.menu.php';
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row hidden">
 						<div class="col-md-2">
 							<div class="tile tile-success" onclick="location.href='tickets<?php echo $env?>?s=02';">
 								<span id="2hr">0</span>
