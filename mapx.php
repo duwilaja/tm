@@ -18,29 +18,30 @@ include 'inc.menu.php';
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-default" style="background: #121212;">
-								<div class="panel-heading hidden">
-                                    <div class="panel-title-box">
+                            <div class="card card-default" style="background: #121212;">
+								<div class="card-heading hidden">
+                                    <div class="card-title-box">
                                         <h3></h3>
                                     </div>                                    
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                    <ul class="card-controls">
+                                        <li><a href="#" class="card-fullscreen"><span class="fa fa-expand"></span></a></li>
                                         <!--li><a href="JavaScript:goToBase();"><span class="fa fa-refresh"></span></a></li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                        
                                             <ul class="dropdown-menu">
-                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
-                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
+                                                <li><a href="#" class="card-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="card-remove"><span class="fa fa-times"></span> Remove</a></li>
                                             </ul>                                        
                                         </li-->                                        
                                     </ul>                                    
                                 </div> 
-                                <div class="panel-body">
+                                <div class="card-body">
                                     <div id="leafletMap" style="width:100%;height:450px;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+					<br />
 					<div class="row">
 						<div class="col-md-2">
 							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=td';">

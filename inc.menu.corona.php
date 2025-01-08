@@ -1,8 +1,8 @@
       <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="homex.php"><img src="img/logo.jpg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="homex.php"><img src="favicon-16.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="homex<?php echo $env;?>"><img src="img/logo.jpg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="homex<?php echo $env;?>"><img src="favicon-16.png" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile hidden">
@@ -58,7 +58,7 @@
             <span class="nav-link">&nbsp;</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="homex.php">
+            <a class="nav-link" href="homex<?php echo $env;?>">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -78,14 +78,14 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="kanwilsx.php">Kanwils</a></li>
-                <li class="nav-item"> <a class="nav-link" href="outletx.php">Outlets</a></li>
-                <li class="nav-item"> <a class="nav-link" href="outletipsx.php">Outlets IP</a></li>
-				<li class="nav-item"> <a class="nav-link" href="holidaysx.php">Holiday</a></li>
-				<li class="nav-item"> <a class="nav-link" href="problemsx.php">Filters</a></li>
-				<li class="nav-item"> <a class="nav-link" href="timersx.php">Notify</a></li>
-				<li class="nav-item"> <a class="nav-link" href="kanwilusersx.php">Kanwil User</a></li>
-				<li class="nav-item"> <a class="nav-link" href="m2msx.php">M2M</a></li>
+                <li class="nav-item"> <a class="nav-link" href="kanwilsx<?php echo $env;?>">Kanwils</a></li>
+                <li class="nav-item"> <a class="nav-link" href="outletx<?php echo $env;?>">Outlets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="outletipsx<?php echo $env;?>">Outlets IP</a></li>
+				<li class="nav-item"> <a class="nav-link" href="holidaysx<?php echo $env;?>">Holiday</a></li>
+				<li class="nav-item"> <a class="nav-link" href="problemsx<?php echo $env;?>">Filters</a></li>
+				<li class="nav-item"> <a class="nav-link" href="timersx<?php echo $env;?>">Notify</a></li>
+				<li class="nav-item"> <a class="nav-link" href="kanwilusersx<?php echo $env;?>">Kanwil User</a></li>
+				<li class="nav-item"> <a class="nav-link" href="m2msx<?php echo $env;?>">M2M</a></li>
               </ul>
             </div>
           </li>
@@ -102,12 +102,12 @@
             </a>
 			<div class="collapse" id="ticketz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="ticketzx.php">All</a></li>
-                <li class="nav-item"> <a class="nav-link" href="ticketox.php?pic=1&grp=1">Open</a></li>
+                <li class="nav-item"> <a class="nav-link" href="ticketzx<?php echo $env;?>">All</a></li>
+                <li class="nav-item"> <a class="nav-link" href="ticketox<?php echo $env;?>?pic=1&grp=1">Open</a></li>
 					<?php
 						if($s_LVL==4){
 						?>
-				<li class="nav-item"> <a class="nav-link" href="ticketgx.php?grp=1">My Group</a></li>
+				<li class="nav-item"> <a class="nav-link" href="ticketgx<?php echo $env;?>?grp=1">My Group</a></li>
 						<?php } ?>
               </ul>
             </div>
@@ -125,18 +125,18 @@
             </a>
 			<div class="collapse" id="reportsz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="r_summaryx.php">Summary</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_diagramx.php">Diagram</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_ticketsx.php">Tickets</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_hticketsx.php">Ticket History</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_slaallx.php">SLA</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_slastatusx.php">Status Duration</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_customsx.php">Custom</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_moutletsx.php">Outlets</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_outletsx.php">Outlet History</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_linkx.php">Data Link</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_m2mx.php">M2M</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_tickets.arcx.php">Archive</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_summaryx<?php echo $env;?>">Summary</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_diagramx<?php echo $env;?>">Diagram</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_ticketsx<?php echo $env;?>">Tickets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_hticketsx<?php echo $env;?>">Ticket History</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_slaallx<?php echo $env;?>">SLA</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_slastatusx<?php echo $env;?>">Status Duration</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_customsx<?php echo $env;?>">Custom</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_moutletsx<?php echo $env;?>">Outlets</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_outletsx<?php echo $env;?>">Outlet History</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_linkx<?php echo $env;?>">Data Link</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_m2mx<?php echo $env;?>">M2M</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_tickets.arcx<?php echo $env;?>">Archive</a></li>
               </ul>
             </div>
           </li>
@@ -153,10 +153,10 @@
             </a>
 			<div class="collapse" id="ifacesz">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="r_createlogx.php">Create Ticket</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_updatelogx.php">Update Ticket</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_operationx.php">Transactions</a></li>
-                <li class="nav-item"> <a class="nav-link" href="r_wifix.php">DVO</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_createlogx<?php echo $env;?>">Create Ticket</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_updatelogx<?php echo $env;?>">Update Ticket</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_operationx<?php echo $env;?>">Transactions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="r_wifix<?php echo $env;?>">DVO</a></li>
               </ul>
             </div>
           </li>
@@ -203,7 +203,7 @@
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="homex.php"><img src="favicon-16.png" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="homex<?php echo $env;?>"><img src="favicon-16.png" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -259,12 +259,12 @@
                 </div>
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" title="Map View" href="mapx.php">
+                <a class="nav-link" title="Map View" href="mapx<?php echo $env;?>">
                   <i class="mdi mdi-map-marker-multiple"></i>
                 </a>
               </li>
 			  <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" title="Outlets" target="_blank" href="peta.php">
+                <a class="nav-link" title="Outlets" target="_blank" href="peta<?php echo $env;?>">
                   <i class="mdi mdi-scale-balance"></i>
                 </a>
               </li>
@@ -329,7 +329,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0 text-center text-warning"><b><?php echo $s_NAME?></b></h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="cpwdx.php">
+                  <a class="dropdown-item preview-item" href="cpwdx<?php echo $env;?>">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>
@@ -340,7 +340,7 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="logout.php">
+                  <a class="dropdown-item preview-item" href="logout<?php echo $env;?>">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
@@ -353,7 +353,7 @@
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">Administrative</p>
 				  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="cmsusersx.php">
+                  <a class="dropdown-item preview-item" href="cmsusersx<?php echo $env;?>">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-account-multiple text-success"></i>
@@ -364,7 +364,7 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="userlogsx.php">
+                  <a class="dropdown-item preview-item" href="userlogsx<?php echo $env;?>">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-account-network text-info"></i>
@@ -375,7 +375,7 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="updatelogsx.php">
+                  <a class="dropdown-item preview-item" href="updatelogsx<?php echo $env;?>">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-account-check text-danger"></i>
