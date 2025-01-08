@@ -4,8 +4,9 @@ $app="Cloud NEO Pegadaian ";
 
 $template=isset($corona)?"corona":"joli"; // joli / corona
 //$template="corona";
-$dark=isset($_GET['dark'])?$_GET['dark']:1;
-$dark=$dark==1?true:false;
+//$dark=isset($_GET['dark'])?$_GET['dark']:1;
+//$dark=$dark==1?true:false;
+$dark=false;
 
 $feedback=false;
 $anonfeedback=false;
