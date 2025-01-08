@@ -136,6 +136,7 @@
 		padding-left: 10px;
 	}
 	.card{
+		border-radius: 15px;
 		margin-top: 5px;
 	}
 	.card-heading{
@@ -150,6 +151,56 @@
 	.select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-dropdown .select2-search__field, .select2-container--default .select2-selection--multiple .select2-search__field {
 	  border-color: #2c2e33;
 	  color: #ddd;
+	}
+	.mywijet{
+		text-align: center;
+		width: 100%;
+	}
+	.mywijet > span{
+		font-size: 20px;
+	}
+	.mywijval{
+		padding: 5px;
+		font-size: 35px;
+		text-align: center;
+	}
+	.mywijtxt{
+		text-align: center;
+		padding : 5px;
+	}
+	.mywijtxts{
+		font-size: 20px;
+	}
+<?php if(!$dark){?>
+	.content-wrapper{
+		background: #dddddd;
+	}
+	body{
+		color: #000;
+	}
+	.card{
+		background-color: #f0f0f0;
+	}
+	.card .card-title{
+		color: #000;
+	}
+	.tile{
+		background-color: #f0f0f0;
+		border-radius: 15px;
+		border-color: #000;
+		color: #000;
+	}
+<?php }?>
+	.indonut{
+		width: 100%; 
+		height: 40px; 
+		position: absolute; 
+		top: 90px; 
+		left: 0; 
+		margin-top: -20px; 
+		line-height:19px; 
+		text-align: center; 
+		z-index: 999999999999999
 	}
 	</style>
   </head>
