@@ -22,8 +22,8 @@ include 'inc.menu.php';
 				<div class="col-xl-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-success">New</div>
+							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
+							<div class="mywijtxt bg-info">New</div>
 						</div>
 					</div>
 				</div>
@@ -39,22 +39,14 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-info">Progress</div>
+							<div class="mywijtxt bg-warning">Progress</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-xl-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-clock-alert"></i></div>
-							<div class="mywijtxt bg-warning">Pending</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-2">
-					<div class="card">
-						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijval"><span>1000</span> &nbsp;<i class=" mdi mdi-alert-outline"></i></div>
 							<div class="mywijtxt bg-info">Review</div>
 						</div>
 					</div>
@@ -67,12 +59,20 @@ include 'inc.menu.php';
 						</div>
 					</div>
 				</div>
+				<div class="col-xl-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span>1000</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
+							<div class="mywijtxt bg-info">Total</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-5">
+				<div class="col-lg-6">
 				<div class="card">
 				  <div class="card-body">
-				  <h4 class="card-title">SLA Breach</h4>
+				  <h4 class="card-title">SLA Gangguan</h4>
 					<div class="row">
 					  <div class="col-lg-4 grid-margin stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="card">
@@ -111,13 +111,47 @@ include 'inc.menu.php';
 				  </div>
 				</div>
 				</div>
-				<div class="col-lg-7">
-					<div class="card">
-					  <div class="card-body">
-						<h4 class="card-title">Ticket By Date</h4>
-						<canvas id="barChart" style="max-height:230px"></canvas>
+				<div class="col-lg-6">
+				<div class="card">
+				  <div class="card-body">
+				  <h4 class="card-title">SLA Relokasi</h4>
+					<div class="row">
+					  <div class="col-lg-4 grid-margin stretch-card" style="padding-left: 0; padding-right: 0">
+						<div class="card">
+						  <div class="card-body" style="text-align: center;">
+							<div class="indonut">
+								99
+							</div>
+							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
+							> SLA
+						  </div>
+						</div>
+					  </div>
+					  <div class="col-lg-4 grid-margin stretch-card" style="padding-left: 0; padding-right: 0">
+						<div class="card">
+						  <div class="card-body" style="text-align: center;">
+							<div class="indonut">
+								100
+							</div>
+							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
+							Internet
+						  </div>
+						</div>
+					  </div>
+					  <div class="col-lg-4 grid-margin stretch-card" style="padding-left: 0; padding-right: 0">
+						<div class="card">
+						  <div class="card-body" style="text-align: center;">
+							<div class="indonut">
+								101
+							</div>
+							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
+							VPN
+						  </div>
+						</div>
 					  </div>
 					</div>
+				  </div>
+				</div>
 				</div>
 			</div>
 			<div class="row">
@@ -145,10 +179,18 @@ include 'inc.menu.php';
                   </div>
                 </div>
               </div>
+              <div class="col-lg-3 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Ticket By Date</h4>
+                    <canvas id="barChart" style="max-height:230px"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
 
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
@@ -156,7 +198,31 @@ include 'inc.menu.php';
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 20px; display: flex;">
+							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
+							<div class="mywijet"><span>1000</span><br />Kantor Area</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 20px; display: flex;">
+							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
+							<div class="mywijet"><span>1000</span><br />Kantor CPP</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 20px; display: flex;">
+							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
+							<div class="mywijet"><span>1000</span><br />Kantor UPC</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
@@ -164,11 +230,11 @@ include 'inc.menu.php';
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
-							<div class="mywijet"><span>1000</span><br />Outlet</div>
+							<div class="mywijet"><span>1000</span><br />Total Outlet</div>
 						</div>
 					</div>
 				</div>
@@ -370,10 +436,10 @@ Chart.register(ChartDataLabels);
   };
 
   var data = {
-    labels: ["2013", "2014", "2014", "2015", "2016", "2017"],
+    labels: ["2013", "2014", "2014", "2015", "2016"],
     datasets: [{
       label: '# of Votes',
-      data: [10, 19, 3, 5, 2, 3],
+      data: [10, 19, 3, 5, 2],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -450,6 +516,30 @@ function bikinchart(){
   }
   if ($("#doughnutChart3").length) {
     var doughnutChartCanvas = $("#doughnutChart3").get(0).getContext("2d");
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }
+  if ($("#doughnutChart4").length) {
+    var doughnutChartCanvas = $("#doughnutChart4").get(0).getContext("2d");
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }
+  if ($("#doughnutChart5").length) {
+    var doughnutChartCanvas = $("#doughnutChart5").get(0).getContext("2d");
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }
+  if ($("#doughnutChart6").length) {
+    var doughnutChartCanvas = $("#doughnutChart6").get(0).getContext("2d");
     var doughnutChart = new Chart(doughnutChartCanvas, {
       type: 'doughnut',
       data: doughnutPieData,
