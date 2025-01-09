@@ -229,12 +229,12 @@
 		width: 100%; 
 		height: 40px; 
 		position: absolute; 
-		top: 90px; 
+		top: 100px; 
 		left: 0; 
 		margin-top: -20px; 
 		line-height:19px; 
 		text-align: center; 
-		z-index: 999999999999999
+		z-index: 1
 	}
 	</style>
   </head>

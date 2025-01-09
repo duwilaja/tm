@@ -210,11 +210,15 @@
               <span class="mdi mdi-menu"></span>
             </button>
             <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
+              <li class="nav-item w-50">
                 <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
                   <input type="text" class="form-control" placeholder="Search tickets">
                 </form>
               </li>
+			  <li class="nav-item w-50  d-none d-lg-flex">
+				 <i class="mdi mdi-calendar-clock"></i>
+				 <span class="plugin-date"></span>&nbsp;<span class="plugin-clock"></span>
+			  </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block hidden">
