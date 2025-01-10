@@ -16,6 +16,7 @@ $pic=isset($_GET['pic'])?$_GET['pic']:"";
 $g=isset($_GET['grp'])?$_GET['grp']:"";
 $a=isset($_GET['a'])?$_GET['a']:"";
 $s=isset($_GET['s'])?$_GET['s']:"";
+$tsrc=isset($_GET['tsrc'])?$_GET['tsrc']:"";
 
 $titles=$title;
 $titles=isset($_GET['grp'])?"My Group ".$title:$titles;
@@ -637,6 +638,9 @@ $(document).ready(function() {
 	serverSide: true,
 	processing: true,
 	ordering: true,
+	search: {
+        search: '<?php echo $tsrc?>'
+    },
 	order: [[1,"desc"]],
 		ajax: {
 			type: 'POST',

@@ -211,8 +211,8 @@
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-50">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search tickets">
+                <form method="get" action="ticketzx<?php echo $env?>" class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                  <input name="tsrc" type="text" class="form-control" placeholder="Search tickets">
                 </form>
               </li>
 			  <li class="nav-item w-50  d-none d-lg-flex">

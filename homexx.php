@@ -18,52 +18,44 @@ include 'inc.menu.php';
         <div class="main-panel">
           <div class="content-wrapper">
 			
-			<div class="row">
-				<div class="col-xl-2">
+			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
-							<div class="mywijtxt bg-info">New</div>
+							<div class="mywijtxt bg-orange">New</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-danger">Open</div>
+							<div class="mywijtxt bg-green">Open</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-warning">Progress</div>
+							<div class="mywijtxt bg-red">Progress</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
-					<div class="card">
-						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span id="30days_review">0</span> &nbsp;<i class=" mdi mdi-alert-outline"></i></div>
-							<div class="mywijtxt bg-info">Review</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
-							<div class="mywijtxt bg-success">Solved</div>
+							<div class="mywijtxt bg-pink">Solved</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
-							<div class="mywijtxt bg-info">Total</div>
+							<div class="mywijtxt bg-purple">Total</div>
 						</div>
 					</div>
 				</div>
@@ -75,7 +67,7 @@ include 'inc.menu.php';
 				  <h4 class="card-title">SLA Gangguan</h4>
 					<div class="row">
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								99
@@ -86,7 +78,7 @@ include 'inc.menu.php';
 						</div>
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								100
@@ -97,7 +89,7 @@ include 'inc.menu.php';
 						</div>
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								101
@@ -117,7 +109,7 @@ include 'inc.menu.php';
 				  <h4 class="card-title">SLA Relokasi</h4>
 					<div class="row">
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								99
@@ -128,7 +120,7 @@ include 'inc.menu.php';
 						</div>
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								100
@@ -139,7 +131,7 @@ include 'inc.menu.php';
 						</div>
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="card">
+						<div class="">
 						  <div class="card-body" style="text-align: center;">
 							<div class="indonut">
 								101
@@ -190,13 +182,13 @@ include 'inc.menu.php';
             </div>
 
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a href="javascript:;"  data-fancybox data-type="iframe" data-src="peta.php">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
 							<div class="mywijet"><span id="kanwil">0</span><br />Kanwil</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-lg-2">
 					<div class="card">
@@ -594,6 +586,8 @@ function getPRM(q='prm'){
 	});
 	setTimeout(getPRM,30*1000);
 }
+
+
 </script>
 
     </body>
