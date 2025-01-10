@@ -196,7 +196,7 @@
 		color: #000;
 	}
 	.table-dark{
-		background-color: #dcdcdc;
+		background-color: #cdcdcd;
 	}
 	.form-control {
 		background-color: #ddd;
@@ -230,11 +230,26 @@
 		height: 40px; 
 		position: absolute; 
 		top: 100px; 
-		left: 0; 
+		left: -10px; 
 		margin-top: -20px; 
 		line-height:19px; 
 		text-align: center; 
 		z-index: 1
+	}
+	.bg-pink{
+		background-color: lightpink;
+	}
+	.bg-red{
+		background-color: tomato;
+	}
+	.bg-purple{
+		background-color: magenta;
+	}
+	.bg-green{
+		background-color: lightgreen;
+	}
+	.bg-orange{
+		background-color: orange;
 	}
 	</style>
   </head>
