@@ -222,13 +222,13 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a class="ahome" href="javascript:tabel();">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
 							<div class="mywijet"><span id="outlet">0</span><br />Outlet</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 			</div>
 			
@@ -244,7 +244,7 @@ include 'inc.menu.php';
 								<table id="example" class="table" width="100%">
 									<thead>
 										<tr>
-											<th id="namacap">Kanwil</th>									
+											<th id="namacap">Outlet</th>									
 										</tr>
 									</thead>
 									<tbody>
@@ -274,9 +274,12 @@ $(document).ready(function() {
 	get30();
 	getKAO();
 	bikinchart();
+	initTbl();
 })
 
 Chart.register(ChartDataLabels);
+
+var mytbl;
 
   var doughnutPieData = {
     datasets: [{
@@ -583,24 +586,6 @@ function getKAO(q='kao'){
 	});
 	setTimeout(getKAO,300*1000);
 }
-function getTR(q='trlog'){
-	$.ajax({
-		type: 'POST',
-		url: 'datajson<?php echo $env?>',
-		data: {q:q},
-		success: function(data){
-			var jsn=JSON.parse(data);
-			//$("#"+q).html(jsn[0][q]);
-			$("#trlog").removeClass("informer-danger").removeClass("informer-success");
-			if(jsn[0][q]>0){
-				$("#trlog").addClass("informer-success").html(jsn[0][q]);
-			}else{
-				$("#trlog").addClass("informer-danger").html("0");
-			}
-		}
-	});
-	setTimeout(getTR,300*1000);
-}
 function get30(q='30days'){
 	$.ajax({
 		type: 'POST',
@@ -624,58 +609,33 @@ function get30(q='30days'){
 	});
 	setTimeout(get30,30*1000);
 }
-function getJarkom(q='jarkom'){
-	$.ajax({
-		type: 'POST',
-		url: 'datajson<?php echo $env?>',
-		data: {q:q},
-		success: function(data){
-			var jsn=JSON.parse(data);
-			var op=0;
-			var tot=0;
-			for(var i=0;i<jsn.length;i++){
-				if(jsn[i]['s']=='new'||jsn[i]['s']=='open') {
-					op+=parseInt(jsn[i]['t']);
-				}else{
-					$("#"+q+"_"+jsn[i]['s']).html(jsn[i]['t']);
-				}
-				tot+=parseInt(jsn[i]['t']);
+
+function initTbl(){
+	mytbl = $('#example').DataTable({
+	//dom: 'T<"clear"><lrf<t>ip>',
+	searching: true,
+	serverSide: true,
+	processing: true,
+	ordering: true,
+	order: [[ 0, "asc" ]],
+		ajax: {
+			type: 'POST',
+			url: 'dataget.php',
+			data: function (d) {
+				d.cols= '<?php echo base64_encode("oname"); ?>',
+				d.tname= '<?php echo base64_encode("tm_outlets"); ?>',
+				d.csrc= 'oname',
+				d.where= '<?php echo base64_encode("tipe='outlet'"); ?>',
+				d.x= '-';
 			}
-			$("#"+q+"_newopen").html(op);
-			$("#"+q+"_total").html(tot);
 		}
 	});
-	setTimeout(getJarkom,30*1000);
-}
-function getPRM(q='prm'){
-	$.ajax({
-		type: 'POST',
-		url: 'datajson<?php echo $env?>',
-		data: {q:q},
-		success: function(data){
-			var jsn=JSON.parse(data);
-			var mlop=0;
-			var mjop=0;
-			var rlop=0;
-			for(var i=0;i<jsn.length;i++){
-				if(jsn[i]['s']=='new'||jsn[i]['s']=='open') {
-					if(jsn[i]['grp']=='link'&&jsn[i]['typ']=='migrasi') mlop+=parseInt(jsn[i]['t']);
-					if(jsn[i]['grp']=='jarkom'&&jsn[i]['typ']=='migrasi') mjop+=parseInt(jsn[i]['t']);
-					if(jsn[i]['grp']=='link'&&jsn[i]['typ']=='relokasi') rlop+=parseInt(jsn[i]['t']);
-				}else{
-					$("#"+jsn[i]['typ']+"_"+jsn[i]['grp']+"_"+jsn[i]['s']).html(jsn[i]['t']);
-				}
-				//tot+=parseInt(jsn[i]['t']);
-			}
-			$("#migrasi_link_newopen").html(mlop);
-			$("#migrasi_jarkom_newopen").html(mjop);
-			$("#relokasi_link_newopen").html(rlop);
-		}
-	});
-	setTimeout(getPRM,30*1000);
 }
 
-
+function tabel(){
+	//mytbl.ajax.reload();
+	$('#modal_madul').modal('show');
+}
 </script>
 
     </body>
