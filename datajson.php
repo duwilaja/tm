@@ -10,6 +10,7 @@ $id=isset($_POST['id'])?$_POST['id']:'0';
 $idx=isset($_POST['idx'])?$_POST['idx']:'';
 $idx2=isset($_POST['idx2'])?$_POST['idx2']:'';
 $idx3=isset($_POST['idx3'])?$_POST['idx3']:'';
+$idx4=isset($_POST['idx4'])?$_POST['idx4']:'';
 
 switch($q){
 	case 'users': $sql="select userid,username,userlevel,usergrp,usermail from tm_users where rowid='$id'"; break;
@@ -72,7 +73,7 @@ switch($q){
 				from tm_outlets o join tm_yellow y on o.oid=y.i and i not in (select i from tm_tickets where s<>'closed' and typ in $homewidget)";
 				break;
 	case 'mapl': $sql="select lat,lng,	concat(oname,'(',oid,')<br />',svcs,'<br />',addr) as popup from tm_outlets where lat<>'' and lng<>'' and 
-				(oid='$id' or oname like '%$id%') and buprovider like '%$idx%' and lnk like '%$idx2%' and kanwil like '%$idx3%'";
+				(oid='$id' or oname like '%$id%') and buprovider like '%$idx%' and lnk like '%$idx2%' and kanwil like '%$idx3%' and tipe like '%$idx4%'";
 				break;
 				
 	case 'markui': $sql="select * from tm_runningtext order by lastupd desc"; break;
