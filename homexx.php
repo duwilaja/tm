@@ -182,7 +182,7 @@ include 'inc.menu.php';
             </div>
 
 			<div class="row">
-				<div class="col-lg-2"><a href="javascript:;"  data-fancybox data-type="iframe" data-src="peta.php">
+				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=kanwil">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
@@ -190,37 +190,37 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=area">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
 							<div class="mywijet"><span id="area">0</span><br />Kantor Area</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=cpp">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
 							<div class="mywijet"><span id="cpp">0</span><br />Kantor CPP</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=upc">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
 							<div class="mywijet"><span id="upc">0</span><br />Kantor UPC</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=deputy">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
 							<div class="mywijet"><span id="deputy">0</span><br />Deputy</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-lg-2">
 					<div class="card">

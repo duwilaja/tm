@@ -251,6 +251,9 @@
 	.bg-orange{
 		background-color: orange;
 	}
+	a.ahome:hover{
+		text-decoration: none;
+	}
 	</style>
   </head>
   <body class="sidebar-icon-only">

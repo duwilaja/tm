@@ -12,6 +12,8 @@ for($i=0;$i<count($rs);$i++){
 	$kan.='<option value="'.$rs[$i][0].'">'.$rs[$i][0].'</option>';
 }
 disconnect($conn);
+
+$tipe=isset($_GET['tipe'])?$_GET['tipe']:"";
 ?>
 <!DOCTYPE html>
 <html>
@@ -186,7 +188,7 @@ function loadMarker(){
 	$.ajax({
 		type: 'POST',
 		url: 'datajson.php',
-		data: {q:'mapl',id:$("#srctxt").val(),idx:$("#phase").val(),idx2:$("#svcs").val(),idx3:$("#kans").val()},
+		data: {q:'mapl',id:$("#srctxt").val(),idx:$("#phase").val(),idx2:$("#svcs").val(),idx3:$("#kans").val(),idx4:'<?php echo $tipe?>'},
 		success: function(datax){
 			var data=JSON.parse(datax);
 			for(var i=0;i<data.length;i++){
