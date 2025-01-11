@@ -420,15 +420,48 @@ function buildPieData(jsn){
 	return piedata;
 }
 
+function buildBarData(jsn){
+	var lbl=[];
+	var dta=[];
+	var clr=[];
+	for(var i=0;i<jsn.length;i++){
+		lbl.push(jsn[i]['x']);
+		dta.push(jsn[i]['y']);
+		clr.push(randomColor());
+	}
+	var bardata={
+			datasets: [{
+			  label: "Total",
+			  data: dta,
+			  backgroundColor: clr,
+			  borderColor: clr,
+			}],
+
+			// These labels appear in the legend and in the tooltips when hovering different arcs
+			labels: lbl
+	};
+	return bardata;
+}
+
 function bikinchart(){
   if ($("#barChart").length) {
-    var barChartCanvas = $("#barChart").get(0).getContext("2d");
-    // This will get the first returned node in the jQuery collection.
-    var barChart = new Chart(barChartCanvas, {
-      type: 'bar',
-      data: data,
-      options: options
-    });
+	$.ajax({
+		type: 'POST',
+		url: 'datajson<?php echo $env?>',
+		data: {q:'homebar'},
+		success: function(data){
+			var json=JSON.parse(data);
+			//console.log(jsn);
+			data = buildBarData(json);
+			var barChartCanvas = $("#barChart").get(0).getContext("2d");
+			// This will get the first returned node in the jQuery collection.
+			var barChart = new Chart(barChartCanvas, {
+			  type: 'bar',
+			  data: data,
+			  options: options
+			});
+		}
+	});
   }
   
   if ($("#doughnutChart").length) {
@@ -484,7 +517,7 @@ function bikinchart(){
 	$.ajax({
 		type: 'POST',
 		url: 'datajson<?php echo $env?>',
-		data: {q:'homepie',id:'st'},
+		data: {q:'homepie',id:'st',idx:'link'},
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
@@ -502,7 +535,7 @@ function bikinchart(){
     $.ajax({
 		type: 'POST',
 		url: 'datajson<?php echo $env?>',
-		data: {q:'homepie',id:'typ'},
+		data: {q:'homepie',id:'typ',idx:'link'},
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
@@ -517,12 +550,22 @@ function bikinchart(){
 	});
   }
   if ($("#pieChart3").length) {
-    var doughnutChartCanvas = $("#pieChart3").get(0).getContext("2d");
-    var pieChart = new Chart(doughnutChartCanvas, {
-      type: 'pie',
-      data: doughnutPieData,
-      options: doughnutPieOptions
-    });
+    $.ajax({
+		type: 'POST',
+		url: 'datajson<?php echo $env?>',
+		data: {q:'homepie',id:'s',idx:'jarkom'},
+		success: function(data){
+			var json=JSON.parse(data);
+			//console.log(jsn);
+			doughnutPieData = buildPieData(json);
+			var pieChartCanvas = $("#pieChart3").get(0).getContext("2d");
+			var pieChart = new Chart(pieChartCanvas, {
+			  type: 'pie',
+			  data: doughnutPieData,
+			  options: doughnutPieOptions
+			});
+		}
+	});
   }
 }
 function getKAO(q='kao'){
