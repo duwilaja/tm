@@ -83,6 +83,8 @@ switch($q){
 	case 'jarkom': $sql="select s,count(*) as t from tm_tickets where grp='jarkom' and typ not in ('relokasi','psb','migrasi') group by s"; break;
 	case 'trlog': $sql="select count(*) as trlog from tm_otrans where timestampdiff(minute,date_format(lastupd,'%Y-%m-%d %H:%i:00'),date_format(now(),'%Y-%m-%d %H:%i:00'))<=75"; break;
 	case 'kao': $sql="select tipe,COUNT(tipe) as tot from tm_outlets GROUP BY tipe"; break;
+	
+	case 'homepie': $sql="select $id as x,COUNT($id) as y from tm_tickets WHERE timestampdiff(hour,dt,now())<=24 or 1=1 GROUP BY $id"; break;
 }
 
 //echo $sql;
