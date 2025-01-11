@@ -394,6 +394,32 @@ Chart.register(ChartDataLabels);
     }
   };
   
+function randomColor(){
+	return "#"+(Math.random().toString(16)+"000000").slice(2, 8).toUpperCase();
+}
+
+function buildPieData(jsn){
+	var lbl=[];
+	var dta=[];
+	var clr=[];
+	for(var i=0;i<jsn.length;i++){
+		lbl.push(jsn[i]['x']);
+		dta.push(jsn[i]['y']);
+		clr.push(randomColor());
+	}
+	var piedata={
+			datasets: [{
+			  data: dta,
+			  backgroundColor: clr,
+			  borderColor: clr,
+			}],
+
+			// These labels appear in the legend and in the tooltips when hovering different arcs
+			labels: lbl
+	};
+	return piedata;
+}
+
 function bikinchart(){
   if ($("#barChart").length) {
     var barChartCanvas = $("#barChart").get(0).getContext("2d");
@@ -455,25 +481,44 @@ function bikinchart(){
   }
 
   if ($("#pieChart").length) {
-    var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-    var pieChart = new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: doughnutPieData,
-      options: doughnutPieOptions
-    });
+	$.ajax({
+		type: 'POST',
+		url: 'datajson<?php echo $env?>',
+		data: {q:'homepie',id:'st'},
+		success: function(data){
+			var json=JSON.parse(data);
+			//console.log(jsn);
+			doughnutPieData = buildPieData(json);
+			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+			var pieChart = new Chart(pieChartCanvas, {
+			  type: 'pie',
+			  data: doughnutPieData,
+			  options: doughnutPieOptions
+			});
+		}
+	});
+  }
+  if ($("#pieChart2").length) {
+    $.ajax({
+		type: 'POST',
+		url: 'datajson<?php echo $env?>',
+		data: {q:'homepie',id:'typ'},
+		success: function(data){
+			var json=JSON.parse(data);
+			//console.log(jsn);
+			doughnutPieData = buildPieData(json);
+			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
+			var pieChart = new Chart(pieChartCanvas, {
+			  type: 'pie',
+			  data: doughnutPieData,
+			  options: doughnutPieOptions
+			});
+		}
+	});
   }
   if ($("#pieChart3").length) {
     var doughnutChartCanvas = $("#pieChart3").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'pie',
-      data: doughnutPieData,
-      options: doughnutPieOptions
-    });
-  }
-
-  if ($("#pieChart2").length) {
-    var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
-    var pieChart = new Chart(pieChartCanvas, {
+    var pieChart = new Chart(doughnutChartCanvas, {
       type: 'pie',
       data: doughnutPieData,
       options: doughnutPieOptions
