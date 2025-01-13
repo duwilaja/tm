@@ -344,6 +344,9 @@ var mytbl;
 	 plugins: {
 			legend:{
 				display: false
+			},
+			tooltip: {
+				enabled: false
 			}
 	 }
   };
