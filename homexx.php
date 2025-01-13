@@ -340,6 +340,7 @@ var mytbl;
       animateScale: true,
       animateRotate: true
     },
+	cutout: "80%",
 	 plugins: {
 			legend:{
 				display: false
@@ -399,7 +400,7 @@ var mytbl;
     }
   };
   
-  var piecolors=["#ff6600","#00b386","#e6e600","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
+  var piecolors=["#e95d60","#34afac","#fcd76f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
   
 function randomColor(){
 	return "#"+(Math.random().toString(16)+"000000").slice(2, 8).toUpperCase();
@@ -535,9 +536,9 @@ function bikinchart(){
 				}
 				tott+=parseInt(data[i]['c']);
 			}
-			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#80ff80","#b3ffb3"]);
-			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ffaa80","#ffccb3"]);
-			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#0099e6","#99ddff"]);
+			bikinSLA("#doughnutChart",[{x:"Total",y:1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
+			bikinSLA("#doughnutChart2",[{x:"Total",y:1},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
+			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24-1)}],["#10729c","#bae5f7"]);
 			$("#1hr").html(hr1); $("#4hr").html(hr4); $("#6hr").html(hr6); $("#8hr").html(hr8); $("#9hr").html(hr9); $("#24hr").html(hr24); 
 		},
 		error: function(xhr){

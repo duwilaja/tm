@@ -234,22 +234,23 @@
 		margin-top: -20px; 
 		line-height:19px; 
 		text-align: center; 
-		z-index: 1
+		z-index: 1;
+		font-size: 40px;
 	}
 	.bg-pink{
-		background-color: lightpink;
+		background-color: #dca1bd;
 	}
 	.bg-red{
-		background-color: tomato;
+		background-color: #ec9490;
 	}
 	.bg-purple{
-		background-color: magenta;
+		background-color: #c6add4;
 	}
 	.bg-green{
-		background-color: lightgreen;
+		background-color: #9bd17d;
 	}
 	.bg-orange{
-		background-color: orange;
+		background-color: #ffad03;
 	}
 	a.ahome:hover{
 		text-decoration: none;
