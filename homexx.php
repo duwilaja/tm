@@ -60,6 +60,7 @@ include 'inc.menu.php';
 					</div>
 				</div>
 			</div>
+			<br />
 			<div class="row">
 				<div class="col-lg-6">
 				<div class="card">
@@ -69,8 +70,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								99
+							<div class="indonut" id="1hr">
+								0
 							</div>
 							<canvas id="doughnutChart" style="max-height:120px"></canvas>
 							>1 Hour
@@ -80,8 +81,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								100
+							<div class="indonut" id="6hr">
+								0
 							</div>
 							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
 							>6 Hour
@@ -91,8 +92,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								101
+							<div class="indonut" id="24hr">
+								0
 							</div>
 							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
 							>24 Hour
@@ -146,6 +147,7 @@ include 'inc.menu.php';
 				</div>
 				</div>
 			</div>
+			<br />
 			<div class="row">
               <div class="col-lg-3 stretch-card">
                 <div class="card">
@@ -180,7 +182,7 @@ include 'inc.menu.php';
                 </div>
               </div>
             </div>
-
+			<br />
 			<div class="row">
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=kanwil">
 					<div class="card">
@@ -277,7 +279,7 @@ $(document).ready(function() {
 	initTbl();
 })
 
-Chart.register(ChartDataLabels);
+//Chart.register(ChartDataLabels);
 
 var mytbl;
 
@@ -397,18 +399,24 @@ var mytbl;
     }
   };
   
+  var piecolors=["#ff6600","#00b386","#e6e600","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
+  
 function randomColor(){
 	return "#"+(Math.random().toString(16)+"000000").slice(2, 8).toUpperCase();
 }
 
-function buildPieData(jsn){
+function buildPieData(jsn,cls=[]){
 	var lbl=[];
 	var dta=[];
 	var clr=[];
 	for(var i=0;i<jsn.length;i++){
 		lbl.push(jsn[i]['x']);
 		dta.push(jsn[i]['y']);
-		clr.push(randomColor());
+		if(cls.length>i){
+			clr.push(cls[i]);
+		}else{
+			clr.push(randomColor());
+		}
 	}
 	var piedata={
 			datasets: [{
@@ -423,14 +431,18 @@ function buildPieData(jsn){
 	return piedata;
 }
 
-function buildBarData(jsn){
+function buildBarData(jsn,cls=[]){
 	var lbl=[];
 	var dta=[];
 	var clr=[];
 	for(var i=0;i<jsn.length;i++){
 		lbl.push(jsn[i]['x']);
 		dta.push(jsn[i]['y']);
-		clr.push(randomColor());
+		if(cls.length>i){
+			clr.push(cls[i]);
+		}else{
+			clr.push(randomColor());
+		}
 	}
 	var bardata={
 			datasets: [{
@@ -446,6 +458,36 @@ function buildBarData(jsn){
 	return bardata;
 }
 
+function bikinSLA(divid,json,color){
+	if ($(divid).length) {
+    var doughnutChartCanvas = $(divid).get(0).getContext("2d");
+	doughnutPieData=buildPieData(json,color);
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }
+/*  if ($("#doughnutChart2").length) {
+    var doughnutChartCanvas = $("#doughnutChart2").get(0).getContext("2d");
+	doughnutPieData=buildPieData([{x:"satu",y:20},{x:"dua",y:11}],color);
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }
+  if ($("#doughnutChart3").length) {
+    var doughnutChartCanvas = $("#doughnutChart3").get(0).getContext("2d");
+	doughnutPieData=buildPieData([{x:"satu",y:20},{x:"dua",y:11}],["#0099e6","#99ddff"]);
+    var doughnutChart = new Chart(doughnutChartCanvas, {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    });
+  }*/
+}
+
 function bikinchart(){
   if ($("#barChart").length) {
 	$.ajax({
@@ -455,7 +497,7 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			data = buildBarData(json);
+			data = buildBarData(json,piecolors);
 			var barChartCanvas = $("#barChart").get(0).getContext("2d");
 			// This will get the first returned node in the jQuery collection.
 			var barChart = new Chart(barChartCanvas, {
@@ -467,30 +509,42 @@ function bikinchart(){
 	});
   }
   
-  if ($("#doughnutChart").length) {
-    var doughnutChartCanvas = $("#doughnutChart").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-  if ($("#doughnutChart2").length) {
-    var doughnutChartCanvas = $("#doughnutChart2").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-  if ($("#doughnutChart3").length) {
-    var doughnutChartCanvas = $("#doughnutChart3").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
+  $.ajax({
+		type: 'POST',
+		url: 'datajson.php',
+		data: {q:'agings',id:'0'},
+		success: function(datax){
+			var data=JSON.parse(datax);
+			console.log(data);
+			var hr1=0; var hr2=0; var hr4=0; var hr6=0; var hr8=0; var hr9=0; var hr24=0; var jam=60; var tott=0;
+			for(var i=0;i<data.length;i++){
+				if(parseInt(data[i]['a'])>=(24*jam)){
+					hr24+=parseInt(data[i]['c']);
+				/*}else if(parseInt(data[i]['a'])>=(12*jam)){
+					hr9+=parseInt(data[i]['c']);
+				}else if(parseInt(data[i]['a'])>=(8*jam)){
+					hr8+=parseInt(data[i]['c']);*/
+				}else if(parseInt(data[i]['a'])>=(6*jam)){
+					hr6+=parseInt(data[i]['c']);
+				/*}else if(parseInt(data[i]['a'])>=(4*jam)){
+					hr4+=parseInt(data[i]['c']);
+				}else if(parseInt(data[i]['a'])>=(2*jam)){
+					hr2+=parseInt(data[i]['c']);*/
+				}else if(parseInt(data[i]['a'])>=(1*jam)){
+					hr1+=parseInt(data[i]['c']);
+				}
+				tott+=parseInt(data[i]['c']);
+			}
+			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#80ff80","#b3ffb3"]);
+			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ffaa80","#ffccb3"]);
+			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#0099e6","#99ddff"]);
+			$("#1hr").html(hr1); $("#4hr").html(hr4); $("#6hr").html(hr6); $("#8hr").html(hr8); $("#9hr").html(hr9); $("#24hr").html(hr24); 
+		},
+		error: function(xhr){
+			console.log(xhr);
+		}
+  });
+  
   if ($("#doughnutChart4").length) {
     var doughnutChartCanvas = $("#doughnutChart4").get(0).getContext("2d");
     var doughnutChart = new Chart(doughnutChartCanvas, {
@@ -524,7 +578,7 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json);
+			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  type: 'pie',
@@ -542,7 +596,7 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json);
+			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  type: 'pie',
@@ -560,7 +614,7 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json);
+			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart3").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  type: 'pie',
