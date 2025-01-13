@@ -536,9 +536,9 @@ function bikinchart(){
 				}
 				tott+=parseInt(data[i]['c']);
 			}
-			bikinSLA("#doughnutChart",[{x:"Total",y:1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
-			bikinSLA("#doughnutChart2",[{x:"Total",y:1},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
-			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24-1)}],["#10729c","#bae5f7"]);
+			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
+			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
+			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#10729c","#bae5f7"]);
 			$("#1hr").html(hr1); $("#4hr").html(hr4); $("#6hr").html(hr6); $("#8hr").html(hr8); $("#9hr").html(hr9); $("#24hr").html(hr24); 
 		},
 		error: function(xhr){
