@@ -271,6 +271,12 @@
 	a.ahome:hover{
 		text-decoration: none;
 	}
+	<?php if($menu=='home'){?>
+	.card .card-body{
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	<?php }?>
 	</style>
   </head>
   <body class="sidebar-icon-only">
