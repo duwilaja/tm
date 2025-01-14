@@ -417,12 +417,13 @@ if($t=="ticket"){
 		}
 	}
 	if($ada){
+		$tp=($_POST['tp']=='')?"NULL":"'".post($_POST['tp'],$conn)."'";
 		if(isset($_POST['jp'])){
 			$jp=multiple_select("jp");
 			//$msg=$jp;
-			$msg=crud($conn,"jp","'$jp'");
+			$msg=crud($conn,"jp,tp","'$jp',$tp");
 		}else{
-			$msg=crud($conn);
+			$msg=crud($conn,"tp","$tp");
 		}
 		if($_POST['s']=='closed' && $_POST['blink']=='m2m'){
 			$oid=$_POST['i'];

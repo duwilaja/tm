@@ -112,8 +112,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								99
+							<div id="relok" class="indonut">
+								0
 							</div>
 							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
 							> SLA
@@ -123,8 +123,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								100
+							<div id="inet" class="indonut">
+								0
 							</div>
 							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
 							Internet
@@ -134,8 +134,8 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center;">
-							<div class="indonut">
-								101
+							<div id="vpn" class="indonut">
+								0
 							</div>
 							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
 							VPN
@@ -472,24 +472,6 @@ function bikinSLA(divid,json,color){
       options: doughnutOptions
     });
   }
-/*  if ($("#doughnutChart2").length) {
-    var doughnutChartCanvas = $("#doughnutChart2").get(0).getContext("2d");
-	doughnutPieData=buildPieData([{x:"satu",y:20},{x:"dua",y:11}],color);
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-  if ($("#doughnutChart3").length) {
-    var doughnutChartCanvas = $("#doughnutChart3").get(0).getContext("2d");
-	doughnutPieData=buildPieData([{x:"satu",y:20},{x:"dua",y:11}],["#0099e6","#99ddff"]);
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }*/
 }
 
 function bikinchart(){
@@ -549,31 +531,11 @@ function bikinchart(){
 		}
   });
   
-  if ($("#doughnutChart4").length) {
-    var doughnutChartCanvas = $("#doughnutChart4").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-  if ($("#doughnutChart5").length) {
-    var doughnutChartCanvas = $("#doughnutChart5").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-  if ($("#doughnutChart6").length) {
-    var doughnutChartCanvas = $("#doughnutChart6").get(0).getContext("2d");
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-
+	bikinSLA("#doughnutChart4",[{x:"Total",y:10},{x:"",y:25}],["#a7d990","#d2ebc6"]);
+	bikinSLA("#doughnutChart5",[{x:"Total",y:3},{x:"",y:55}],["#ff9799","#ffcccd"]);
+	bikinSLA("#doughnutChart6",[{x:"Total",y:20},{x:"",y:15}],["#10729c","#bae5f7"]);
+	$("#relok").html(10); $("#inet").html(3); $("#vpn").html(20);
+  
   if ($("#pieChart").length) {
 	$.ajax({
 		type: 'POST',
