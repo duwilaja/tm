@@ -560,8 +560,8 @@ if($t=="tickets"){
 					}
 				}
 			}
-			
-			$msg=crud($conn,"rowid,ticketno,dtm,createdby,dt","'$rid','$rid',now(),'$s_ID',$dt");
+			$tp=($_POST['tp']=='')?"NULL":"'".post($_POST['tp'],$conn)."'";
+			$msg=crud($conn,"rowid,ticketno,dtm,createdby,dt,tp","'$rid','$rid',now(),'$s_ID',$dt,$tp");
 		}
 	}else{
 		$tp=($_POST['tp']=='')?"NULL":"'".post($_POST['tp'],$conn)."'";

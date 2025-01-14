@@ -40,9 +40,6 @@
 	.close{
 		color: white;
 	}
-	.form-control[readonly], form-control.disabled{
-		background: #2A3038; color: #888;
-	}
 	div.card-title{
 		display: flex;
 		justify-content: space-between;
@@ -112,19 +109,10 @@
 	div.table-responsive > div.dt-container > div.row{
 		margin: 10px;
 	}
-	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
-		color: #ddd;
-	}
-	input.form-control:focus, select.form-control:focus{
-		color: #ddd;
-	}
 	#txtmsg{
 		max-height: 350px;
 		overflow-y: auto;
 		overflow-x: hidden;
-	}
-	.select2-container--default .select2-results__option[aria-selected="true"] {
-	  background-color: #444;
 	}
 	textarea.form-control.form-control-sm{
 		height: auto;
@@ -144,14 +132,6 @@
 		border-bottom-color: #888;
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
-	}
-	.select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple {
-	  border-color: #2c2e33;
-	  background: #2A3038;
-	}
-	.select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-dropdown .select2-search__field, .select2-container--default .select2-selection--multiple .select2-search__field {
-	  border-color: #2c2e33;
-	  color: #ddd;
 	}
 	.mywijet{
 		text-align: center;
@@ -176,6 +156,7 @@
 	.mywijtxts{
 		font-size: 20px;
 	}
+	
 <?php if(!$dark){?>
 	.content-wrapper{
 		background: #dddddd;
@@ -202,6 +183,17 @@
 		background-color: #ddd;
 		color: #222;
 	}
+	input.form-control:focus, select.form-control:focus, textarea.form-control:focus{
+		background-color: #ddd;
+	}
+	.form-control[readonly], form-control.disabled {
+	  background: unset;
+	  color: #888;
+	}
+	.select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple {
+		border-color: #2c2e33;
+		background: #ddd;
+	}
 	.navbar{
 		background-color:  #ffffff;
 	}
@@ -223,6 +215,30 @@
 	}
 	.navbar .navbar-brand-wrapper{
 		background: #ffffff;
+	}
+	.close{
+		color: unset;
+	}
+<?php }else{ ?>
+	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
+		color: #ddd;
+	}
+	.select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple {
+	  border-color: #2c2e33;
+	  background: #2A3038;
+	}
+	.select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-dropdown .select2-search__field, .select2-container--default .select2-selection--multiple .select2-search__field {
+	  border-color: #2c2e33;
+	  color: #ddd;
+	}
+	.select2-container--default .select2-results__option[aria-selected="true"] {
+	  background-color: #444;
+	}
+	input.form-control:focus, select.form-control:focus{
+		color: #ddd;
+	}
+	.form-control[readonly], form-control.disabled{
+		background: #2A3038; color: #888;
 	}
 <?php }?>
 	.indonut{

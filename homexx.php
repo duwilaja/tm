@@ -656,6 +656,7 @@ function get30(q='30days'){
 			for(var i=0;i<jsn.length;i++){
 				if(jsn[i]['s']=='new'||jsn[i]['s']=='open') {
 					op+=parseInt(jsn[i]['t']);
+					$("#"+q+"_"+jsn[i]['s']).html(jsn[i]['t']);
 				}else{
 					$("#"+q+"_"+jsn[i]['s']).html(jsn[i]['t']);
 				}
