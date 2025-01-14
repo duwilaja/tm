@@ -245,7 +245,7 @@
 		width: 100%; 
 		height: 40px; 
 		position: absolute; 
-		top: 100px; 
+		top: 70px; 
 		left: -10px; 
 		margin-top: -20px; 
 		line-height:19px; 

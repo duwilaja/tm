@@ -69,7 +69,7 @@ include 'inc.menu.php';
 					<div class="row">
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div class="indonut" id="1hr">
 								0
 							</div>
@@ -80,7 +80,7 @@ include 'inc.menu.php';
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div class="indonut" id="6hr">
 								0
 							</div>
@@ -91,7 +91,7 @@ include 'inc.menu.php';
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div class="indonut" id="24hr">
 								0
 							</div>
@@ -111,7 +111,7 @@ include 'inc.menu.php';
 					<div class="row">
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div id="relok" class="indonut">
 								0
 							</div>
@@ -122,7 +122,7 @@ include 'inc.menu.php';
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div id="inet" class="indonut">
 								0
 							</div>
@@ -133,7 +133,7 @@ include 'inc.menu.php';
 					  </div>
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
-						  <div class="card-body" style="text-align: center;">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<div id="vpn" class="indonut">
 								0
 							</div>
