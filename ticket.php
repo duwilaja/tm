@@ -90,7 +90,7 @@ if($s_LVL==0){
 						<form class="form-horizontal" id="myf">
 									<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="tm_tickets">
-									<input type="hidden" name="columns" value="grp,s,sn,l,p,st,typ,d,solving,blink,nossa,tp,tpic,tctct">
+									<input type="hidden" name="columns" value="grp,s,sn,l,p,st,typ,d,solving,blink,nossa,tpic,tctct">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
