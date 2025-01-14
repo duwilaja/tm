@@ -418,7 +418,7 @@ include 'inc.menu.php';
 								<form class="form-horizontal" id="myf">
                         			<input type="hidden" name="t" value="<?php echo $menu;?>">
 									<input type="hidden" name="tname" value="<?php echo $tname;?>">
-									<input type="hidden" name="columns" value="h,d,k,typ,i,st,grp,tp">
+									<input type="hidden" name="columns" value="h,d,k,typ,i,st,grp">
 									<input type="hidden" id="svt" name="svt" value="">
 									<input type="hidden" name="id" id="id" value="0">
 									
