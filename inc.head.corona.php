@@ -159,7 +159,7 @@
 	
 <?php if(!$dark){?>
 	.content-wrapper{
-		background: #dddddd;
+		background: #f6f7fb;
 	}
 	body{
 		color: #000;
@@ -201,7 +201,7 @@
 		color: #222222;
 	}
 	.navbar .navbar-menu-wrapper .search input {
-		background: #ddd;
+		background: #e4e4e4;
 		color: #222;
 	}
 	.modal-content{
