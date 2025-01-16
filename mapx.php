@@ -42,133 +42,50 @@ include 'inc.menu.php';
                         </div>
                     </div>
 					<br />
-			<div class="row">
-				<div class="col-xl-2">
+					
+			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-success">New</div>
+							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
+							<div class="mywijtxt bg-orange">New</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-danger">Open</div>
+							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
+							<div class="mywijtxt bg-green">Open</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-info">Progress</div>
+							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
+							<div class="mywijtxt bg-red">Progress</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-clock-alert"></i></div>
-							<div class="mywijtxt bg-warning">Pending</div>
+							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
+							<div class="mywijtxt bg-pink">Solved</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2">
+				<div class="col">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-info">Review</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-2">
-					<div class="card">
-						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span>1000</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
-							<div class="mywijtxt bg-success">Solved</div>
+							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
+							<div class="mywijtxt bg-purple">Total</div>
 						</div>
 					</div>
 				</div>
 			</div>
-					<div class="row hidden">
-						<div class="col-md-2">
-							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=td';">
-								<span id="tot">0</span>
-								<p>Total Ticket</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-primary" onclick="location.href='tickets<?php echo $env?>?s=tdnew';">
-								<span id="new">0</span>
-								<p>New Ticket</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-danger" onclick="location.href='tickets<?php echo $env?>?s=tdopen';">
-								<span id="open">0</span>
-								<p>Open Ticket</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-success" onclick="location.href='tickets<?php echo $env?>?s=tdprogress';">
-								<span id="progress">0</span>
-								<p>Progress Ticket</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-secondary" onclick="location.href='tickets<?php echo $env?>?s=tdsolved';">
-								<span id="solved">0</span>
-								<p>Solved Ticket</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=tdclosed';">
-								<span id="closed">0</span>
-								<p>Closed Ticket</p>
-							</div>
-						</div>
-					</div>
-					<div class="row hidden">
-						<div class="col-md-2">
-							<div class="tile tile-success" onclick="location.href='tickets<?php echo $env?>?s=02';">
-								<span id="2hr">0</span>
-								<p>&geq; 2 hour</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-secondary" onclick="location.href='tickets<?php echo $env?>?s=04';">
-								<span id="4hr">0</span>
-								<p>&geq; 4 hour</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-info" onclick="location.href='tickets<?php echo $env?>?s=06';">
-								<span id="6hr">0</span>
-								<p>&geq; 6 hour</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-secondary" onclick="location.href='tickets<?php echo $env?>?s=08';">
-								<span id="8hr">0</span>
-								<p>&geq; 8 hour</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-primary" onclick="location.href='tickets<?php echo $env?>?s=12';">
-								<span id="9hr">0</span>
-								<p>&geq;12 hour</p>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="tile tile-danger" onclick="location.href='tickets<?php echo $env?>?s=24';">
-								<span id="24hr">0</span>
-								<p>&geq;24 hour</p>
-							</div>
-						</div>
-					</div>
-                
+			
           </div>
           <!-- content-wrapper ends -->
 
@@ -326,10 +243,11 @@ function loadMarker(){
 		}
 	});
 	countToday();
-	countAging();
+	//countAging();
 }
 function countToday(){
-	$("#new").html('0'); $("#newopen").html('0'); $("#progress").html('0'); $("#tot").html('0'); $("#solved").html('0'); $("#closed").html('0'); 
+	$("#30days_new").html('0'); $("#30days_open").html('0'); $("#30days_progress").html('0'); $("#30days_solved").html('0'); 
+	$("#30days_total").html('0'); 
 	$.ajax({
 		type: 'POST',
 		url: 'datajson.php',
@@ -339,11 +257,11 @@ function countToday(){
 			var tot=0;
 			var newopen=0;
 			for(var i=0;i<data.length;i++){
-				$("#"+data[i]['s']).html(data[i]['c']);
-				newopen+=(data[i]['s']=='new'||data[i]['s']=='open')?parseInt(data[i]['c']):0;
+				$("#30days_"+data[i]['s']).html(data[i]['c']);
+				//newopen+=(data[i]['s']=='new'||data[i]['s']=='open')?parseInt(data[i]['c']):0;
 				tot+=parseInt(data[i]['c']);
 			}
-			$("#tot").html(tot);
+			$("#30days_total").html(tot);
 			$("#newopen").html(newopen);
 		},
 		error: function(xhr){
