@@ -177,7 +177,7 @@
 		color: #000;
 	}
 	.table-dark{
-		background-color: #cdcdcd;
+		background-color: #f6f7fb;
 	}
 	.form-control {
 		background-color: #ddd;
@@ -271,7 +271,7 @@
 	a.ahome:hover{
 		text-decoration: none;
 	}
-	<?php if($menu=='home'){?>
+	<?php if($menu=='home'||true){?>
 	.card .card-body{
 		padding-top:5px;
 		padding-bottom:5px;
