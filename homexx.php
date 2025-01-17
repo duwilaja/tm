@@ -521,6 +521,7 @@ function bikinchart(){
 				}
 				tott+=parseInt(data[i]['c']);
 			}
+			if(tott==0) tott=1;
 			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
 			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
 			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#10729c","#bae5f7"]);
@@ -553,6 +554,7 @@ function bikinchart(){
 				}
 				tott+=parseInt(data[i]['y']);
 			}
+			if(tott==0) tott=1;
 			bikinSLA("#doughnutChart4",[{x:"Total",y:ovr},{x:"",y:(tott-ovr)}],["#a7d990","#d2ebc6"]);
 			bikinSLA("#doughnutChart5",[{x:"Total",y:wif},{x:"",y:(tott-wif)}],["#ff9799","#ffcccd"]);
 			bikinSLA("#doughnutChart6",[{x:"Total",y:nonwif},{x:"",y:(tott-nonwif)}],["#10729c","#bae5f7"]);
