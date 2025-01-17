@@ -98,11 +98,8 @@ if($loggedin){
     <!-- End layout styles -->
     <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
-	input.form-control:focus, select.form-control:focus{
-		color: #ddd;
-	}
-	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
-		color: #ddd;
+	.card{
+		background-color: #ffffff;
 	}
 	</style>
   </head>
