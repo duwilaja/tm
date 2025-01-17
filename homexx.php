@@ -531,10 +531,37 @@ function bikinchart(){
 		}
   });
   
-	bikinSLA("#doughnutChart4",[{x:"Total",y:10},{x:"",y:25}],["#a7d990","#d2ebc6"]);
-	bikinSLA("#doughnutChart5",[{x:"Total",y:3},{x:"",y:55}],["#ff9799","#ffcccd"]);
-	bikinSLA("#doughnutChart6",[{x:"Total",y:20},{x:"",y:15}],["#10729c","#bae5f7"]);
-	$("#relok").html(10); $("#inet").html(3); $("#vpn").html(20);
+  $.ajax({
+		type: 'POST',
+		url: 'datajson.php',
+		data: {q:'homerel',id:'0'},
+		success: function(datax){
+			var data=JSON.parse(datax);
+			console.log(data);
+			var ovr=0; var wif=0; var nonwif=0; var tott=0;
+			for(var i=0;i<data.length;i++){
+				if(data[i]['x']=='wifi station'){
+					if(parseInt(data[i]['z']) > 28){ //wif
+						ovr+=parseInt(data[i]['y']);
+					}
+					wif+=parseInt(data[i]['y']);
+				}else{
+					if(parseInt(data[i]['z']) > 56){ //nonwif
+						ovr+=parseInt(data[i]['y']);
+					}
+					nonwif+=parseInt(data[i]['y']);
+				}
+				tott+=parseInt(data[i]['y']);
+			}
+			bikinSLA("#doughnutChart4",[{x:"Total",y:ovr},{x:"",y:(tott-ovr)}],["#a7d990","#d2ebc6"]);
+			bikinSLA("#doughnutChart5",[{x:"Total",y:wif},{x:"",y:(tott-wif)}],["#ff9799","#ffcccd"]);
+			bikinSLA("#doughnutChart6",[{x:"Total",y:nonwif},{x:"",y:(tott-nonwif)}],["#10729c","#bae5f7"]);
+			$("#relok").html(ovr); $("#inet").html(wif); $("#vpn").html(nonwif);
+		},
+		error: function(xhr){
+			console.log(xhr);
+		}
+  });
   
   if ($("#pieChart").length) {
 	$.ajax({

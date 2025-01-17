@@ -85,6 +85,7 @@ switch($q){
 	case 'kao': $sql="select tipe,COUNT(tipe) as tot from tm_outlets GROUP BY tipe"; break;
 	
 	case 'homepie': $sql="select $id as x,COUNT($id) as y from tm_tickets WHERE grp='$idx' and (timestampdiff(hour,dt,now())<=24 or 1=1) GROUP BY $id"; break;
+	case 'homerel': $sql="select datediff(date(now()),date(dt)) as z, st as x,COUNT(rowid) as y from tm_tickets WHERE typ='relokasi' and s<>'closed' GROUP BY z,x ORDER BY x,z"; break;
 	case 'homebar': $sql="select date(dt) as x,COUNT(rowid) as y from tm_tickets WHERE datediff(date(now()),date(dt))<=5 or 1=1 GROUP BY date(dt) ORDER BY date(dt)"; break;
 }
 

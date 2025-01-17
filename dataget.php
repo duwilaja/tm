@@ -223,7 +223,7 @@ while($row = fetch_row($result)){
 	}
 	if($x=="tickets"){
 		//$row[$col-1]='<a title="Notes" href="JavaScript:;" class="btn btn-success" data-fancybox data-type="iframe" data-src="notes'.$env.'?id='.$row[$col-1].'"><i class="fa fa-edit"></i></a>';
-		$btn=''; $style='';
+		$btn=' btn-default'; $style='';
 		if($row[9]=='new'){$btn=' btn-success';}
 		if($row[9]=='open'){$btn=' btn-info'; }//$style='style="background-color: green;"';}
 		if($row[9]=='solved' && $row[13]=='SolarWinds') { $btn=' btn-warning';}
