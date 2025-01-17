@@ -159,13 +159,13 @@
 	
 <?php if(!$dark){?>
 	.content-wrapper{
-		background: #f6f7fb;
+		background: #fdfdfd;
 	}
 	body{
 		color: #000;
 	}
 	.card{
-		background-color: #f0f0f0;
+		background-color: #ffffff;
 	}
 	.card .card-title{
 		color: #000;
@@ -218,6 +218,15 @@
 	}
 	.close{
 		color: unset;
+	}
+	.sidebar{
+		background-color: #fdfdfd;
+	}
+	.sidebar .sidebar-brand-wrapper{
+		background-color: #fdfdfd;
+	}
+	.footer{
+		background-color: #fdfdfd;
 	}
 <?php }else{ ?>
 	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
