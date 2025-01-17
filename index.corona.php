@@ -99,7 +99,19 @@ if($loggedin){
     <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
 	.card{
-		background-color: #ffffff;
+		background-color: #bed9ec;
+		color: #000000;
+	}
+	.card .card-title{
+		color: #000000;
+	}
+	.form-control {
+		background-color: #fff;
+		color: #000;
+	}
+	input.form-control:focus, select.form-control:focus, textarea.form-control:focus{
+		background-color: #fff;
+		color: #000;
 	}
 	</style>
   </head>
