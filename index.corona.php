@@ -134,7 +134,7 @@ if($loggedin){
                   </div>
 				  <div class="form-group">
                     <input type="text" name="k" class="form-control p_input" placeholder="Type the word here">
-                    <img src="captcha.php" style="width:50%;" />
+                    <img src="captcha.php" style="width:100%;" />
                   </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">

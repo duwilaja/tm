@@ -220,13 +220,13 @@
 		color: unset;
 	}
 	.sidebar{
-		background-color: #fdfdfd;
+		background-color: #424d69;
 	}
 	.sidebar .sidebar-brand-wrapper{
-		background-color: #fdfdfd;
+		background-color: #424d69;
 	}
 	.footer{
-		background-color: #fdfdfd;
+		background-color: #424d69;
 	}
 <?php }else{ ?>
 	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{

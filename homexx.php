@@ -70,7 +70,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div class="indonut" id="1hr">
+							<div class="indonut" id="1hr" style="color:#a7d990;">
 								0
 							</div>
 							<canvas id="doughnutChart" style="max-height:120px"></canvas>
@@ -81,7 +81,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div class="indonut" id="6hr">
+							<div class="indonut" id="6hr" style="color:#ff9799;">
 								0
 							</div>
 							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
@@ -92,7 +92,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div class="indonut" id="24hr">
+							<div class="indonut" id="24hr" style="color:#10729c;">
 								0
 							</div>
 							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
@@ -112,7 +112,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div id="relok" class="indonut">
+							<div id="relok" class="indonut" style="color:#a7d990;">
 								0
 							</div>
 							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
@@ -123,7 +123,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div id="inet" class="indonut">
+							<div id="inet" class="indonut" style="color:#ff9799;">
 								0
 							</div>
 							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
@@ -134,7 +134,7 @@ include 'inc.menu.php';
 					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<div id="vpn" class="indonut">
+							<div id="vpn" class="indonut" style="color:#10729c;">
 								0
 							</div>
 							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
@@ -186,7 +186,7 @@ include 'inc.menu.php';
 			<div class="row">
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=kanwil">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
 							<div class="mywijet"><span id="kanwil">0</span><br />Kanwil</div>
 						</div>
@@ -194,7 +194,7 @@ include 'inc.menu.php';
 				</div>
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=area">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
 							<div class="mywijet"><span id="area">0</span><br />Kantor Area</div>
 						</div>
@@ -202,7 +202,7 @@ include 'inc.menu.php';
 				</div>
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=cpp">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
 							<div class="mywijet"><span id="cpp">0</span><br />Kantor CPP</div>
 						</div>
@@ -210,7 +210,7 @@ include 'inc.menu.php';
 				</div>
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=upc">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
 							<div class="mywijet"><span id="upc">0</span><br />Kantor UPC</div>
 						</div>
@@ -218,7 +218,7 @@ include 'inc.menu.php';
 				</div>
 				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=deputy">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
 							<div class="mywijet"><span id="deputy">0</span><br />Deputy</div>
 						</div>
@@ -226,7 +226,7 @@ include 'inc.menu.php';
 				</div>
 				<div class="col-lg-2"><a class="ahome" href="javascript:tabel();">
 					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex;">
+						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
 							<div class="mywijet"><span id="outlet">0</span><br />Outlet</div>
 						</div>
@@ -403,7 +403,7 @@ var mytbl;
     }
   };
   
-  var piecolors=["#e95d60","#34afac","#fcd76f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
+  var piecolors=["#e95c60","#fcd46c","#fcd66f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
   
 function randomColor(){
 	return "#"+(Math.random().toString(16)+"000000").slice(2, 8).toUpperCase();
