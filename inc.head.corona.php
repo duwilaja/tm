@@ -263,19 +263,19 @@
 		font-size: 40px;
 	}
 	.bg-pink{
-		background-color: #dca1bd;
+		background-color: #D5739D;
 	}
 	.bg-red{
-		background-color: #ec9490;
+		background-color: #EA6B66;
 	}
 	.bg-purple{
-		background-color: #c6add4;
+		background-color: #A680B8;
 	}
 	.bg-green{
-		background-color: #9bd17d;
+		background-color: #97D077;
 	}
 	.bg-orange{
-		background-color: #ffad03;
+		background-color: #FFA500;
 	}
 	a.ahome:hover{
 		text-decoration: none;

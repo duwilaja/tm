@@ -3,9 +3,25 @@ $title="Login";
 //include "inc.common.php";
 include "inc.db.php";
 
-function getmac(){
-	return "MAC:MAC:MAC:MAC";
+function cek($user){
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, 
+			  http_build_query(array('secret' => '6Lf3B70qAAAAAFLDliHeMFtajMnxa7Ec_MyPDJLR',
+									'response' => $user)));
+
+	// Receive server response ...
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	$server_output = curl_exec($ch);
+
+	curl_close($ch);
+	
+	return $server_output;
 }
+
 
 $u="";
 $p="";
@@ -17,10 +33,15 @@ if(isset($_POST["p"])){$p=$_POST["p"];}
 if(isset($_GET["m"])){$msg=$_GET['m'];}
 
 
-if(isset($_POST["k"])){$captcha=$_POST["k"];}
-session_start();
+//if(isset($_POST["k"])){$captcha=$_POST["k"];}
+//session_start();
+$captcha=false;
+if(isset($_POST['g-recaptcha-response'])){
+	$oke=json_decode(cek($_POST['g-recaptcha-response']));
+	if($oke->success) $captcha=true;
+}
 
-if($u!=""&&$captcha==$_SESSION['kode_captcha']){
+if($u!=""&&$captcha){
 $loggedin=false;
 
 $sql="select username,userlevel,usergrp from tm_users where (userid='$u') and userpwd=MD5('$p')";
@@ -28,7 +49,7 @@ $sql="select username,userlevel,usergrp from tm_users where (userid='$u') and us
 	$conn = connect();
 	$rs = exec_qry($conn,$sql);
 	if ($row = fetch_row($rs)) {
-		//session_start();
+		session_start();
 		//if (!isset($_SESSION['s_ID'])) {
     		$_SESSION['s_ID'] = $u;
 		//}
@@ -68,12 +89,12 @@ if($loggedin){
 	if($_SESSION['s_LVL']==9){
 		header("Location: homexx$env");
 	}else{
-		header("Location: home$env");
+		header("Location: homexx$env");
 	}
 }
 }else{
 	if($u!=''){
-		$msg="Wrong Captcha.";
+		$msg="Please verify.";
 	}
 }
 ?>
@@ -95,23 +116,42 @@ if($loggedin){
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="corona/assets/css/style.css">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- End layout styles -->
     <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
 	.card{
-		background-color: #bed9ec;
+		background-color: #424D69;
 		color: #000000;
 	}
 	.card .card-title{
 		color: #000000;
 	}
 	.form-control {
-		background-color: #fff;
-		color: #000;
+		background-color: #4c5a75;
+		border-color: #3C7CB3;
+		color: #ffffff;
 	}
 	input.form-control:focus, select.form-control:focus, textarea.form-control:focus{
-		background-color: #fff;
-		color: #000;
+		background-color: #3C7CB3;
+		color: #ffffff;
+	}
+	.form-control::placeholder {
+		color: #ffffff;
+		opacity: 1; /* Firefox */
+	}
+	::-ms-input-placeholder { /* Edge 12 -18 */
+	  color: #ffffff;
+	}
+	.input-group > .input-group-prepend > .input-group-text{
+		color: #ffffff;
+		border-color: #3C7CB3;
+		padding: 0.56rem 0.75rem;
+		color: #ffffff;
+		background: #3C7CB3;
+	}
+	.g-recaptcha{
+		width: 100%;
 	}
 	</style>
   </head>
@@ -122,20 +162,31 @@ if($loggedin){
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-left mb-3">Login</h3>
+                <h3 class="card-title text-left mb-3"></h3>
+				<div class="text-center"><img src="corona/assets/images/orang.png" width="30%;" /></div>
+				<br />
                 <form action="" method="post">
                   <div class="form-group">
-                    <label>Username *</label>
-                    <input type="text" name="u" class="form-control p_input">
+                    
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class=" mdi mdi-account "></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" name="u">
+                      </div>
+                    
                   </div>
                   <div class="form-group">
-                    <label>Password *</label>
-                    <input type="password" name="p" class="form-control p_input">
+                    
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class=" mdi mdi-lock "></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Password" name="p">
+                      </div>
+                    
                   </div>
-				  <div class="form-group">
-                    <input type="text" name="k" class="form-control p_input" placeholder="Type the word here">
-                    <img src="captcha.php" style="width:100%;" />
-                  </div>
+				  <div class="g-recaptcha" data-sitekey="6Lf3B70qAAAAAOyUjQIQEBbmd4KmNOsZ9h8giqK9"></div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">
