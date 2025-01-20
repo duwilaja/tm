@@ -123,6 +123,7 @@ if($loggedin){
 	.card{
 		background-color: #424D69;
 		color: #000000;
+		opacity: 50%;
 	}
 	.card .card-title{
 		color: #000000;
@@ -150,8 +151,8 @@ if($loggedin){
 		color: #ffffff;
 		background: #3C7CB3;
 	}
-	.g-recaptcha{
-		width: 100%;
+	.g-recaptchax{
+		background: #ddd;
 	}
 	</style>
   </head>
@@ -186,7 +187,7 @@ if($loggedin){
                       </div>
                     
                   </div>
-				  <div class="form-group">
+				  <div class="g-recaptchax">
 				  <div class="g-recaptcha" data-sitekey="6Lf3B70qAAAAAOyUjQIQEBbmd4KmNOsZ9h8giqK9"></div>
 				  </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
