@@ -121,9 +121,8 @@ if($loggedin){
     <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
 	.card{
-		background-color: #424D69;
+		background-color: rgba(66,77,105,0.5); /*#424D69;*/
 		color: #000000;
-		opacity: 50%;
 	}
 	.card .card-title{
 		color: #000000;
@@ -152,7 +151,7 @@ if($loggedin){
 		background: #3C7CB3;
 	}
 	.g-recaptchax{
-		background: #ddd;
+		background: #fafafa;
 	}
 	</style>
   </head>
@@ -187,7 +186,7 @@ if($loggedin){
                       </div>
                     
                   </div>
-				  <div class="g-recaptchax">
+				  <div class="form-group g-recaptchax">
 				  <div class="g-recaptcha" data-sitekey="6Lf3B70qAAAAAOyUjQIQEBbmd4KmNOsZ9h8giqK9"></div>
 				  </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
