@@ -63,7 +63,7 @@ $sql="select username,userlevel,usergrp from tm_users where (userid='$u') and us
     		$_SESSION['s_GRP'] = $row[2];
 		//}
 		//if (!isset($_SESSION['s_MAC'])) {
-    		$_SESSION['s_MAC'] = getmac();
+    		//$_SESSION['s_MAC'] = getmac();
 		//}
 		/*$sqlm="select menu from custom_user_menus where userid='$u'";
 		$rsm=exec_qry($conn,$sqlm);
@@ -163,7 +163,7 @@ if($loggedin){
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3"></h3>
-				<div class="text-center"><img src="corona/assets/images/orang.png" width="30%;" /></div>
+				<div class="text-center"><img src="corona/assets/images/logo-mini.svg" style="width:30%;" /></div>
 				<br />
                 <form action="" method="post">
                   <div class="form-group">
@@ -186,7 +186,9 @@ if($loggedin){
                       </div>
                     
                   </div>
+				  <div class="form-group">
 				  <div class="g-recaptcha" data-sitekey="6Lf3B70qAAAAAOyUjQIQEBbmd4KmNOsZ9h8giqK9"></div>
+				  </div>
                   <!--div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">
