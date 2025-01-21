@@ -261,7 +261,6 @@
 		height: 40px; 
 		position: absolute; 
 		top: 70px; 
-		left: -10px; 
 		margin-top: -20px; 
 		line-height:19px; 
 		text-align: center; 
