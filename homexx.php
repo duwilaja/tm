@@ -67,34 +67,34 @@ include 'inc.menu.php';
 				  <div class="card-body">
 				  <h4 class="card-title">SLA Gangguan</h4>
 					<div class="row">
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div class="indonut" id="1hr" style="color:#a7d990;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart" style="max-height:120px"></canvas>
 							>1 Hour
 						  </div>
 						</div>
 					  </div>
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div class="indonut" id="6hr" style="color:#ff9799;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
 							>6 Hour
 						  </div>
 						</div>
 					  </div>
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div class="indonut" id="24hr" style="color:#10729c;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
 							>24 Hour
 						  </div>
@@ -109,34 +109,34 @@ include 'inc.menu.php';
 				  <div class="card-body">
 				  <h4 class="card-title">SLA Relokasi</h4>
 					<div class="row">
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div id="relok" class="indonut" style="color:#a7d990;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
 							> SLA
 						  </div>
 						</div>
 					  </div>
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div id="inet" class="indonut" style="color:#ff9799;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
 							Internet
 						  </div>
 						</div>
 					  </div>
-					  <div class="col-lg-4  stretch-card" style="padding-left: 0; padding-right: 0">
-						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div id="vpn" class="indonut" style="color:#10729c;">
 								0
 							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
 							VPN
 						  </div>
