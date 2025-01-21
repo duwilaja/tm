@@ -14,7 +14,7 @@ include 'inc.menu.php';
 ?>
                 
         <div class="main-panel">
-          <div class="content-wrapper" style="padding-left:0;padding-right:0;">
+          <div class="content-wrapper" style="padding-left:0;padding-right:0;padding-top:0;">
                     
                     <div class="row hidden">
                         <div class="col-md-12">

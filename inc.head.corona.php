@@ -220,14 +220,14 @@
 		color: unset;
 	}
 	.sidebar{
-		background-color: #fdfdfd; /*#424d69;*/
+		background-color: #ffffff; /*#424d69;*/
 		box-shadow: 20px 19px 34px -15px rgba(0, 0, 0, 0.5);
 	}
 	.sidebar .sidebar-brand-wrapper{
-		background-color: #fdfdfd; /*#424d69;*/
+		background-color: #ffffff; /*#424d69;*/
 	}
 	.footer{
-		background-color: #424d69;
+		background-color: #ffffff; /*#424d69;*/
 	}
 	.navbar .navbar-menu-wrapper{
 		-webkit-box-shadow:  unset;
