@@ -220,13 +220,18 @@
 		color: unset;
 	}
 	.sidebar{
-		background-color: #424d69;
+		background-color: #fdfdfd; /*#424d69;*/
+		box-shadow: 20px 19px 34px -15px rgba(0, 0, 0, 0.5);
 	}
 	.sidebar .sidebar-brand-wrapper{
-		background-color: #424d69;
+		background-color: #fdfdfd; /*#424d69;*/
 	}
 	.footer{
 		background-color: #424d69;
+	}
+	.navbar .navbar-menu-wrapper{
+		-webkit-box-shadow:  unset;
+		box-shadow: unset;
 	}
 <?php }else{ ?>
 	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
