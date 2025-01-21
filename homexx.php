@@ -403,7 +403,7 @@ var mytbl;
     }
   };
   
-  var piecolors=["#e95c60","#fcd46c","#fcd66f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
+  var piecolors=["#e95c60","#34afaa","#fcd66f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
   
 function randomColor(){
 	return "#"+(Math.random().toString(16)+"000000").slice(2, 8).toUpperCase();
