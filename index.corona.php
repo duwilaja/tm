@@ -121,7 +121,7 @@ if($loggedin){
     <link rel="shortcut icon" href="favicon-16.png" />
 	<style type="text/css">
 	.card{
-		background-color: rgba(66,77,105,0.5); /*#424D69;*/
+		background-color: rgba(97,154,207,0.5); /*#619acf;*/
 		color: #000000;
 	}
 	.card .card-title{
@@ -160,10 +160,10 @@ if($loggedin){
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="row w-100 m-0">
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
-            <div class="card col-lg-4 mx-auto">
-              <div class="card-body px-5 py-5">
+            <div class="card mx-auto" style="width:400px;">
+              <div class="card-body mx-auto" style="width:355px;">
                 <h3 class="card-title text-left mb-3"></h3>
-				<div class="text-center"><img src="corona/assets/images/logo-mini.svg" style="width:30%;" /></div>
+				<div class="text-center"><img src="corona/assets/images/puji.png" style="width:30%;" /></div>
 				<br />
                 <form action="" method="post">
                   <div class="form-group">
