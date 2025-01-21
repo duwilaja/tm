@@ -14,9 +14,9 @@ include 'inc.menu.php';
 ?>
                 
         <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="padding-left:0;padding-right:0;">
                     
-                    <div class="row">
+                    <div class="row hidden">
                         <div class="col-md-12">
                             <div class="card card-default">
 								<div class="card-heading hidden">
@@ -36,11 +36,14 @@ include 'inc.menu.php';
                                     </ul>                                    
                                 </div> 
                                 <div class="card-body">
-                                    <div id="leafletMap" style="width:100%;height:450px;"></div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+					<div class="row">
+						<div id="leafletMap" style="width:100%;height:450px;"></div>
+					</div>
 					<br />
 					
 			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">

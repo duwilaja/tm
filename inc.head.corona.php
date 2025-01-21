@@ -250,6 +250,12 @@
 		background: #2A3038; color: #888;
 	}
 <?php }?>
+	.main-panel{
+		padding-top: 50px;
+	}
+	.navbar .navbar-menu-wrapper{
+		height: 50px;
+	}
 	.indonut{
 		width: 100%; 
 		height: 40px; 
