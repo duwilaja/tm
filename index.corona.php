@@ -26,7 +26,7 @@ function cek($user){
 $u="";
 $p="";
 $msg="";
-$captcha="";
+//$captcha="";
 
 if(isset($_POST["u"])){$u=$_POST["u"];}
 if(isset($_POST["p"])){$p=$_POST["p"];}
@@ -35,8 +35,9 @@ if(isset($_GET["m"])){$msg=$_GET['m'];}
 
 //if(isset($_POST["k"])){$captcha=$_POST["k"];}
 //session_start();
-$captcha=false;
-if(isset($_POST['g-recaptcha-response'])){
+$dev=false;
+$captcha=$dev;
+if(isset($_POST['g-recaptcha-response'])&&!$captcha){
 	$oke=json_decode(cek($_POST['g-recaptcha-response']));
 	if($oke->success) $captcha=true;
 }
@@ -123,6 +124,7 @@ if($loggedin){
 	.card{
 		background-color: rgba(97,154,207,0.5); /*#619acf;*/
 		color: #000000;
+		border-color: transparent;
 	}
 	.card .card-title{
 		color: #000000;
@@ -197,7 +199,7 @@ if($loggedin){
                     <a href="#" class="forgot-pass">Forgot password</a>
                   </div-->
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                    <button type="submit" class="btn btn-primary btn-block enter-btn" style="background-color:#4278aa; border-color: #4278aa;">Login</button>
                   </div>
                   <!--div class="d-flex">
                     <button class="btn btn-facebook mr-2 col">
