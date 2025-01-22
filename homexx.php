@@ -670,7 +670,7 @@ function initTbl(){
 				d.cols= '<?php echo base64_encode("oname"); ?>',
 				d.tname= '<?php echo base64_encode("tm_outlets"); ?>',
 				d.csrc= 'oname',
-				d.where= '<?php echo base64_encode("tipe='outlet'"); ?>',
+				d.where= '<?php echo base64_encode("tipe in ('upc','cpp')"); ?>',
 				d.x= '-';
 			}
 		}
