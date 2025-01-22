@@ -332,30 +332,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0 text-center text-warning"><b><?php echo $s_NAME?></b></h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="cpwdx<?php echo $env;?>">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-settings text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Change Password</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="logout<?php echo $env;?>">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Administrative</p>
+                  <?php if($s_LVL==0){?>
 				  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="cmsusersx<?php echo $env;?>">
                     <div class="preview-thumbnail">
@@ -389,7 +366,29 @@
                       <p class="preview-subject mb-1">Updates</p>
                     </div>
                   </a>
+				  <?php }?>
                   <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="cpwdx<?php echo $env;?>">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Change Password</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="logout<?php echo $env;?>">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
                 </div>
               </li>
             </ul>

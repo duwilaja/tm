@@ -45,7 +45,7 @@ include 'inc.menu.php';
 						<div id="leafletMap" style="width:100%;height:450px;"></div>
 					</div>
 					<br />
-					
+			<div style="padding: 1.875rem 1.75rem;">
 			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
 				<div class="col">
 					<div class="card">
@@ -88,7 +88,7 @@ include 'inc.menu.php';
 					</div>
 				</div>
 			</div>
-			
+			</div>
           </div>
           <!-- content-wrapper ends -->
 
