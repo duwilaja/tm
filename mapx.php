@@ -42,7 +42,7 @@ include 'inc.menu.php';
                         </div>
                     </div>
 					<div class="row">
-						<div id="leafletMap" style="width:100%;height:450px;"></div>
+						<div id="leafletMap" style="width:100%;height:570px;"></div>
 					</div>
 					<br />
 			<div style="padding: 1.875rem 1.75rem;">
