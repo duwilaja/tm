@@ -183,8 +183,8 @@ include 'inc.menu.php';
               </div>
             </div>
 			<br />
-			<div class="row">
-				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=kanwil">
+			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+				<div class="col"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=kanwil">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
@@ -192,7 +192,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=area">
+				<div class="col"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=area">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
@@ -200,7 +200,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=cpp">
+				<div class="col"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=cpp">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
@@ -208,7 +208,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=upc">
+				<div class="col"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=upc">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class="mdi mdi-hospital-building"></i></div>
@@ -216,15 +216,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col-lg-2"><a class="ahome" href="javascript:;"  data-fancybox data-type="iframe" data-src="peta<?php echo $env?>?tipe=deputy">
-					<div class="card">
-						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
-							<div class="mywijval"><i class="mdi mdi-bank"></i></div>
-							<div class="mywijet"><span id="deputy">0</span><br />Deputy</div>
-						</div>
-					</div></a>
-				</div>
-				<div class="col-lg-2"><a class="ahome" href="javascript:tabel();">
+				<div class="col"><a class="ahome" href="javascript:tabel();">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 20px; display: flex; color: #000000;">
 							<div class="mywijval"><i class=" mdi mdi-home-modern"></i></div>
@@ -628,9 +620,12 @@ function getKAO(q='kao'){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
+			var outlet=0;
 			for(var i=0;i<json.length;i++){
 				$("#"+json[i]['tipe']).html(json[i]['tot']);
+				outlet+=(json[i]['tipe']=='cpp'||json[i]['tipe']=='upc')?parseInt(json[i]['tot']):0;
 			}
+			$("#outlet").html(outlet);
 		}
 	});
 	setTimeout(getKAO,300*1000);
