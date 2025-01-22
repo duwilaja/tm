@@ -261,6 +261,20 @@
 	.navbar .navbar-menu-wrapper{
 		height: 50px;
 	}
+	.sidebar .sidebar-brand-wrapper{
+		height: 50px;
+	}
+    @media (min-width: 992px){
+		.sidebar-icon-only .sidebar .nav {
+			overflow: hidden;
+		}
+		.sidebar-icon-only .sidebar {
+		  width: 0px;
+		}
+		.sidebar-icon-only .page-body-wrapper {
+			width: 100%;
+		}
+	}
 	.indonut{
 		width: 100%; 
 		height: 40px; 
