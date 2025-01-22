@@ -256,7 +256,8 @@ include 'inc.menu.php';
 <?php
 include 'inc.logout.php';
 ?>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script> 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+		<script>import ChartDataLabels from 'chartjs-plugin-datalabels';</script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script> 
 		
 <?php
@@ -568,6 +569,7 @@ function bikinchart(){
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
+			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
@@ -586,6 +588,7 @@ function bikinchart(){
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
+			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
@@ -604,6 +607,7 @@ function bikinchart(){
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart3").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
+			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
