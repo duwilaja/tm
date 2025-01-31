@@ -158,7 +158,7 @@
 	
 <?php if(!$dark){?>
 	.content-wrapper{
-		background: #fdfdfd;
+		background: #f6f7fb;
 	}
 	body{
 		color: #000;
