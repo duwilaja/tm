@@ -178,6 +178,12 @@
 	.table-dark{
 		background-color: #f6f7fb;
 	}
+	.table{
+		color: #000;
+	}
+	.table thead th{
+		color: #000;
+	}
 	.form-control {
 		background-color: #ddd;
 		color: #222;
