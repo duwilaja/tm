@@ -126,7 +126,6 @@
 	.card{
 		border-radius: 15px;
 		margin-top: 5px;
-		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.50);
 	}
 	.card-heading{
 		border-bottom-color: #888;
@@ -182,17 +181,21 @@
 	.form-control {
 		background-color: #ddd;
 		color: #222;
+		border: none;
 	}
 	input.form-control:focus, select.form-control:focus, textarea.form-control:focus{
 		background-color: #ddd;
+		border: none;
 	}
 	.form-control[readonly], form-control.disabled {
 	  background: unset;
 	  color: #888;
+	  border: none;
 	}
 	.select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple {
 		border-color: #2c2e33;
 		background: #ddd;
+		border: none;
 	}
 	.navbar{
 		background-color:  #ffffff;
@@ -203,6 +206,7 @@
 	.navbar .navbar-menu-wrapper .search input {
 		background: #e4e4e4;
 		color: #222;
+		border: none;
 	}
 	.modal-content{
 		background-color: #fdfdfd;
@@ -304,12 +308,15 @@
 	a.ahome:hover{
 		text-decoration: none;
 	}
-	<?php if($menu=='home'||true){?>
+	<?php if($menu=='home'){?>
+	.card{
+		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.50);
+	}
+	<?php }?>
 	.card .card-body{
 		padding-top:5px;
 		padding-bottom:5px;
 	}
-	<?php }?>
 	</style>
   </head>
   <body class="sidebar-icon-only">
