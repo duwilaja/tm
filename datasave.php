@@ -581,7 +581,7 @@ if($t=="notes"){
 			$up=fetch_alla(exec_qry($conn,"select rid from tm_apiupdate_log where dt>'$dt' and h like '$co%'"));
 			if(count($up)<1){
 				$ada=false;
-				//$msg="No Up Logs. Solved is not allowed.";
+				$msg="No Up Logs. Solved is not allowed.";
 			}
 		}
 	}
