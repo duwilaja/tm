@@ -570,8 +570,25 @@ if($t=="tickets"){
 	}
 }
 if($t=="notes"){
-	$fattc = process_file($_POST['svt'],"fattc",$_POST['attc'],"uploads/");
-	$msg=crud($conn,"attc","'$fattc'");
+	$ada=true;
+	$ss=post($_POST['s'],$conn);
+	if($ss=='solved'){
+		$tkt=post($_POST['ticketid'],$conn);
+		$tix=fetch_alla(exec_qry($conn,"select i,dt from tm_tickets where ticketno='$tkt' and createdby='SolarWinds'"));
+		if(count($tix)>0){
+			$co=$tix[0]['i'];
+			$dt=$tix[0]['dt'];
+			$up=fetch_alla(exec_qry($conn,"select rid from tm_apiupdate_log where dt>'$dt' and h like '$co%'"));
+			if(count($up)<1){
+				$ada=false;
+				//$msg="No Up Logs. Solved is not allowed.";
+			}
+		}
+	}
+	if($ada){
+		$fattc = process_file($_POST['svt'],"fattc",$_POST['attc'],"uploads/");
+		$msg=crud($conn,"attc","'$fattc'");
+	}
 }
 if($t=="masstickets"){
 	$tid=time();
