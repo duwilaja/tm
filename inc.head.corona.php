@@ -194,7 +194,6 @@
 		border: none;
 	}
 	.form-control[readonly], form-control.disabled {
-	  background: unset;
 	  color: #888;
 	  border: none;
 	}
@@ -313,6 +312,15 @@
 	}
 	a.ahome:hover{
 		text-decoration: none;
+	}
+	.btn-progress{
+		background-color: #d2691e;
+	}
+	.btn-solved{
+		background-color: #2e8b57;
+	}
+	.btn-closed{
+		background-color: #fa8072;
 	}
 	<?php if($menu=='home'){?>
 	.card{
