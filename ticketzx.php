@@ -53,11 +53,11 @@ $para=true;
 //from home
 if(substr($s,0,2)=="30"){
 	$para=false;
-	if(substr($s,2)=='open'){
-	$where.=$s!=""?" and grp='link' and s in ('open','new') and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
-	}else{
+	//if(substr($s,2)=='open'){
+	//$where.=$s!=""?" and grp='link' and s in ('open','new') and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
+	//}else{
 	$where.=$s!=""?" and grp='link' and s like '%".substr($s,2)."%' and typ in $homewidget and datediff(date(now()),date(dt))<=30":"";
-	}
+	//}
 }
 if(substr($s,0,2)=="rm"){
 	$para=false;
