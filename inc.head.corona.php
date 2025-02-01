@@ -310,8 +310,13 @@
 	.bg-orange{
 		background-color: #FFA500;
 	}
+	a.ahome{
+		text-decoration: none;
+		color: #000;
+	}
 	a.ahome:hover{
 		text-decoration: none;
+		color: #000;
 	}
 	.btn-progress{
 		background-color: #d2691e;
