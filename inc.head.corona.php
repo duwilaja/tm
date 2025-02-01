@@ -319,13 +319,13 @@
 		color: #000;
 	}
 	.btn-progress{
-		background-color: #d2691e;
+		background-color: #FF8C00;
 	}
 	.btn-solved{
-		background-color: #2e8b57;
+		background-color: #20B2AA;
 	}
 	.btn-closed{
-		background-color: #fa8072;
+		background-color: #008000;
 	}
 	<?php if($menu=='home'){?>
 	.card{
