@@ -67,7 +67,7 @@ include 'inc.menu.php';
 				  <div class="card-body">
 				  <h4 class="card-title">SLA Gangguan</h4>
 					<div class="row">
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=01">
 							<div class="indonut" id="1hr" style="color:#a7d990;">
 								0
 							</div>
@@ -76,9 +76,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart" style="max-height:120px"></canvas>
 							>1 Hour
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=06">
 							<div class="indonut" id="6hr" style="color:#ff9799;">
 								0
 							</div>
@@ -87,9 +87,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
 							>6 Hour
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=24">
 							<div class="indonut" id="24hr" style="color:#10729c;">
 								0
 							</div>
@@ -98,7 +98,7 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
 							>24 Hour
 						  </div>
-						</div>
+						</div></a>
 					  </div>
 					</div>
 				  </div>
