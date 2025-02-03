@@ -64,7 +64,7 @@ if(substr($s,0,2)=="rm"){
 	if(substr($s,2)=='open'){
 	$where.=$s!=""?" and s in ('open','new') and grp='jarkom'":"";
 	}else{
-	$where.=$s!=""?" and s like '%".substr($s,2)."%' and grp='jarkom'":"";
+	$where.=$s!=""?" and s like '%".substr($s,2)."%' and grp='jarkom' and (timestampdiff(hour,dt,now())<=24)":"";
 	}
 }
 if(substr($s,0,2)=="re"){
@@ -136,7 +136,7 @@ if(substr($s,0,2)=="24"){
 
 $tname="tm_tickets";
 $tnames="tm_tickets t left join tm_kanwils k on k.locid=t.k";
-$cols="ticketno,dt,i,h,d,locname,grp,typ,st,s,blink,nossa,p,t.lastupd,t.updby,t.rowid";
+$cols="ticketno,dt,i,h,d,locname,grp,typ,st,s,p,blink,nossa,t.lastupd,t.updby,t.rowid";
 $colsrc="h,d";
 $srceq="ticketno,i";
 
@@ -298,9 +298,9 @@ include 'inc.menu.php';
                                                 <th>Gangguan</th>
 												<th>Layanan</th>
                                                 <th>Status</th>
-                                                <th>Sec.Link</th>
+                                                <th>Result</th>
+												<th>Sec.Link</th>
 												<th>Nossa</th>
-												<th>Result</th>
 												<th>Last Update</th>
                                                 <th>Updated By</th>
                                             </tr>
