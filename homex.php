@@ -166,11 +166,11 @@ include 'inc.menu.php';
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
                     <canvas id="pieChart3" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">

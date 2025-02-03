@@ -242,6 +242,12 @@
 		-webkit-box-shadow:  unset;
 		box-shadow: unset;
 	}
+	.sidebar .nav.sub-menu .nav-item .nav-link:hover {
+	  color: #f00;
+	}
+	.sidebar .nav.sub-menu .nav-item .nav-link.active{
+		color: #f00;
+	}
 <?php }else{ ?>
 	select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint{
 		color: #ddd;
