@@ -23,7 +23,7 @@ $titles=isset($_GET['grp'])?"My Group ".$title:$titles;
 $titles=isset($_GET['pic'])?"Open ".$title:$titles;
 $titles=$a!=""?"Overdue ".$title:$titles;
 $titles=substr($s,0,2)=="30"?"Last 30days ".$title:$titles;
-$titles=substr($s,0,2)=="rm"?"Jarkom ".$title:$titles;
+$titles=substr($s,0,2)=="rm"?"Last 24hr Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="re"?"Relokasi ".$title:$titles;
 $titles=substr($s,0,2)=="mi"?"Migrasi Link ".$title:$titles;
 $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
@@ -102,6 +102,11 @@ if(substr($s,0,2)=="td"){
 
 $swhere=" and s<>'closed' and (grp='link' or st='xxx') and typ in $homewidget ";
 
+if(substr($s,0,2)=="01"){
+	$para=false;
+	$titles.=" (1hr+)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(1*60) and timestampdiff(minute,dt,now())<(6*60)";
+}
 if(substr($s,0,2)=="02"){
 	$para=false;
 	$titles.=" (2hr+)";
@@ -115,7 +120,7 @@ if(substr($s,0,2)=="04"){
 if(substr($s,0,2)=="06"){
 	$para=false;
 	$titles.=" (6hr+)";
-	$where.="$swhere and timestampdiff(minute,dt,now())>=(6*60) and timestampdiff(minute,dt,now())<(8*60)";
+	$where.="$swhere and timestampdiff(minute,dt,now())>=(6*60) and timestampdiff(minute,dt,now())<(24*60)";
 }
 if(substr($s,0,2)=="08"){
 	$para=false;
