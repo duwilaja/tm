@@ -70,9 +70,17 @@ if(substr($s,0,2)=="rm"){
 if(substr($s,0,2)=="re"){
 	$para=false;
 	if(substr($s,2)=='open'){
-	$where.=$s!=""?" and s in ('open','new') and typ = 'relokasi'":"";
+	//$where.=$s!=""?" and s in ('open','new') and typ = 'relokasi'":"";
 	}else{
-	$where.=$s!=""?" and s like '%".substr($s,2)."%' and typ = 'relokasi'":"";
+	//$where.=$s!=""?" and s like '%".substr($s,2)."%' and typ = 'relokasi'":"";
+	}
+	$where.=" and typ='relokasi' and s<>'closed'";
+	switch(substr($s,2)){
+		case "sla" : 
+			$where.=" and ((datediff(date(now()),date(dt))>28 and st='wifi station') or (datediff(date(now()),date(dt))>56 and st<>'wifi station'))";
+			break;
+		case "nonw" : $where.=" and st<>'wifi station'"; break;
+		case "wifi" : $where.=" and st='wifi station'"; break;
 	}
 }
 if(substr($s,0,2)=="mi"){
