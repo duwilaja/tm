@@ -301,20 +301,23 @@
 		z-index: 1;
 		font-size: 40px;
 	}
-	.bg-pink{
-		background-color: #D5739D;
+	.bg-closed{
+		background-color: #a680b8;
 	}
-	.bg-red{
-		background-color: #EA6B66;
+	.bg-solved{
+		background-color: #d4739c;
 	}
-	.bg-purple{
+	.bg-progress{
+		background-color: #ea6b65;
+	}
+	.bg-total{
 		background-color: #A680B8;
 	}
-	.bg-green{
-		background-color: #97D077;
+	.bg-open{
+		background-color: #98d077;
 	}
-	.bg-orange{
-		background-color: #FFA500;
+	.bg-new{
+		background-color: #fda500;
 	}
 	a.ahome{
 		text-decoration: none;
@@ -325,13 +328,19 @@
 		color: #000;
 	}
 	.btn-progress{
-		background-color: #FF8C00;
+		background-color: #ea6b65;
 	}
 	.btn-solved{
-		background-color: #20B2AA;
+		background-color: #d4739c;
 	}
 	.btn-closed{
-		background-color: #008000;
+		background-color: #a680b8;
+	}
+	.btn-open{
+		background-color: #98d077;
+	}
+	.btn-new{
+		background-color: #fda500;
 	}
 	<?php if($menu=='home'){?>
 	.card{

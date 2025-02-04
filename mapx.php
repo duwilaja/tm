@@ -44,46 +44,53 @@ include 'inc.menu.php';
 					<div class="row">
 						<div id="leafletMap" style="width:100%;height:570px;"></div>
 					</div>
-					<br />
 			<div style="padding: 1.875rem 1.75rem;">
-			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-				<div class="col">
+			<div class="row">
+				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
-							<div class="mywijtxt bg-orange">New</div>
+							<div class="mywijtxt bg-new">New</div>
 						</div>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-green">Open</div>
+							<div class="mywijtxt bg-open">Open</div>
 						</div>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-red">Progress</div>
+							<div class="mywijtxt bg-progress">Progress</div>
 						</div>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
-							<div class="mywijtxt bg-pink">Solved</div>
+							<div class="mywijtxt bg-solved">Solved</div>
 						</div>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-md-2">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span id="30days_closed">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
+							<div class="mywijtxt bg-closed">Closed</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
-							<div class="mywijtxt bg-purple">Total</div>
+							<div class="mywijtxt bg-total">Total</div>
 						</div>
 					</div>
 				</div>
