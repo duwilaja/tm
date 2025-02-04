@@ -23,7 +23,7 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
-							<div class="mywijtxt bg-orange">New</div>
+							<div class="mywijtxt bg-new">New</div>
 						</div>
 					</div></a>
 				</div>
@@ -31,7 +31,7 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-green">Open</div>
+							<div class="mywijtxt bg-open">Open</div>
 						</div>
 					</div></a>
 				</div>
@@ -39,7 +39,7 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-red">Progress</div>
+							<div class="mywijtxt bg-progress">Progress</div>
 						</div>
 					</div></a>
 				</div>
@@ -47,7 +47,7 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
-							<div class="mywijtxt bg-pink">Solved</div>
+							<div class="mywijtxt bg-solved">Solved</div>
 						</div>
 					</div></a>
 				</div>
@@ -55,7 +55,7 @@ include 'inc.menu.php';
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
-							<div class="mywijtxt bg-purple">Total</div>
+							<div class="mywijtxt bg-total">Total</div>
 						</div>
 					</div></a>
 				</div>
@@ -107,7 +107,7 @@ include 'inc.menu.php';
 				<div class="col-lg-6">
 				<div class="card">
 				  <div class="card-body">
-				  <h4 class="card-title">SLA Relokasi</h4>
+				  <h4 class="card-title">Outlet Relokasi</h4>
 					<div class="row">
 					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
 							<div id="relok" class="indonut" style="color:#a7d990;">
