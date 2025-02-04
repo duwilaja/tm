@@ -109,7 +109,7 @@ include 'inc.menu.php';
 				  <div class="card-body">
 				  <h4 class="card-title">Outlet Relokasi</h4>
 					<div class="row">
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=resla">
 							<div id="relok" class="indonut" style="color:#a7d990;">
 								0
 							</div>
@@ -118,9 +118,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
 							> SLA
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=rewifi">
 							<div id="inet" class="indonut" style="color:#ff9799;">
 								0
 							</div>
@@ -129,9 +129,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
 							Internet
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=renonw">
 							<div id="vpn" class="indonut" style="color:#10729c;">
 								0
 							</div>
@@ -140,7 +140,7 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
 							VPN
 						  </div>
-						</div>
+						</div></a>
 					  </div>
 					</div>
 				  </div>
