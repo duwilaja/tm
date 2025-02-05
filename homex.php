@@ -18,8 +18,8 @@ include 'inc.menu.php';
         <div class="main-panel">
           <div class="content-wrapper">
 			
-			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-				<div class="col"><a class="ahome" href="ticketzx<?php echo $env?>?s=30new">
+			<div class="row">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30new">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
@@ -27,7 +27,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col"><a class="ahome" href="ticketzx<?php echo $env?>?s=30open">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30open">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
@@ -35,7 +35,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col"><a class="ahome" href="ticketzx<?php echo $env?>?s=30progress">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30progress">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
@@ -43,7 +43,7 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col"><a class="ahome" href="ticketzx<?php echo $env?>?s=30solved">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30solved">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
@@ -51,7 +51,15 @@ include 'inc.menu.php';
 						</div>
 					</div></a>
 				</div>
-				<div class="col"><a class="ahome" href="ticketzx<?php echo $env?>?s=30">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30closed">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span id="30days_closed">0</span> &nbsp;<i class="mdi mdi-keyboard-tab"></i></div>
+							<div class="mywijtxt bg-closed">Close</div>
+						</div>
+					</div></a>
+				</div>
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
@@ -540,7 +548,7 @@ function bikinchart(){
 					}
 					wif+=parseInt(data[i]['y']);
 				}else{
-					if(parseInt(data[i]['z']) > 56){ //nonwif
+					if(parseInt(data[i]['z']) > 42){ //nonwif
 						ovr+=parseInt(data[i]['y']);
 					}
 					nonwif+=parseInt(data[i]['y']);

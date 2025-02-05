@@ -77,7 +77,7 @@ if(substr($s,0,2)=="re"){
 	$where.=" and typ='relokasi' and s<>'closed'";
 	switch(substr($s,2)){
 		case "sla" : 
-			$where.=" and ((datediff(date(now()),date(dt))>28 and st='wifi station') or (datediff(date(now()),date(dt))>56 and st<>'wifi station'))";
+			$where.=" and ((datediff(date(now()),date(tp))>28 and st='wifi station') or (datediff(date(now()),date(tp))>42 and st<>'wifi station'))";
 			break;
 		case "nonw" : $where.=" and st<>'wifi station'"; break;
 		case "wifi" : $where.=" and st='wifi station'"; break;
@@ -714,7 +714,17 @@ $(document).ready(function() {
         },
 		"kanwil" : {
             required : true
-        }
+        },
+		"tp" : {
+			required : function(element){
+						if ($("#typ").val() == "relokasi") {
+							return true;
+						}
+						else {
+							return false;
+						}
+			}
+		}
     }});
 	jvalidate2 = $("#myfx").validate({
     rules :{

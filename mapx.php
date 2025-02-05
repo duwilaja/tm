@@ -81,7 +81,7 @@ include 'inc.menu.php';
 				<div class="col-md-2">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
-							<div class="mywijval"><span id="30days_closed">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
+							<div class="mywijval"><span id="30days_closed">0</span> &nbsp;<i class="mdi mdi-keyboard-tab"></i></div>
 							<div class="mywijtxt bg-closed">Closed</div>
 						</div>
 					</div>
