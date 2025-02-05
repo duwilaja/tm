@@ -612,6 +612,16 @@ $(document).ready(function() {
 						}
 			}
 		},
+		"tp" : {
+			required : function(element){
+						if ($("#typ").val() == "relokasi") {
+							return true;
+						}
+						else {
+							return false;
+						}
+			}
+		},
 		"resixcv" : {
 			required : function(element){
 						if ($("#s").val() == "closed" && $("#blink").val() == "m2m") {
