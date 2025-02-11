@@ -28,6 +28,7 @@ $titles=substr($s,0,2)=="re"?"Relokasi ".$title:$titles;
 $titles=substr($s,0,2)=="mi"?"Migrasi Link ".$title:$titles;
 $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="td"?"Last 24hr ".$title:$titles;
+$titles=$s=="td"?"Last 5 month ".$title:$titles;
 $titles=$title==$titles?"All ".$title:$titles;
 
 $titles.=$s!=""?" ".substr($s,2):"";
@@ -104,7 +105,7 @@ if(substr($s,0,2)=="td"){
 	if(substr($s,2)=='24'){
 	$where.=$s!=""?" and timestampdiff(hour,dt,now())<=24 and grp='link'":"";
 	}else{
-	$where.=$s!=""?" and timestampdiff(month,dt,now())<6 and grp='link'":"";
+	$where.=$s!=""?" and timestampdiff(month,dt,now())<6":"";
 	}
 }
 
