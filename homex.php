@@ -158,19 +158,19 @@ include 'inc.menu.php';
 			<br />
 			<div class="row">
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
                     <canvas id="pieChart" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
                     <canvas id="pieChart2" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
@@ -182,11 +182,11 @@ include 'inc.menu.php';
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
                     <canvas id="barChart" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>

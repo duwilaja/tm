@@ -101,10 +101,10 @@ if(substr($s,0,2)=="mj"){
 }
 if(substr($s,0,2)=="td"){
 	$para=false;
-	if(substr($s,2)=='open'){
-	$where.=$s!=""?" and s in ('open','new') and timestampdiff(hour,dt,now())<=24 and (grp='link' or st='xxx') and typ in $homewidget":"";
+	if(substr($s,2)=='24'){
+	$where.=$s!=""?" and timestampdiff(hour,dt,now())<=24 and grp='link'":"";
 	}else{
-	$where.=$s!=""?" and s like '%".substr($s,2)."%' and timestampdiff(hour,dt,now())<=24 and (grp='link' or st='xxx') and typ in $homewidget":"";
+	$where.=$s!=""?" and timestampdiff(month,dt,now())<6 and grp='link'":"";
 	}
 }
 
