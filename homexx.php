@@ -92,7 +92,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img style="height:120px; width:auto;" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27doughnut%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%3A%20%5B55%2C%2045%5D%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%5B%27rgb(167%20217%20144)%27%2C%20%27rgb(210%20235%20198)%27%5D%2C%0A%20%20%20%20%20%20%20%20borderWidth%3A%200%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20cutoutPercentage%3A%2080%2C%0A%20%20%20%20legend%3A%20%7B%0A%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20datalabels%3A%20%7B%0A%20%20%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D">
+							<img id="doughnutChart" style="height:120px; width:auto;" src="">
 							>1 Hour
 						  </div>
 						</div></a>
@@ -102,8 +102,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img id="doughnutChart2" style="height:120px; width:auto;" src="">
 							>6 Hour
 						  </div>
 						</div></a>
@@ -113,8 +113,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img id="doughnutChart3" style="height:120px; width:auto;" src="">
 							>24 Hour
 						  </div>
 						</div></a>
@@ -133,8 +133,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img id="doughnutChart4" style="height:120px; width:auto;" src="">
 							> SLA
 						  </div>
 						</div></a>
@@ -144,8 +144,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img id="doughnutChart5" style="height:120px; width:auto;" src="">
 							Internet
 						  </div>
 						</div></a>
@@ -155,8 +155,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img id="doughnutChart6" style="height:120px; width:auto;" src="">
 							VPN
 						  </div>
 						</div></a>
@@ -474,7 +474,7 @@ function buildBarData(jsn,cls=[]){
 	return bardata;
 }
 
-function bikinSLA(divid,json,color){
+function bikinSLAx(divid,json,color){
 	if ($(divid).length) {
     var doughnutChartCanvas = $(divid).get(0).getContext("2d");
 	doughnutPieData=buildPieData(json,color);
@@ -484,6 +484,18 @@ function bikinSLA(divid,json,color){
       options: doughnutOptions
     });
   }
+}
+function bikinSLA(imgid,json,color){
+	let myObject = {
+      type: 'doughnut',
+      data: doughnutPieData,
+      options: doughnutOptions
+    }; 
+ 
+	let encodedObject = encodeURIComponent(JSON.stringify(myObject));  
+	let url = 'https://quickchart.io/?c=' + encodedObject;
+	
+	$(imgid).src(url);
 }
 
 function bikinchart(){
