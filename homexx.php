@@ -91,8 +91,8 @@ include 'inc.menu.php';
 								0
 							</div>
 						<div class="">
-						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img style="height:120px; width:auto;" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27doughnut%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%3A%20%5B55%2C%2045%5D%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%5B%27rgb(173%20225%20232)%27%2C%20%27rgb(33%20170%20184)%27%5D%2C%0A%20%20%20%20%20%20%20%20borderWidth%3A%200%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20cutoutPercentage%3A%2080%2C%0A%20%20%20%20legend%3A%20%7B%0A%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20datalabels%3A%20%7B%0A%20%20%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D">
+						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img style="height:120px; width:auto;" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27doughnut%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%3A%20%5B55%2C%2045%5D%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%5B%27rgb(167%20217%20144)%27%2C%20%27rgb(210%20235%20198)%27%5D%2C%0A%20%20%20%20%20%20%20%20borderWidth%3A%200%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20cutoutPercentage%3A%2080%2C%0A%20%20%20%20legend%3A%20%7B%0A%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20datalabels%3A%20%7B%0A%20%20%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D">
 							>1 Hour
 						  </div>
 						</div></a>
