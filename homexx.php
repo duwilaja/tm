@@ -18,46 +18,54 @@ include 'inc.menu.php';
         <div class="main-panel">
           <div class="content-wrapper">
 			
-			<div class="row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-				<div class="col">
+			<div class="row">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30new">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_new">0</span> &nbsp;<i class="mdi mdi-ticket"></i></div>
-							<div class="mywijtxt bg-orange">New</div>
+							<div class="mywijtxt bg-new">New</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30open">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_open">0</span> &nbsp;<i class="mdi mdi-book-open-page-variant"></i></div>
-							<div class="mywijtxt bg-green">Open</div>
+							<div class="mywijtxt bg-open">Open</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30progress">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_progress">0</span> &nbsp;<i class="mdi mdi-reload"></i></div>
-							<div class="mywijtxt bg-red">Progress</div>
+							<div class="mywijtxt bg-progress">Progress</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30solved">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_solved">0</span> &nbsp;<i class="mdi mdi-bookmark-check"></i></div>
-							<div class="mywijtxt bg-pink">Solved</div>
+							<div class="mywijtxt bg-solved">Solved</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
-				<div class="col">
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30closed">
+					<div class="card">
+						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
+							<div class="mywijval"><span id="30days_closed">0</span> &nbsp;<i class="mdi mdi-keyboard-tab"></i></div>
+							<div class="mywijtxt bg-closed">Close</div>
+						</div>
+					</div></a>
+				</div>
+				<div class="col-md-2"><a class="ahome" href="ticketzx<?php echo $env?>?s=30">
 					<div class="card">
 						<div class="card-body" style="padding: 10px 0px; min-height: 110px;">
 							<div class="mywijval"><span id="30days_total">0</span> &nbsp;<i class=" mdi mdi-basket-fill"></i></div>
-							<div class="mywijtxt bg-purple">Total</div>
+							<div class="mywijtxt bg-total">Total</div>
 						</div>
-					</div>
+					</div></a>
 				</div>
 			</div>
 			<br />
@@ -67,7 +75,7 @@ include 'inc.menu.php';
 				  <div class="card-body">
 				  <h4 class="card-title">SLA Gangguan</h4>
 					<div class="row">
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <!--div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=01">
 							<div class="indonut" id="1hr" style="color:#a7d990;">
 								0
 							</div>
@@ -76,9 +84,20 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart" style="max-height:120px"></canvas>
 							>1 Hour
 						  </div>
-						</div>
+						</div></a>
+					  </div-->
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=01">
+							<div class="indonut" id="1hr" style="color:#a7d990;">
+								0
+							</div>
+						<div class="">
+						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
+							<img style="height:120px; width:auto;" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27doughnut%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%3A%20%5B55%2C%2045%5D%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%5B%27rgb(173%20225%20232)%27%2C%20%27rgb(33%20170%20184)%27%5D%2C%0A%20%20%20%20%20%20%20%20borderWidth%3A%200%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20cutoutPercentage%3A%2080%2C%0A%20%20%20%20legend%3A%20%7B%0A%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20datalabels%3A%20%7B%0A%20%20%20%20%20%20%20%20display%3A%20false%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D">
+							>1 Hour
+						  </div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=06">
 							<div class="indonut" id="6hr" style="color:#ff9799;">
 								0
 							</div>
@@ -87,9 +106,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
 							>6 Hour
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=24">
 							<div class="indonut" id="24hr" style="color:#10729c;">
 								0
 							</div>
@@ -98,7 +117,7 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
 							>24 Hour
 						  </div>
-						</div>
+						</div></a>
 					  </div>
 					</div>
 				  </div>
@@ -107,9 +126,9 @@ include 'inc.menu.php';
 				<div class="col-lg-6">
 				<div class="card">
 				  <div class="card-body">
-				  <h4 class="card-title">SLA Relokasi</h4>
+				  <h4 class="card-title">Outlet Relokasi</h4>
 					<div class="row">
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=resla">
 							<div id="relok" class="indonut" style="color:#a7d990;">
 								0
 							</div>
@@ -118,9 +137,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
 							> SLA
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=rewifi">
 							<div id="inet" class="indonut" style="color:#ff9799;">
 								0
 							</div>
@@ -129,9 +148,9 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
 							Internet
 						  </div>
-						</div>
+						</div></a>
 					  </div>
-					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0">
+					  <div class="col-lg-4" style="padding-left: 0; padding-right: 0"><a class="ahome" href="ticketzx<?php echo $env?>?s=renonw">
 							<div id="vpn" class="indonut" style="color:#10729c;">
 								0
 							</div>
@@ -140,7 +159,7 @@ include 'inc.menu.php';
 							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
 							VPN
 						  </div>
-						</div>
+						</div></a>
 					  </div>
 					</div>
 				  </div>
@@ -150,35 +169,35 @@ include 'inc.menu.php';
 			<br />
 			<div class="row">
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
                     <canvas id="pieChart" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
                     <canvas id="pieChart2" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
                     <canvas id="pieChart3" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
                     <canvas id="barChart" style="max-height:150px"></canvas>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -515,7 +534,7 @@ function bikinchart(){
 				tott+=parseInt(data[i]['c']);
 			}
 			if(tott==0) tott=1;
-			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
+			//bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
 			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
 			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#10729c","#bae5f7"]);
 			$("#1hr").html(hr1); $("#4hr").html(hr4); $("#6hr").html(hr6); $("#8hr").html(hr8); $("#9hr").html(hr9); $("#24hr").html(hr24); 
@@ -540,7 +559,7 @@ function bikinchart(){
 					}
 					wif+=parseInt(data[i]['y']);
 				}else{
-					if(parseInt(data[i]['z']) > 56){ //nonwif
+					if(parseInt(data[i]['z']) > 42){ //nonwif
 						ovr+=parseInt(data[i]['y']);
 					}
 					nonwif+=parseInt(data[i]['y']);
