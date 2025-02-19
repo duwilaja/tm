@@ -29,6 +29,7 @@ $titles=substr($s,0,2)=="mi"?"Migrasi Link ".$title:$titles;
 $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="td"?"Last 24hr ".$title:$titles;
 $titles=$s=="td"?"Last 5 month ".$title:$titles;
+$titles=$s=="jk"?"Jarkom ".$title:$titles;
 $titles=$title==$titles?"All ".$title:$titles;
 
 $titles.=$s!=""?" ".substr($s,2):"";
@@ -51,6 +52,11 @@ $where.=$pic!="" && $s_LVL==4?" and s='solved' and $shift":""; //officer
 $where.=$pic!="" && ($s_LVL==5||$s_LVL==6)?" and s in ('new','open','pending')":""; //engineer
 
 $para=true;
+//jakrom
+if($s=="jk"){
+	$para=false;
+	$where.=" and grp='jarkom'";
+}
 //from home
 if(substr($s,0,2)=="30"){
 	$para=false;
