@@ -347,20 +347,15 @@ var mytbl;
 	 }
   };
   var doughnutOptions = {
-    responsive: true,
-    animation: {
-      animateScale: true,
-      animateRotate: true
+    cutoutPercentage: 80,
+    legend: {
+      display: false,
     },
-	cutout: "80%",
-	 plugins: {
-			legend:{
-				display: false
-			},
-			tooltip: {
-				enabled: false
-			}
-	 }
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+    },
   };
 
   var data = {
@@ -438,11 +433,8 @@ function buildPieData(jsn,cls=[]){
 			datasets: [{
 			  data: dta,
 			  backgroundColor: clr,
-			  borderColor: clr,
-			}],
-
-			// These labels appear in the legend and in the tooltips when hovering different arcs
-			labels: lbl
+			  borderWidth: 0,
+			}]
 	};
 	return piedata;
 }
@@ -474,17 +466,6 @@ function buildBarData(jsn,cls=[]){
 	return bardata;
 }
 
-function bikinSLAx(divid,json,color){
-	if ($(divid).length) {
-    var doughnutChartCanvas = $(divid).get(0).getContext("2d");
-	doughnutPieData=buildPieData(json,color);
-    var doughnutChart = new Chart(doughnutChartCanvas, {
-      type: 'doughnut',
-      data: doughnutPieData,
-      options: doughnutOptions
-    });
-  }
-}
 function bikinSLA(imgid,json,color){
 	let myObject = {
       type: 'doughnut',
@@ -493,9 +474,9 @@ function bikinSLA(imgid,json,color){
     }; 
  
 	let encodedObject = encodeURIComponent(JSON.stringify(myObject));  
-	let url = 'https://quickchart.io/?c=' + encodedObject;
+	let url = 'https://quickchart.io/chart?c=' + encodedObject;
 	
-	$(imgid).src(url);
+	$(imgid).attr("src",url);
 }
 
 function bikinchart(){
