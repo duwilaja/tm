@@ -628,6 +628,8 @@ function bikinchart(){
 		}
 	});
   }
+
+  setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
