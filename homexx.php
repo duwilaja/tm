@@ -588,16 +588,15 @@ function bikinchart(){
 		data: {q:'homepie',id:'typ',idx:'link'},
 		success: function(data){
 			var json=JSON.parse(data);
-			bikinPie("#pieChart2",json,piecolors);
 			//console.log(jsn);
-			/*doughnutPieData = buildPieData(json,piecolors);
+			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
-			});*/
+			});
 		}
 	});
   }
