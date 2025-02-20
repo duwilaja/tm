@@ -172,7 +172,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
-                    <img id="pieChart" style="height:120px; width:auto;" src="">
+                    <canvas id="pieChart" style="max-height:150px"></canvas>
                   </div></a>
                 </div>
               </div>
@@ -324,11 +324,27 @@ var mytbl;
     ]
   };
   var doughnutPieOptions = {
-    legend: {
-      display: true,
-      position: 'right',
-      align: 'start'
-    }
+    responsive: true,
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    },
+	 plugins: {
+            datalabels: { // This code is used to display data values
+                //anchor: 'end',
+                //align: 'top',
+                //formatter: Math.round,
+                font: {
+                    weight: 'bold',
+                    size: 16
+                },
+				color: 'white'
+            },
+			legend:{
+				position: 'right',
+				align: 'start'
+			}
+	 }
   };
   var doughnutOptions = {
     cutoutPercentage: 80,
@@ -577,7 +593,14 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			bikinPie("#pieChart",json,piecolors);
+			doughnutPieData = buildPieData(json,piecolors);
+			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+			var pieChart = new Chart(pieChartCanvas, {
+			  plugins: [ChartDataLabels],
+			  type: 'pie',
+			  data: doughnutPieData,
+			  options: doughnutPieOptions
+			});
 		}
 	});
   }
