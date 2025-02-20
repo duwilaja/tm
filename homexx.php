@@ -172,7 +172,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
-                    <canvas id="pieChart" style="max-height:150px"></canvas>
+                    <img id="pieChart" style="height:120px; width:auto;" src="">
                   </div></a>
                 </div>
               </div>
@@ -324,27 +324,11 @@ var mytbl;
     ]
   };
   var doughnutPieOptions = {
-    responsive: true,
-    animation: {
-      animateScale: true,
-      animateRotate: true
-    },
-	 plugins: {
-            datalabels: { // This code is used to display data values
-                //anchor: 'end',
-                //align: 'top',
-                //formatter: Math.round,
-                font: {
-                    weight: 'bold',
-                    size: 16
-                },
-				color: 'white'
-            },
-			legend:{
-				position: 'right',
-				align: 'start'
-			}
-	 }
+    legend: {
+      display: true,
+      position: 'right',
+      align: 'start'
+    }
   };
   var doughnutOptions = {
     cutoutPercentage: 80,
@@ -479,6 +463,19 @@ function bikinSLA(imgid,json,color){
 	
 	$(imgid).attr("src",url);
 }
+function bikinPie(imgid,json,color){
+	doughnutPieData=buildPieData(json,color);
+	let myObject = {
+      type: 'pie',
+      data: doughnutPieData,
+      options: doughnutPieOptions
+    }; 
+ 
+	let encodedObject = encodeURIComponent(JSON.stringify(myObject));  
+	let url = 'https://quickchart.io/chart?c=' + encodedObject;
+	
+	$(imgid).attr("src",url);
+}
 
 function bikinchart(){
   if ($("#barChart").length) {
@@ -579,14 +576,7 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json,piecolors);
-			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-			var pieChart = new Chart(pieChartCanvas, {
-			  plugins: [ChartDataLabels],
-			  type: 'pie',
-			  data: doughnutPieData,
-			  options: doughnutPieOptions
-			});
+			bikinPie("#pieChart",json,piecolors);
 		}
 	});
   }
@@ -628,6 +618,8 @@ function bikinchart(){
 		}
 	});
   }
+
+  //setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
