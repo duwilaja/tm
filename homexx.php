@@ -418,7 +418,8 @@ function buildPieData(jsn,cls=[]){
 			  data: dta,
 			  backgroundColor: clr,
 			  borderWidth: 0,
-			}]
+			}],
+			labels: lbl
 	};
 	return piedata;
 }
