@@ -92,7 +92,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart" style="height:120px; width:auto;" src=""><br />
 							>1 Hour
 						  </div>
 						</div></a>
@@ -103,7 +103,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart2" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart2" style="height:120px; width:auto;" src=""><br />
 							>6 Hour
 						  </div>
 						</div></a>
@@ -114,7 +114,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart3" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart3" style="height:120px; width:auto;" src=""><br />
 							>24 Hour
 						  </div>
 						</div></a>
@@ -134,7 +134,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart4" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart4" style="height:120px; width:auto;" src=""><br />
 							> SLA
 						  </div>
 						</div></a>
@@ -145,7 +145,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart5" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart5" style="height:120px; width:auto;" src=""><br />
 							Internet
 						  </div>
 						</div></a>
@@ -156,7 +156,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart6" style="height:120px; width:auto;" src="">
+							<img id="doughnutChart6" style="height:120px; width:auto;" src=""><br />
 							VPN
 						  </div>
 						</div></a>
