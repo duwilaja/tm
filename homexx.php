@@ -181,7 +181,8 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
-                    <canvas id="pieChart2" style="max-height:150px"></canvas>
+                    <img id="pieChart2" style="width:100%;" src="">
+                    <!--canvas id="pieChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
               </div>
@@ -189,7 +190,8 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
-                    <canvas id="pieChart3" style="max-height:150px"></canvas>
+                    <img id="pieChart3" style="width:100%;" src="">
+                    <!--canvas id="pieChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
               </div>
@@ -351,9 +353,9 @@ var mytbl;
     plugins: {
       datalabels: {
         display: true,
+		color: 'white',
         font: {
-          size: 20,
-		  color: 'white'
+          size: 20
         },
       },
     },
@@ -633,14 +635,15 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json,piecolors);
+			bikinPie("#pieChart2",json,piecolors);
+			/*doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
-			});
+			});*/
 		}
 	});
   }
@@ -652,14 +655,15 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			doughnutPieData = buildPieData(json,piecolors);
+			bikinPie("#pieChart3",json,piecolors);
+			/*doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart3").get(0).getContext("2d");
 			var pieChart = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
-			});
+			});*/
 		}
 	});
   }
