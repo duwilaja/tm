@@ -348,12 +348,21 @@ var mytbl;
 	 }
   };
   var pieOptions = {
-    legend: {
+    plugins: {
+      datalabels: {
+        display: true,
+        font: {
+          size: 20,
+		  color: 'white'
+        },
+      },
+    },
+	legend: {
       display: true,
       position: 'right',
       align: 'start',
       labels: {
-        fontSize: 20
+        fontSize: 25
       }
     }
   };
