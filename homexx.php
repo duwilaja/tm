@@ -199,7 +199,8 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
-                    <canvas id="barChart" style="max-height:150px"></canvas>
+					<img id="barChart" style="width:100%;" src="">
+                    <!--canvas id="barChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
               </div>
