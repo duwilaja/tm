@@ -524,7 +524,7 @@ function bikinPie(imgid,json,color){
 function bikinBar(imgid){
 	let myObject = {
       type: 'bar',
-      data: bar,
+      data: data,
       options: barOptions
     }; 
  
