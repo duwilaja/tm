@@ -30,6 +30,7 @@ $titles=substr($s,0,2)=="mj"?"Migrasi Jarkom ".$title:$titles;
 $titles=substr($s,0,2)=="td"?"Last 24hr ".$title:$titles;
 $titles=$s=="td"?"Last 5 month ".$title:$titles;
 $titles=$s=="jk"?"Jarkom ".$title:$titles;
+$titles=$s=="rl"?"Relokasi ".$title:$titles;
 $titles=$title==$titles?"All ".$title:$titles;
 
 $titles.=$s!=""?" ".substr($s,2):"";
@@ -56,6 +57,11 @@ $para=true;
 if($s=="jk"){
 	$para=false;
 	$where.=" and grp='jarkom'";
+}
+//relok
+if($s=="rl"){
+	$para=false;
+	$where.=" and typ='relokasi'";
 }
 //from home
 if(substr($s,0,2)=="30"){
