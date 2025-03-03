@@ -521,10 +521,10 @@ function bikinPie(imgid,json,color){
 	
 	$(imgid).attr("src",url);
 }
-function bikinBar(imgid){
+function bikinBar(imgid,bar){
 	let myObject = {
       type: 'bar',
-      data: data,
+      data: bar,
       options: barOptions
     }; 
  
@@ -543,8 +543,8 @@ function bikinchart(){
 		success: function(data){
 			var json=JSON.parse(data);
 			//console.log(jsn);
-			data = buildBarData(json,piecolors);
-			bikinBar("#barChart");
+			var databar = buildBarData(json,piecolors);
+			bikinBar("#barChart",databar);
 			/*var barChartCanvas = $("#barChart").get(0).getContext("2d");
 			// This will get the first returned node in the jQuery collection.
 			var barChart = new Chart(barChartCanvas, {
