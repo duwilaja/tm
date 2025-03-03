@@ -105,6 +105,7 @@
                 <li class="nav-item"> <a class="nav-link" href="ticketzx<?php echo $env;?>">All</a></li>
                 <li class="nav-item"> <a class="nav-link" href="ticketox<?php echo $env;?>?pic=1&grp=1">Open</a></li>
 				<li class="nav-item"> <a class="nav-link" href="ticketjx<?php echo $env;?>?s=jk">Jarkom</a></li>
+				<li class="nav-item"> <a class="nav-link" href="ticketrel<?php echo $env;?>?s=jk">Relokasi</a></li>
 					<?php
 						if($s_LVL==4){
 						?>
