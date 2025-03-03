@@ -279,9 +279,9 @@ include 'inc.menu.php';
 <?php
 include 'inc.logout.php';
 ?>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+		<!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
 		<script>import ChartDataLabels from 'chartjs-plugin-datalabels';</script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script--> 
 		
 <?php
 disconnect($conn);
@@ -687,7 +687,7 @@ function bikinchart(){
 	});
   }
 
-  //setTimeout(bikinchart,30*1000);
+  setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
@@ -755,7 +755,7 @@ function initTbl(){
 }
 
 function tabel(){
-	//mytbl.ajax.reload();
+	mytbl.ajax.reload();
 	$('#modal_madul').modal('show');
 }
 </script>
