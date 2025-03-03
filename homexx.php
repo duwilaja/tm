@@ -687,7 +687,7 @@ function bikinchart(){
 	});
   }
 
-  //setTimeout(bikinchart,30*1000);
+  setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
@@ -755,7 +755,7 @@ function initTbl(){
 }
 
 function tabel(){
-	//mytbl.ajax.reload();
+	mytbl.ajax.reload();
 	$('#modal_madul').modal('show');
 }
 </script>
