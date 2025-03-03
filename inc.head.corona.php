@@ -158,7 +158,7 @@
 	
 <?php if(!$dark){?>
 	.content-wrapper{
-		background: #f6f7fb;
+		background: #e6e8e8;
 	}
 	body{
 		color: #000;
@@ -302,7 +302,7 @@
 		font-size: 40px;
 	}
 	.bg-closed{
-		background-color: #a680b8;
+		background-color: #34afaa;
 	}
 	.bg-solved{
 		background-color: #d4739c;
@@ -334,7 +334,7 @@
 		background-color: #d4739c;
 	}
 	.btn-closed{
-		background-color: #a680b8;
+		background-color: #34afaa;
 	}
 	.btn-open{
 		background-color: #98d077;

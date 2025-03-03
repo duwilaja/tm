@@ -431,6 +431,11 @@ var mytbl;
       }
     }
   };
+  var barOptions = {
+    legend: {
+      display: false,
+    } 
+  };
   
   var piecolors=["#e95c60","#34afaa","#fcd66f","#9999ff","#66ff33","#ff66cc","#cccc00","#cc00ff","#996633","#336600","#336699","#339966"];
   
@@ -515,6 +520,18 @@ function bikinPie(imgid,json,color){
 	
 	$(imgid).attr("src",url);
 }
+function bikinBar(imgid){
+	let myObject = {
+      type: 'bar',
+      data: bar,
+      options: barOptions
+    }; 
+ 
+	let encodedObject = encodeURIComponent(JSON.stringify(myObject));  
+	let url = 'https://quickchart.io/chart?c=' + encodedObject;
+	
+	$(imgid).attr("src",url);
+}
 
 function bikinchart(){
   if ($("#barChart").length) {
@@ -526,13 +543,14 @@ function bikinchart(){
 			var json=JSON.parse(data);
 			//console.log(jsn);
 			data = buildBarData(json,piecolors);
-			var barChartCanvas = $("#barChart").get(0).getContext("2d");
+			bikinBar("#barChart");
+			/*var barChartCanvas = $("#barChart").get(0).getContext("2d");
 			// This will get the first returned node in the jQuery collection.
 			var barChart = new Chart(barChartCanvas, {
 			  type: 'bar',
 			  data: data,
 			  options: options
-			});
+			});*/
 		}
 	});
   }
