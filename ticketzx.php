@@ -52,15 +52,17 @@ $where.=$pic!="" && ($s_LVL==0 || $s_LVL==3)?" and s<>'closed'":""; //master
 $where.=$pic!="" && $s_LVL==4?" and s='solved' and $shift":""; //officer
 $where.=$pic!="" && ($s_LVL==5||$s_LVL==6)?" and s in ('new','open','pending')":""; //engineer
 
-$para=true;
+$para=true; $jare=false;
 //jakrom
 if($s=="jk"){
 	$para=false;
+	$jare=true;
 	$where.=" and grp='jarkom'";
 }
 //relok
 if($s=="rl"){
 	$para=false;
+	$jare=true;
 	$where.=" and typ='relokasi'";
 }
 //from home
@@ -216,12 +218,39 @@ include 'inc.menu.php';
 					<?php if($s_LVL==0&&$s_GRP==""){?>
 					<a class="btn btn-danger pull-right" href="JavaScript:;" data-fancybox data-type="iframe" data-src="md_bi.php"><i class="mdi mdi-cloud-upload"></i> Batch</a>
 				<?php }}?>
-	<?php }else{?>
+	<?php }else{ if(!$jare){?>
 				<button class="btn btn-info pull-right" onclick="tblupdate()"><i class="mdi mdi-refresh"></i> Refresh</button>	
-	<?php }?>
+	<?php }}?>
 				</div>
             </div>
-                                    
+	<?php if($jare){?>
+					<div class="row">
+						<div class="col-md-12">
+                            <div class="card card-default">
+                                <div class="card-body"  style="padding-right: 0px;">
+								<div class="form-group row">
+									<div class="col-md-2 control-label">Status<!--/div>
+									<div class="col-md-1"-->
+										<select multiple id="fs" class="form-control form-control-sm selectpicker">
+										<option value="new">new</option>
+										<option value="open">open</option>
+										<option value="progress">progress</option>
+										<option value="pending">pending</option>
+										<option value="solved">solved</option>
+										<option value="closed">closed</option>
+										</select>
+									</div>
+									
+									<div class="col-md-1"><br />
+										<button type="button" class="btn btn-info " onclick="tblupdate();"><i class="mdi mdi-refresh"></i></button>
+									</div>
+									
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	<?php }?>
 	<?php if($para){?>
 					<div class="row">
 						<div class="col-md-12">
