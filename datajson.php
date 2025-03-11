@@ -84,8 +84,8 @@ switch($q){
 	case 'trlog': $sql="select count(*) as trlog from tm_otrans where timestampdiff(minute,date_format(lastupd,'%Y-%m-%d %H:%i:00'),date_format(now(),'%Y-%m-%d %H:%i:00'))<=75"; break;
 	case 'kao': $sql="select tipe,COUNT(tipe) as tot from tm_outlets GROUP BY tipe"; break;
 	
-	case 'homepie': $or11=$idx=='link'?'':' or 1=1';
-		$sql="select $id as x,COUNT($id) as y from tm_tickets WHERE grp='$idx' and (timestampdiff(hour,dt,now())<=24 $or11) GROUP BY $id"; break;
+	case 'homepie': $or11=$idx=='link'?")":" or 1=1) and s<>'closed'";
+		$sql="select $id as x,COUNT($id) as y from tm_tickets WHERE grp='$idx' and ((timestampdiff(hour,dt,now())<=24 $or11) GROUP BY $id"; break;
 	case 'homerel': $sql="select datediff(date(now()),date(tp)) as z, st as x,COUNT(rowid) as y from tm_tickets WHERE typ='relokasi' and s<>'closed' GROUP BY z,x ORDER BY x,z"; break;
 	case 'homebar': $sql="select DATE_FORMAT(dt,'%b %Y') as x,COUNT(rowid) as y from tm_tickets WHERE TIMESTAMPDIFF(MONTH, dt, now()) < 6 GROUP BY DATE_FORMAT(dt,'%b %Y') ORDER BY year(dt),month(dt)"; break;
 }

@@ -79,7 +79,7 @@ if(substr($s,0,2)=="rm"){
 	if(substr($s,2)=='open'){
 	$where.=$s!=""?" and s in ('open','new') and grp='jarkom'":"";
 	}else{
-	$where.=$s!=""?" and s like '%".substr($s,2)."%' and grp='jarkom' and (timestampdiff(hour,dt,now())<=24)":"";
+	$where.=$s!=""?" and s<>'closed' and grp='jarkom'":"";
 	}
 }
 if(substr($s,0,2)=="re"){
@@ -238,6 +238,12 @@ include 'inc.menu.php';
 										<option value="pending">pending</option>
 										<option value="solved">solved</option>
 										<option value="closed">closed</option>
+										</select>
+									</div>
+									<div class="col-md-2 control-label">Jenis Layanan<!--/div>
+									<div class="col-md-2"-->
+										<select multiple class="form-control form-control-sm selectpicker" id="fst">
+										<?php echo $optst?>
 										</select>
 									</div>
 									
