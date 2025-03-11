@@ -187,7 +187,7 @@ include 'inc.menu.php';
                 </div>
               </div>
               <div class="col-lg-3 stretch-card">
-                <div class="card"><a class="ahome" href="ticketjx<?php echo $env?>?s=jk">
+                <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
                     <img id="pieChart3" style="width:100%;" src="">
