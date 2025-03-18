@@ -92,7 +92,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart" style="height:120px; width:auto;" src=""><br />
 							>1 Hour
 						  </div>
 						</div></a>
@@ -103,7 +103,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart2" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart2" style="height:120px; width:auto;" src=""><br />
 							>6 Hour
 						  </div>
 						</div></a>
@@ -114,7 +114,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart3" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart3" style="height:120px; width:auto;" src=""><br />
 							>24 Hour
 						  </div>
 						</div></a>
@@ -134,7 +134,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart4" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart4" style="height:120px; width:auto;" src=""><br />
 							> SLA
 						  </div>
 						</div></a>
@@ -145,7 +145,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart5" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart5" style="height:120px; width:auto;" src=""><br />
 							Internet
 						  </div>
 						</div></a>
@@ -156,7 +156,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart6" style="height:127px; width:auto;" src=""><br />
+							<img id="doughnutChart6" style="height:120px; width:auto;" src=""><br />
 							VPN
 						  </div>
 						</div></a>
@@ -172,7 +172,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
-					<img id="pieChart" style="width:100%;" src="">
+					<img id="pieChart" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
@@ -181,7 +181,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
-                    <img id="pieChart2" style="width:100%;" src="">
+                    <img id="pieChart2" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
@@ -190,7 +190,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
-                    <img id="pieChart3" style="width:100%;" src="">
+                    <img id="pieChart3" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
@@ -199,7 +199,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
-					<img id="barChart" style="width:100%;" src="">
+					<img id="barChart" style="height:145px; width:auto;" src="">
                     <!--canvas id="barChart" style="max-height:150px"></canvas-->
                   </div></a>
                 </div>
