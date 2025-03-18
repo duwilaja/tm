@@ -272,7 +272,7 @@ include 'inc.logout.php';
 disconnect($conn);
 ?>
 <script>
-
+var chartloaded=false;
 $(document).ready(function() {
 	get30();
 	getKAO();
@@ -463,17 +463,27 @@ function buildBarData(jsn,cls=[]){
 	return bardata;
 }
 
-function bikinSLA(divid,json,color){
-	if ($(divid).length) {
+function bikinSLA(divid,json,color,c){
+  if ($(divid).length) {
     var doughnutChartCanvas = $(divid).get(0).getContext("2d");
 	doughnutPieData=buildPieData(json,color);
-    var doughnutChart = new Chart(doughnutChartCanvas, {
+    if(doughnutloaded[c]) doughnutChart[c].destroy();
+	doughnutChart[c] = new Chart(doughnutChartCanvas, {
       type: 'doughnut',
       data: doughnutPieData,
       options: doughnutOptions
     });
+	doughnutloaded[c]=true;
   }
 }
+
+var barChart, pieChart, pieChart2, pieChart3;
+var barloaded=false;
+var doughnutloaded=[false,false,false,false,false,false];
+var doughnutChart=[null,null,null,null,null,null];
+var pieloaded=false;
+var pieloaded2=false;
+var pieloaded3=false;
 
 function bikinchart(){
   if ($("#barChart").length) {
@@ -487,11 +497,13 @@ function bikinchart(){
 			data = buildBarData(json,piecolors);
 			var barChartCanvas = $("#barChart").get(0).getContext("2d");
 			// This will get the first returned node in the jQuery collection.
-			var barChart = new Chart(barChartCanvas, {
+			if(barloaded) barChart.destroy();
+			barChart = new Chart(barChartCanvas, {
 			  type: 'bar',
 			  data: data,
 			  options: options
 			});
+			barloaded=true;
 		}
 	});
   }
@@ -523,9 +535,9 @@ function bikinchart(){
 				tott+=parseInt(data[i]['c']);
 			}
 			if(tott==0) tott=1;
-			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"]);
-			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"]);
-			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#10729c","#bae5f7"]);
+			bikinSLA("#doughnutChart",[{x:"Total",y:hr1},{x:"",y:(tott-hr1)}],["#a7d990","#d2ebc6"],0);
+			bikinSLA("#doughnutChart2",[{x:"Total",y:hr6},{x:"",y:(tott-hr6)}],["#ff9799","#ffcccd"],1);
+			bikinSLA("#doughnutChart3",[{x:"Total",y:hr24},{x:"",y:(tott-hr24)}],["#10729c","#bae5f7"],2);
 			$("#1hr").html(hr1); $("#4hr").html(hr4); $("#6hr").html(hr6); $("#8hr").html(hr8); $("#9hr").html(hr9); $("#24hr").html(hr24); 
 		},
 		error: function(xhr){
@@ -556,9 +568,9 @@ function bikinchart(){
 				tott+=parseInt(data[i]['y']);
 			}
 			if(tott==0) tott=1;
-			bikinSLA("#doughnutChart4",[{x:"Total",y:ovr},{x:"",y:(tott-ovr)}],["#a7d990","#d2ebc6"]);
-			bikinSLA("#doughnutChart5",[{x:"Total",y:wif},{x:"",y:(tott-wif)}],["#ff9799","#ffcccd"]);
-			bikinSLA("#doughnutChart6",[{x:"Total",y:nonwif},{x:"",y:(tott-nonwif)}],["#10729c","#bae5f7"]);
+			bikinSLA("#doughnutChart4",[{x:"Total",y:ovr},{x:"",y:(tott-ovr)}],["#a7d990","#d2ebc6"],3);
+			bikinSLA("#doughnutChart5",[{x:"Total",y:wif},{x:"",y:(tott-wif)}],["#ff9799","#ffcccd"],4);
+			bikinSLA("#doughnutChart6",[{x:"Total",y:nonwif},{x:"",y:(tott-nonwif)}],["#10729c","#bae5f7"],5);
 			$("#relok").html(ovr); $("#inet").html(wif); $("#vpn").html(nonwif);
 		},
 		error: function(xhr){
@@ -576,12 +588,14 @@ function bikinchart(){
 			//console.log(jsn);
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-			var pieChart = new Chart(pieChartCanvas, {
+			if(pieloaded) pieChart.destroy();
+			pieChart = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
 			});
+			pieloaded=true;
 		}
 	});
   }
@@ -595,12 +609,14 @@ function bikinchart(){
 			//console.log(jsn);
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart2").get(0).getContext("2d");
-			var pieChart = new Chart(pieChartCanvas, {
+			if(pieloaded2) pieChart2.destroy();
+			pieChart2 = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
 			});
+			pieloaded2=true;
 		}
 	});
   }
@@ -614,15 +630,18 @@ function bikinchart(){
 			//console.log(jsn);
 			doughnutPieData = buildPieData(json,piecolors);
 			var pieChartCanvas = $("#pieChart3").get(0).getContext("2d");
-			var pieChart = new Chart(pieChartCanvas, {
+			if(pieloaded3) pieChart3.destroy();
+			pieChart3 = new Chart(pieChartCanvas, {
 			  plugins: [ChartDataLabels],
 			  type: 'pie',
 			  data: doughnutPieData,
 			  options: doughnutPieOptions
 			});
+			pieloaded3=true;
 		}
 	});
   }
+  setTimeout(bikinchart,300*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
@@ -640,7 +659,7 @@ function getKAO(q='kao'){
 			$("#outlet").html(outlet);
 		}
 	});
-	setTimeout(getKAO,300*1000);
+	setTimeout(getKAO,30*1000);
 }
 function get30(q='30days'){
 	$.ajax({
@@ -690,7 +709,7 @@ function initTbl(){
 }
 
 function tabel(){
-	//mytbl.ajax.reload();
+	mytbl.ajax.reload();
 	$('#modal_madul').modal('show');
 }
 </script>
