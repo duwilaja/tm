@@ -348,8 +348,16 @@
 	}
 	<?php }?>
 	.card .card-body{
-		padding-top:5px;
-		padding-bottom:5px;
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	.imgcat2{
+		height:121px; 
+		width:auto;
+	}
+	.imgcat3{
+		height:145px; 
+		width:auto;
 	}
 	</style>
   </head>
