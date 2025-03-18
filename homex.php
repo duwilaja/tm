@@ -623,6 +623,7 @@ function bikinchart(){
 		}
 	});
   }
+  setTimeout(bikinchart,300*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
@@ -640,7 +641,7 @@ function getKAO(q='kao'){
 			$("#outlet").html(outlet);
 		}
 	});
-	setTimeout(getKAO,300*1000);
+	setTimeout(getKAO,30*1000);
 }
 function get30(q='30days'){
 	$.ajax({
@@ -690,7 +691,7 @@ function initTbl(){
 }
 
 function tabel(){
-	//mytbl.ajax.reload();
+	mytbl.ajax.reload();
 	$('#modal_madul').modal('show');
 }
 </script>
