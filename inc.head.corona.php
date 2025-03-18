@@ -294,7 +294,7 @@
 		width: 100%; 
 		height: 40px; 
 		position: absolute; 
-		top: 70px; 
+		top: 85px; 
 		margin-top: -20px; 
 		line-height:19px; 
 		text-align: center; 
@@ -358,6 +358,12 @@
 	.imgcat3{
 		height:145px; 
 		width:auto;
+	}
+	.donatjs{
+		max-height:152px;
+	}
+	.piejs{
+		max-height:162px;
 	}
 	</style>
   </head>
