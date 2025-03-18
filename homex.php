@@ -81,7 +81,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart" class="donatjs"></canvas>
 							>1 Hour
 						  </div>
 						</div></a>
@@ -92,7 +92,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart2" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart2" class="donatjs"></canvas>
 							>6 Hour
 						  </div>
 						</div></a>
@@ -103,7 +103,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart3" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart3" class="donatjs"></canvas>
 							>24 Hour
 						  </div>
 						</div></a>
@@ -123,7 +123,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart4" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart4" class="donatjs"></canvas>
 							> SLA
 						  </div>
 						</div></a>
@@ -134,7 +134,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart5" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart5" class="donatjs"></canvas>
 							Internet
 						  </div>
 						</div></a>
@@ -145,7 +145,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="card-body" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<canvas id="doughnutChart6" style="max-height:120px"></canvas>
+							<canvas id="doughnutChart6" class="donatjs"></canvas>
 							VPN
 						  </div>
 						</div></a>
@@ -161,7 +161,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
-                    <canvas id="pieChart" style="max-height:150px"></canvas>
+                    <canvas id="pieChart" class="piejs"></canvas>
                   </div></a>
                 </div>
               </div>
@@ -169,7 +169,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
-                    <canvas id="pieChart2" style="max-height:150px"></canvas>
+                    <canvas id="pieChart2" class="piejs"></canvas>
                   </div></a>
                 </div>
               </div>
@@ -177,7 +177,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
-                    <canvas id="pieChart3" style="max-height:150px"></canvas>
+                    <canvas id="pieChart3" class="piejs"></canvas>
                   </div></a>
                 </div>
               </div>
@@ -185,7 +185,7 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
-                    <canvas id="barChart" style="max-height:150px"></canvas>
+                    <canvas id="barChart" class="piejs"></canvas>
                   </div></a>
                 </div>
               </div>
