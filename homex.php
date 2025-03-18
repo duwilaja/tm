@@ -641,7 +641,7 @@ function bikinchart(){
 		}
 	});
   }
-  setTimeout(bikinchart,300*1000);
+  setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
