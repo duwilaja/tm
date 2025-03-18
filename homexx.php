@@ -172,8 +172,10 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
+					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 					<img id="pieChart" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
+					</div>
                   </div></a>
                 </div>
               </div>
@@ -181,8 +183,10 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td24">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
+					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
                     <img id="pieChart2" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
+					</div>
                   </div></a>
                 </div>
               </div>
@@ -190,8 +194,10 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=rm">
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
+					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
                     <img id="pieChart3" style="height:145px; width:auto;" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
+					</div>
                   </div></a>
                 </div>
               </div>
@@ -199,8 +205,10 @@ include 'inc.menu.php';
                 <div class="card"><a class="ahome" href="ticketzx<?php echo $env?>?s=td">
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
+					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
 					<img id="barChart" style="height:145px; width:auto;" src="">
                     <!--canvas id="barChart" style="max-height:150px"></canvas-->
+					</div>
                   </div></a>
                 </div>
               </div>
