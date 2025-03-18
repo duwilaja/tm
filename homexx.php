@@ -92,7 +92,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart" class="imgcat2" src=""><br />
 							>1 Hour
 						  </div>
 						</div></a>
@@ -103,7 +103,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart2" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart2" class="imgcat2" src=""><br />
 							>6 Hour
 						  </div>
 						</div></a>
@@ -114,7 +114,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart3" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart3" class="imgcat2" src=""><br />
 							>24 Hour
 						  </div>
 						</div></a>
@@ -134,7 +134,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart4" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart4" class="imgcat2" src=""><br />
 							> SLA
 						  </div>
 						</div></a>
@@ -145,7 +145,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart5" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart5" class="imgcat2" src=""><br />
 							Internet
 						  </div>
 						</div></a>
@@ -156,7 +156,7 @@ include 'inc.menu.php';
 							</div>
 						<div class="">
 						  <div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-							<img id="doughnutChart6" style="height:120px; width:auto;" src=""><br />
+							<img id="doughnutChart6" class="imgcat2" src=""><br />
 							VPN
 						  </div>
 						</div></a>
@@ -173,7 +173,7 @@ include 'inc.menu.php';
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Services</h4>
 					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-					<img id="pieChart" style="height:145px; width:auto;" src="">
+					<img id="pieChart" class="imgcat3" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
 					</div>
                   </div></a>
@@ -184,7 +184,7 @@ include 'inc.menu.php';
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Issue</h4>
 					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-                    <img id="pieChart2" style="height:145px; width:auto;" src="">
+                    <img id="pieChart2" class="imgcat3" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
 					</div>
                   </div></a>
@@ -195,7 +195,7 @@ include 'inc.menu.php';
                   <div class="card-body">
                     <h4 class="card-title">Ticket Jarkom</h4>
 					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-                    <img id="pieChart3" style="height:145px; width:auto;" src="">
+                    <img id="pieChart3" class="imgcat3" src="">
                     <!--canvas id="pieChart" style="max-height:150px"></canvas-->
 					</div>
                   </div></a>
@@ -206,7 +206,7 @@ include 'inc.menu.php';
                   <div class="card-body">
                     <h4 class="card-title">Ticket By Date</h4>
 					<div class="" style="text-align: center; padding-top: 0px;padding-bottom: 0px;">
-					<img id="barChart" style="height:145px; width:auto;" src="">
+					<img id="barChart" class="imgcat3" src="">
                     <!--canvas id="barChart" style="max-height:150px"></canvas-->
 					</div>
                   </div></a>
