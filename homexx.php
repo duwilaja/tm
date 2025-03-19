@@ -695,7 +695,7 @@ function bikinchart(){
 	});
   }
 
-  setTimeout(bikinchart,30*1000);
+  //setTimeout(bikinchart,30*1000);
 }
 function getKAO(q='kao'){
 	$.ajax({
@@ -713,7 +713,7 @@ function getKAO(q='kao'){
 			$("#outlet").html(outlet);
 		}
 	});
-	setTimeout(getKAO,300*1000);
+	//setTimeout(getKAO,300*1000);
 }
 function get30(q='30days'){
 	$.ajax({
@@ -737,7 +737,7 @@ function get30(q='30days'){
 			$("#"+q+"_total").html(tot);
 		}
 	});
-	setTimeout(get30,30*1000);
+	//setTimeout(get30,30*1000);
 }
 
 function initTbl(){

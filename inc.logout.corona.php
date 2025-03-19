@@ -386,12 +386,13 @@ function manage_msgs(s){
 		
 		
 function datetime(){
+	var now=new Date();
 	if($(".plugin-date").length > 0){
 		
 		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 		var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-				
-		var now     = new Date();
+		
+		//var now     = new Date();
 		var day     = days[now.getDay()];
 		var date    = now.getDate();
 		var month   = months[now.getMonth()];
@@ -400,15 +401,12 @@ function datetime(){
 		$(".plugin-date").html(day+", "+month+" "+date+", "+year);
 	}
 	if($(".plugin-clock").length > 0){
-		
-		tp_clock_time();		
+		tp_clock_time(now);		
+		setTimeout(datetime,60*000);
 	}
-	window.setInterval(function(){
-		datetime();                    
-	},10000);
 }
-function tp_clock_time(){
-	var now     = new Date();
+function tp_clock_time(now){
+	//var now     = new Date();
 	var hour    = now.getHours();
 	var minutes = now.getMinutes();                    
 	
