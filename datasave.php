@@ -407,7 +407,7 @@ if($t=="surveydeu"){
 }
 if($t=="ticket"){
 	$ada=true;
-	if(post($_POST['createdby'],$conn)=='SolarWinds'&&post($_POST['s'],$conn)=='solved'){
+	if(post($_POST['createdby'],$conn)=='SolarWinds'&&post($_POST['s'],$conn)=='solved'&&post($_POST['grp'],$conn)=='link'){
 		$co=post($_POST['i'],$conn);
 		$dt=post($_POST['dt'],$conn);
 		$up=fetch_alla(exec_qry($conn,"select rid from tm_apiupdate_log where dt>'$dt' and h like '$co%'"));
