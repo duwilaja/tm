@@ -87,7 +87,7 @@ switch($q){
 	case 'homepie': $or11=$idx=='link'?")":" or 1=1) and s<>'closed'";
 		$sql="select $id as x,COUNT($id) as y from tm_tickets WHERE grp='$idx' and ((timestampdiff(hour,dt,now())<=24 $or11) GROUP BY $id"; break;
 	case 'homerel': $sql="select datediff(date(now()),date(tp)) as z, st as x,COUNT(rowid) as y from tm_tickets WHERE typ='relokasi' and s<>'closed' GROUP BY z,x ORDER BY x,z"; break;
-	case 'homebar': $sql="select DATE_FORMAT(dt,'%b %Y') as x,COUNT(rowid) as y from tm_tickets WHERE TIMESTAMPDIFF(MONTH, dt, now()) < 6 GROUP BY DATE_FORMAT(dt,'%b %Y') ORDER BY year(dt),month(dt)"; break;
+	case 'homebar': $sql="select DATE_FORMAT(dt,'%b %Y') as x,COUNT(rowid) as y from tm_tickets WHERE YEAR(dt)=YEAR(now()) GROUP BY DATE_FORMAT(dt,'%b %Y') ORDER BY year(dt),month(dt)"; break;
 }
 
 //echo $sql;
