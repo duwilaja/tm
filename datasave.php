@@ -417,7 +417,11 @@ if($t=="ticket"){
 		}
 	}
 	if($ada){
-		$tp=($_POST['tp']=='')?"NULL":"'".post($_POST['tp'],$conn)."'";
+		if(isset($_POST['tp'])){
+			$tp=($_POST['tp']=='')?"NULL":"'".post($_POST['tp'],$conn)."'";
+		}else{
+			$tp="NULL";
+		}
 		if(isset($_POST['jp'])){
 			$jp=multiple_select("jp");
 			//$msg=$jp;
@@ -574,7 +578,7 @@ if($t=="notes"){
 	$ss=post($_POST['s'],$conn);
 	if($ss=='solved'){
 		$tkt=post($_POST['ticketid'],$conn);
-		$tix=fetch_alla(exec_qry($conn,"select i,dt from tm_tickets where ticketno='$tkt' and createdby='SolarWinds'"));
+		$tix=fetch_alla(exec_qry($conn,"select i,dt from tm_tickets where grp='link' and ticketno='$tkt' and createdby='SolarWinds'"));
 		if(count($tix)>0){
 			$co=$tix[0]['i'];
 			$dt=$tix[0]['dt'];
