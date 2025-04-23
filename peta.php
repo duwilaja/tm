@@ -73,7 +73,7 @@ L.Control.textbox = L.Control.extend({
 							'<option value="phase 3">SDWAN Phase 3</option>'+
 							'</select>'+
 						'<div class="input-group">'+
-							'<input id="srctxt" type="text" onClick="this.select();" onkeydown="keydown(event);" class="form-control" placeholder="ID/Name">'+
+							'<input id="srctxt" type="text" onClick="this.select();" onkeydown="keydown(event);" class="form-control" placeholder="ID/Name/ID|ID|ID">'+
 							'<span class="input-group-addon add-on"><a title="Search" href="#" onclick="loadMarker();"><span class="fa fa-search"></span></a></span>'+
 							'<span class="input-group-addon add-on"><a title="Center" href="#" onclick="gohome();"><span class="fa fa-crosshairs"></span></a></span>'+
 						'</div><input type="text" class="form-control text-right" style="color:black;" readonly id="tot" value="0"></div>';
