@@ -72,8 +72,10 @@ switch($q){
 				union select distinct lat,lng,concat(oname,'(',oid,')') as popup, '2' as icon 
 				from tm_outlets o join tm_yellow y on o.oid=y.i and i not in (select i from tm_tickets where s<>'closed' and typ in $homewidget)";
 				break;
-	case 'mapl': $sql="select lat,lng,	concat(oname,'(',oid,')<br />',svcs,'<br />',addr) as popup from tm_outlets where lat<>'' and lng<>'' and 
-				(oid='$id' or oname like '%$id%') and buprovider like '%$idx%' and lnk like '%$idx2%' and kanwil like '%$idx3%' and tipe like '%$idx4%'";
+	case 'mapl': $oida=explode("|",str_replace(" ","",$id));
+				$inid=implode("','",$oida);
+				$sql="select lat,lng,	concat(oname,'(',oid,')<br />',svcs,'<br />',addr) as popup from tm_outlets where lat<>'' and lng<>'' and 
+				(oid in ('$inid') or oname like '%$id%') and buprovider like '%$idx%' and lnk like '%$idx2%' and kanwil like '%$idx3%' and tipe like '%$idx4%'";
 				break;
 				
 	case 'markui': $sql="select * from tm_runningtext order by lastupd desc"; break;
