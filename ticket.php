@@ -548,7 +548,7 @@ $(document).ready(function() {
 			matchnossa : function(element){
 						var mt=$(".mytyp").val();
 						//console.log("disini"+mt);
-						if (mt=="migrasi" || mt=="psb" || mt=="relokasi" || $("#grp").val()=="jarkom") {
+						if (mt=="migrasi" || mt=="psb" || mt=="relokasi" || $("#grp").val()=="jarkom" || $("#st").val()=="Lintasarta") {
 							return true;
 						}
 						else {
