@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?php echo $app." - ".$title;?></title>
     <!-- plugins:css -->
+	<link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
     <link rel="stylesheet" href="corona/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="corona/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
@@ -143,6 +144,7 @@
 		padding: 5px;
 		font-size: 35px;
 		text-align: center;
+		font-family: "Helvetica Neue", "Helvetica";
 	}
 	.mywijtxt{
 		text-align: center;
@@ -151,6 +153,7 @@
 		position: absolute;
 		width: 100%;
 		border-radius: 0 0px 10px 10px;
+		font-family: "Helvetica Neue", "Helvetica";
 	}
 	.mywijtxts{
 		font-size: 20px;
