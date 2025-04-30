@@ -305,22 +305,22 @@
 		font-size: 40px;
 	}
 	.bg-closed{
-		background-color: #34afaa;
+		background-color: #3A465A;
 	}
 	.bg-solved{
-		background-color: #d4739c;
+		background-color: #A3B3A0;
 	}
 	.bg-progress{
-		background-color: #ea6b65;
+		background-color: #8B2A45;
 	}
 	.bg-total{
-		background-color: #A680B8;
+		background-color: #F4EFE8;
 	}
 	.bg-open{
-		background-color: #98d077;
+		background-color: #C97B53;
 	}
 	.bg-new{
-		background-color: #fda500;
+		background-color: #6E7F8A;
 	}
 	a.ahome{
 		text-decoration: none;
@@ -331,19 +331,19 @@
 		color: #000;
 	}
 	.btn-progress{
-		background-color: #ea6b65;
+		background-color: #8B2A45;
 	}
 	.btn-solved{
-		background-color: #d4739c;
+		background-color: #A3B3A0;
 	}
 	.btn-closed{
-		background-color: #34afaa;
+		background-color: #3A465A;
 	}
 	.btn-open{
-		background-color: #98d077;
+		background-color: #C97B53;
 	}
 	.btn-new{
-		background-color: #fda500;
+		background-color: #6E7F8A;
 	}
 	<?php if($menu=='home'){?>
 	.card{
