@@ -746,7 +746,7 @@ function typChange(){
 function sendForms(){
 	resetMyForms();
 	if($('#myf').valid() && $('#myf2').valid()){
-		if($('#grp').val()=='jarkom' && !$("#jp").val() && ($('#s').val()=='solved'||$('#s').val()=='closed'||$('#s').val()=='pending')){
+		if($('#grp').val()=='jarkom' && !$("#jp").val() && ($('#s').val()=='solved'||$('#s').val()=='closed'||$('#s').val()=='pending') && $("#st").val().toLowerCase().trim()!='lte'){
 			$("#processing_msgs").html("Device Type is mandatory.");
 			manage_msgs('end');
 			$("#modal_no_head").modal('show');
